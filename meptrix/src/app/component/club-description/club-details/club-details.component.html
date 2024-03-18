@@ -1,0 +1,18 @@
+<!-- organizers.component.html -->
+
+<div class="card sm:m-12 items-center">
+  <h1 class="mb-4 text-4xl font-bold ml-24 mt-8 sm:mt-10 sm:ml-10 sm:mb-10 bg-orange-200 w-fit rounded-md">{{ role }}</h1>
+  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center">
+    <div *ngFor="let organizer of organizers" class="mb-8">
+      <div class="mx-auto mb-4 md:mb-2 md:ml-20 overflow-hidden rounded-full w-24 h-24 sm:w-48 sm:h-48">
+        <img [src]="organizer.photo" alt="{{ organizer.name }}" class="w-3/3 h-3/3  object-cover">
+      </div>
+      <div class="text-center">
+        <h1 class="pb-3 font-mono text-2xl font-bold">{{ organizer.name }}</h1>
+        <p class="text-sm text-gray-500">{{ organizer.designation }}</p>
+        <p class="text-sm text-gray-500">{{ organizer.department }}</p>
+        <p class="text-sm text-gray-500">{{ organizer.year }}</p>
+      </div>
+    </div>
+  </div>
+</div>

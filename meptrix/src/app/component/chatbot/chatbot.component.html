@@ -1,0 +1,65 @@
+<!-- app.component.html -->
+
+<!-- Logo section -->
+<div class="fixed bottom-20 right-16 ">
+  <img src="\assets\chatbot.jpg" alt="Logo" class="w-20 h-20 cursor-pointer " (click)="toggleChatbot()">
+</div>
+
+
+<!-- Chatbot container -->
+<div *ngIf="showChatbot" class="fixed flex items-end justify-end p-4 inset-4 ">
+  <div class="w-full max-w-2xl p-4 overflow-y-auto bg-white rounded-lg shadow-md max-h-custom">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Chatbot</h2>
+        <button type="button" (click)="toggleChatbot()" class="text-gray-500 hover:text-gray-700">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Chat messages container -->
+      <div class="flex flex-col mt-4 space-y-2 ">
+        <div class="flex flex-col space-y-2">
+          <p class="text-gray-600">Select a built-in question:</p>
+          <button  *ngFor="let question of chatQuestions" (click)="sendMessage(question)" class="px-2 py-1 text-left rounded-md hover:bg-gray-300 max-w-fit ">{{question}}</button>
+          <!-- Add more buttons for other built-in questions -->
+        </div>
+
+
+
+        <ng-container *ngFor="let item of chatMessages; let i = index">
+          <div class="flex flex-col mt-4 space-y-2">
+            <!-- Chat messages go here -->
+            <!-- Example built-in questions -->
+            <div class="flex flex-col space-y-2" id="question-div" *ngIf="i % 2 !== 0">
+              <p class="text-gray-600">Select a built-in question:</p>
+              <button  *ngFor="let question of chatQuestions" (click)="sendMessage(question)" class="px-2 py-1 text-left rounded-md hover:bg-gray-300 max-w-fit ">{{question}}</button>
+              <!-- Add more buttons for other built-in questions -->
+            </div>
+          </div>
+
+          <div class="flex flex-col mt-4 space-y-2" *ngIf="i % 2 === 0">
+            <div *ngFor="let message of chatMessages" [ngClass]="{'text-right' : message.sender === 'user', 'text-left': message.sender === 'bot'}">
+              <p class="font-semibold">{{ message.sender === 'user' ? 'You:' : 'Chatbot:' }}</p>
+              <p>{{ message.text }}</p>
+            </div>
+          </div>
+        </ng-container>
+        <!-- Chat messages go here -->
+      </div>
+
+
+      <!-- Input area for sending messages -->
+      <div class="mt-4">
+        <input [(ngModel)]="userInput"
+          type="text"
+          placeholder="Type your message..."
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
+        />
+        <button class="px-4 py-2 mt-2 text-white bg-blue-500 rounded-lg" (click)="sendMessage(userInput)" >Send</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Main content goes here -->

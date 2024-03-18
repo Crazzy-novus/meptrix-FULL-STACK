@@ -1,0 +1,55 @@
+import { Routes } from '@angular/router';
+import { LoginComponent } from './component/login/login.component';
+import { Component } from '@angular/core';
+
+import { HomeComponent } from './component/home/home.component';
+import { homedir } from 'os';
+import { profile } from 'console';
+import { ProfileComponent } from './component/userprofile/profile/profile.component';
+import { ClubDescriptionComponent } from './component/club-description/club-description/club-description.component';
+import { ClublistComponent } from './component/clublist-page/clublist/clublist.component';
+import { MainComponent } from './component/dashboard/main/main.component';
+import { RegistrationComponent } from './component/registration/registration.component';
+import { ForgotPasswordComponent } from './component/credentials/forgot-password/forgot-password.component';
+import { ResetpasswordComponent } from './component/credentials/resetpassword/resetpassword.component';
+
+export const routes: Routes = [
+
+  {
+    'path': '', redirectTo: 'register', pathMatch: 'full', title: 'UserRegistration'
+  },
+ /* {
+    'path': '', redirectTo: 'home', pathMatch: 'full', title: 'Langing Page'
+  },
+  */
+  {
+    'path': 'register', component: RegistrationComponent, title: 'UserRegister'
+  },
+
+  {
+    'path': 'login', component: LoginComponent, title: 'Log-in page'
+  },
+  {
+    'path': 'home', component: HomeComponent, title: 'Landing Page'
+  },
+  {
+    'path': 'dashboard', component: MainComponent, title: 'User Profile'
+  },
+  {
+    'path': 'profile', component: ProfileComponent, title: 'User Profile'
+  },
+  { 'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password' },
+  { 'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password' },
+  { 'path': 'club', component: ClubDescriptionComponent, title: 'Description'},
+  { 'path': 'clublist', component: ClublistComponent, title: 'Club List'}
+/*
+  {
+    'path': '', component: HomeComponent,
+    children: [
+      {
+        'path': 'home', component: HomeComponent
+      }
+    ]
+  },*/
+
+];

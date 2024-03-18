@@ -1,0 +1,38 @@
+<app-club-head></app-club-head>
+<!-- past-events.component.html -->
+<div class="mt-6 bg-purple-200 rounded-lg sm:ml-6 sm:mt-0 sm:mr-6 sm:mb-20">
+  <div class="flex flex-wrap mt-6 sm:ml-6 sm:mt-0 sm:mr-6"><h2 class="mb-4 text-4xl font-bold sm:m-6">Past Event</h2></div>
+  <div class="flex flex-wrap bg-purple-200 sm:ml-6 sm:mr-6">
+    <div class="mb-10 max-w-44 sm:max-w-fit sm:max-h-fit" *ngFor="let ev of events">
+      <app-event-card [event]="ev" ></app-event-card>
+    </div>
+    <!-- Add the "Load More Events" button -->
+<button *ngIf="remainingEvents.length > 0" (click)="loadMoreEvents()" class="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md focus:outline-none">
+  Load More Events
+</button>
+  </div>
+
+</div>
+
+<div class="mt-6 bg-purple-200 rounded-lg sm:ml-6 sm:mt-0 sm:mr-6 sm:mb-20">
+  <div class="flex flex-wrap mt-6 bg-purple-200 sm:ml-6 sm:mt-0 sm:mr-6"><h2 class="mb-4 text-4xl font-bold sm:m-6">Upcoming Event</h2></div>
+  <div class="flex flex-wrap bg-purple-200 sm:ml-6 sm:mr-6">
+
+    <div class="mb-10 max-w-44 sm:max-w-fit sm:max-h-fit" *ngFor="let ev of events">
+      <app-event-card [event]="ev" ></app-event-card>
+    </div>
+  </div>
+
+</div>
+
+
+<app-club-details [role]="role1" [organizers]="organizers"></app-club-details>
+<app-club-details [role]="role" [organizers]="organizers"></app-club-details>
+<div class="mt-6  rounded-lg sm:ml-6 sm:mt-0 sm:mr-6 sm:mb-20">
+
+  <app-club-images></app-club-images>
+
+  <app-about></app-about>
+</div>
+
+

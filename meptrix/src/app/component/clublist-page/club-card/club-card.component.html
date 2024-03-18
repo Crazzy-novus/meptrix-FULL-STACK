@@ -1,0 +1,27 @@
+<div class="relative flex flex-col w-40 ml-3 text-gray-700 bg-white shadow-xl sm:w-64 h-fit bg-clip-border rounded-xl">
+  <div class="relative mx-2 mt-2 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-fit">
+    <img
+      [src]="club.photo"
+      alt="Logo" class="object-cover size-40 sm:size-fit" />
+  </div>
+  <div class="p-2">
+    <div class="flex items-center justify-between mb-2">
+      <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+        {{ club.name }}
+      </p>
+      <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+        {{club.fees}}
+      </p>
+    </div>
+    <p class="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
+      {{ club.description }}
+    </p>
+  </div>
+  <div class="p-2 pl-6 sm:pl-12">
+    <button class="relative inline-flex items-end justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 sm:w-40">
+      <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 sm:w-40">
+      Join Club
+      </span>
+      </button>
+  </div>
+</div>
