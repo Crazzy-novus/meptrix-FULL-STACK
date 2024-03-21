@@ -1,7 +1,104 @@
-<!-- registration-form.component.html -->
-<div class="container mx-auto mt-10">
-  <form [formGroup]="loginForm" class="max-w-md p-8 mx-auto bg-white rounded shadow-md" >
-    <h2 class="mb-6 text-2xl font-semibold">Registration Form</h2>
+<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
+      </a>
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button type="button"   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
+          <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+      </div>
+  </div>
+</nav>
+<section class="h-screen bg-purple-200 mt-20 md:px-8 md:py-8 px-14">
+  <div class="h-full">
+    <!-- Left column container with background-->
+    <div
+      class="flex h-full flex-wrap items-center justify-center lg:justify-between">
+      <div
+        class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+        <img
+          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="w-full"
+          alt="Sample image" />
+      </div>
+
+<!--<div class="container mx-auto mt-10">-->
+  <div class="mb-12 md:mb-0 mr-20 md:w-8/12 lg:w-8/12 xl:w-5/12">
+  <form [formGroup]="loginForm" class="max-w-md p-8 mx-auto bg-red-300 rounded shadow-md" >
+    <h2 class="mb-6 text-2xl font-semibold">Login Here </h2>
+    <div
+              class="flex flex-row items-center justify-center lg:justify-start">
+              <p class="mb-0 me-4 text-lg">Sign in with</p>
+  
+              <!-- Facebook -->
+              <button
+                type="button"
+                data-twe-ripple-init
+                data-twe-ripple-color="light"
+                class="hover: mx-1 inline-block h-9 w-9 rounded-full bg-primary fill-white p-2 uppercase leading-normal shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                <!-- Facebook -->
+                <span class="[&>svg]:mx-auto [&>svg]:h-3.5 [&>svg]:w-3.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                    <path
+                      d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
+                  </svg>
+                </span>
+              </button>
+  
+              <!-- X -->
+              <button
+                type="button"
+                data-twe-ripple-init
+                data-twe-ripple-color="light"
+                class=" mx-1 inline-block h-9 w-9 rounded-full bg-primary fill-white p-2 uppercase leading-normal shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                <!-- X -->
+                <span class="[&>svg]:mx-auto [&>svg]:h-3.5 [&>svg]:w-3.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                    <path
+                      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                  </svg>
+                </span>
+              </button>
+  
+              <!-- Linkedin -->
+              <button
+                type="button"
+                data-twe-ripple-init
+                data-twe-ripple-color="light"
+                class=" mx-1 inline-block h-9 w-9 rounded-full bg-primary fill-white p-2 uppercase leading-normal shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                <!-- Linkedin -->
+                <span class="[&>svg]:mx-auto [&>svg]:h-3.5 [&>svg]:w-3.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                    <path
+                      d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+  
+            <!-- Separator between social media sign in and email/password sign in -->
+            <div
+              class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300 dark:before:border-neutral-500 dark:after:border-neutral-500">
+              <p
+                class="mx-4 mb-0 text-center font-semibold dark:text-white">
+                Or
+              </p>
+            </div>
 
     <div class="mb-4">
       <label for="admissionId" class="block mb-2 text-sm font-bold text-gray-700">Admission ID:</label>
@@ -24,14 +121,17 @@
     </div>
 
     <div class="mb-6">
-      <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" (click)="onSubmit()" type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline ">login</button>
+      <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" (click)="onSubmit()" type="submit" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline ">Login</button>
     </div>
 
     <div>
       <p class="text-gray-600">Already have an account? <button [routerLink]="['/register']" routerLinkActive="router-link-active"  type="button" class="text-blue-500" >Register</button></p>
     </div>
     <div>
-      <p class="text-gray-600">Forgot Password <button [routerLink]="['/forgotpassword']" routerLinkActive="router-link-active"  type="button" class="text-blue-500" >Forgot</button></p>
+      <p class="text-gray-600">Forgot Password? <button [routerLink]="['/forgotpassword']" routerLinkActive="router-link-active"  type="button" class="text-blue-500" >Click here!</button></p>
     </div>
   </form>
 </div>
+    </div>
+  </div>
+</section>
