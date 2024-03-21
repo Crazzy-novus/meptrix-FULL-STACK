@@ -25,8 +25,46 @@ const UserSchema = mongoose.Schema(
         roles:{ 
             type: [Schema.Types.ObjectId], // type of primary key is objectId and it is forign key of Role model
             required: true,
-            ref: 'Role' // refering to Role model
+            ref: 'Role'
+         }, // refering to Role model
+        name: {
+            type: String,
+            required: false,
+            default: this.email
         },
+        headTag: {
+            type: String,
+            required: false,
+            maxLength: 500,
+            default: "Student"
+        },
+        
+        branch: {
+            type: String,
+            required: false,
+            default: "Engineering"
+        },
+        year: {
+            type: int,
+            required: false,
+            default: 0
+        },
+        skills: {
+            type: [String],
+            required: false,
+            default: []
+        },
+        about: {
+            type: String,
+            required: false,
+            default: "I am a student of Engineering"
+        },
+        links: {
+            type: [String],
+            required: false,
+            default: []
+        },
+
     },
     {
         timestamps: true  // To store creared or modifiesd time of the record

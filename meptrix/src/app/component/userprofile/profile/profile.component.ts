@@ -5,6 +5,8 @@ import { ProfiePhotCardComponent } from '../profie-phot-card/profie-phot-card.co
 import { ProfieClubsCardComponent } from '../profie-clubs-card/profie-clubs-card.component';
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { AuthService } from '../../../../services/auth.service';
+import { Subject, takeUntil } from 'rxjs';
+import { Resolve } from '@angular/router';
 
 
 @Component({
@@ -15,10 +17,16 @@ import { AuthService } from '../../../../services/auth.service';
     imports: [ProfiePhotCardComponent, ProfieAboutCardComponent, ProfieClubsCardComponent, SkillsComponent, NavbarComponent]
 })
 export class ProfileComponent implements OnInit {
+  private unsubscribe$ = new Subject<void>();
+
   authService = inject(AuthService);
   userDetails: any;
+
+
   ngOnInit() {
-    this.authService.getUserDetails().subscribe(
+    this.authService.getUserDetails().pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(
       userDetails => {
         this.userDetails = userDetails;
         console.log('User details:', this.userDetails);
@@ -27,5 +35,9 @@ export class ProfileComponent implements OnInit {
         console.error('Failed to get user details:', error);
       }
     );
+  }
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
