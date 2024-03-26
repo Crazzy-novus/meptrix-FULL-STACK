@@ -1,5 +1,5 @@
 import express from 'express';
-import Role from '../models/Role.js'
+
 import { createRole, getAllRoles, updateRole, deleteRole } from '../controllers/role.controller.js';
 
 

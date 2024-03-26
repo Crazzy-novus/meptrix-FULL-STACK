@@ -1,4 +1,3 @@
-import { Int32 } from 'mongodb';
 import mongoose, {Schema} from 'mongoose'
 
 const UserSchema = mongoose.Schema(
@@ -30,12 +29,12 @@ const UserSchema = mongoose.Schema(
         name: {
             type: String,
             required: false,
-            default: this.email
+            default: ""
         },
         headTag: {
             type: String,
             required: false,
-            maxLength: 500,
+            maxLength: 120,
             default: "Student"
         },
         
@@ -45,7 +44,7 @@ const UserSchema = mongoose.Schema(
             default: "Engineering"
         },
         year: {
-            type: int,
+            type: Number,
             required: false,
             default: 0
         },
@@ -63,6 +62,18 @@ const UserSchema = mongoose.Schema(
             type: [String],
             required: false,
             default: []
+        },
+        organizer_in: {
+            type: [Schema.Types.ObjectId],
+            required: false,
+            default: [],
+            ref: 'Club'
+        },
+        member_in: {
+            type: [Schema.Types.ObjectId],
+            required: false,
+            default: [],
+            ref: 'Club'
         },
 
     },

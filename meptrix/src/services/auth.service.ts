@@ -15,8 +15,7 @@ export class AuthService {
     return this.http.post<any>(`${apiurls.AuthServiceApi}register`, registerObj);
   }
 
-  loginService (loginObj: any){
-    debugger// Register service to register a new user in the application using RESTful API endpoint
+  loginService (loginObj: any){// Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.AuthServiceApi}login`, loginObj, {withCredentials: true});
 
   }
@@ -34,5 +33,9 @@ export class AuthService {
     return this.http.get<any>(`${apiurls.UserServiceApi}user`, { withCredentials: true}).pipe(
       map(response => response.data)
     );
+  }
+
+  addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
+    return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
   }
 }
