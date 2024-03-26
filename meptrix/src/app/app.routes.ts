@@ -12,6 +12,7 @@ import { MainComponent } from './component/dashboard/main/main.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { ForgotPasswordComponent } from './component/credentials/forgot-password/forgot-password.component';
 import { ResetpasswordComponent } from './component/credentials/resetpassword/resetpassword.component';
+import { AddclubComponent } from './component/admin/addclub/addclub.component';
 
 export const routes: Routes = [
 
@@ -38,10 +39,22 @@ export const routes: Routes = [
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
   },
-  { 'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password' },
-  { 'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password' },
-  { 'path': 'club', component: ClubDescriptionComponent, title: 'Description'},
-  { 'path': 'clublist', component: ClublistComponent, title: 'Club List'}
+  {
+    'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password'
+  },
+  {
+    'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password'
+  },
+  {
+    'path': 'club', component: ClubDescriptionComponent, title: 'Description'
+  },
+  {
+    'path': 'clublist', component: ClublistComponent, title: 'Club List'
+  },
+  {
+    'path': 'addclub', component: AddclubComponent, title: 'Add Club'
+  }
+
 /*
   {
     'path': '', component: HomeComponent,

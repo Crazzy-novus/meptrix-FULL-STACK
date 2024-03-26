@@ -49,7 +49,7 @@ export const login = async (req, res, next) => {
         res.cookie("access_token", token, {httpOnly: true}).status(200).json({
             status: 200,
             message: "User logged in successfully",
-            data: user,
+            data: user
         }) ;// set the token in a cookie
         //return next(CreateSuccess(200, "User registered Successfully  test goes here", user)); // send a success message
         

@@ -14,12 +14,12 @@ export const getAllUsers = async (req, res, next) => {
 
 export const getSingleUser = async (req, res, next) => {
     try {
-        const user = await User.findById(req.params.id); // id is get from the url
+        const user = await User.findById(req.user._id); // id is get from the url
         if (!user) {
             return next(CreateError(404,"User not found"));
         }
         return next(CreateSuccess(200, "User fetched successfully", user));
-    } catch (error) {
+    } catch (error) { 
         return next(CreateError(500,"Internal Server error" , error.message));
     }
 }
