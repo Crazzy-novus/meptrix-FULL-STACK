@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  http = inject(HttpClient); // Injecting HttpClient service to make HTTP requests to the server side application (MEAN stack) using RESTful API endpoints
+  constructor(private http: HttpClient) { }
+   // Injecting HttpClient service to make HTTP requests to the server side application (MEAN stack) using RESTful API endpoints
 
   registerService (registerObj: any){ // Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.AuthServiceApi}register`, registerObj);
