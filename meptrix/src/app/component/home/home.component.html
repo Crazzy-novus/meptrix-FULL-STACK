@@ -26,7 +26,7 @@
     </div>
 
     <div class="justify-center p-2">
-      <p class="text-3xl font-semibold sm:text-5xl">About<span class="font-bold"> Mepco Schlenk</span> Engineering College</p>
+      <p class="text-3xl font-semibold sm:text-5xl">About<span class="font-bold"> Meptrix</span> Clubs and Association</p>
       <br>
       <p class="mt-4 text-lg text-justify text-gray-600 sm:text-xl">Welcome to Mepco Schlenk Engineering College, a vibrant hub of knowledge, innovation, and endless possibilities! Nestled in the heart of Sivakasi, our institution stands as a beacon of academic excellence, where students embark on transformative journeys, fueled by curiosity, guided by expert faculty, and surrounded by a community of like-minded individuals. At MSEC, we believe in the power of education to shape futures and inspire greatness. Our commitment to foster a holistic learning environment is reflected in a diverse range of academic programs, cutting-edge research initiatives, and a plethora of extracurricular activities that cater to every passion and interest.</p>
     </div>
@@ -34,15 +34,13 @@
 
   <hr id="club-section" class="my-4 border-gray-800 dark:border-gray-900" />
 
-  <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
-    <!-- Repeat the following block for each image (30 times) -->
-    <!-- For brevity, showing only a few elements here -->
-    <a href="#" class="block p-6 transition-all duration-300 bg-white rounded-sm sm:p-10 hover:shadow-sm">
-      <img src="https://example.com/image1.jpg" alt="Google student club" class="w-full h-auto max-w-full rounded-sm">
-    </a>
-    <!-- Repeat the above anchor element block for each image (29 more times) -->
-  </div>
 
-  <hr class="my-4 border-gray-800 dark:border-gray-900" />
+  <div class="flex flex-wrap justify-center">
+    <div class="p-2 mb-6 ml-2 transition-transform transform bg-white rounded-md shadow-md max-w-fit sm:m-5 sm:p-4 hover:scale-105 hover:bg-yellow-200"
+         *ngFor="let club of clubs" style="flex: 0 0 calc(25% - 1em);">
+      <img [src]="club.logo" alt="club Photo" class="object-cover w-20 h-20 mb-4 rounded-md sm:w-fit sm:h-32">
+      <p class="mb-2 text-lg font-bold text-center sm:text-xl">{{club.club_name }}</p>
+    </div>
+  </div>
   <app-about></app-about>
 </section>

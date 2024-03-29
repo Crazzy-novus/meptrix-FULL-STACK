@@ -10,22 +10,22 @@
 
 <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply mx-9 rounded-lg mt-20">
 
-  <div class="px-4 mx-auto max-w-screen-xl text-center pt-24 pb-16 sm:pt-56 sm:pb:12">
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">{{club.name}}</h1>
-      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">{{club.description}}</p>
+  <div class="max-w-screen-xl px-4 pt-24 pb-16 mx-auto text-center sm:pt-56 sm:pb:12">
+      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">{{club?.club_name}}</h1>
+      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">{{club?.about}}</p>
       <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-          <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+          <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
               Join Club
               <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
               </svg>
           </a>
-          <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+          <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-white rounded-lg hover:text-gray-900 sm:ms-4 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
               Learn more
           </a>
       </div>
   </div>
-  <div class="px-4 mx-auto max-w-screen-xl text-center ">
+  <div class="max-w-screen-xl px-4 mx-auto text-center ">
     <h3 class="mb-4 text-2xl font-bold text-pink-50">About Us</h3>
     <p class="text-base text-pink-50">
       Welcome to our club! We are passionate about [brief description of the club's purpose and goals].

@@ -38,4 +38,11 @@ export class AuthService {
   addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
   }
+
+  getClubsService(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.ClubServiceApi}getallclubs`).pipe(
+      map(response => response.data)
+    );
+  }
 }

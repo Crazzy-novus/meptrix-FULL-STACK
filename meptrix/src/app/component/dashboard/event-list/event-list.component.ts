@@ -20,37 +20,37 @@ export class EventListComponent {
       name: 'Event 1 ',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
       name: 'Event 1 ',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
       name: 'Event 3',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
       name: 'Event 4',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
       name: 'Event 5',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
       name: 'Event 6',
       time: '10:00 AM',
       place: 'Venue A',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     // Add more events as needed
   ];
