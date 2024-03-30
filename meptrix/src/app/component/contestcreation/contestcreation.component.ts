@@ -1,19 +1,21 @@
+import { CommonModule } from '@angular/common';
 import { Component,  OnInit, inject } from '@angular/core';
 
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-contestcreation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './contestcreation.component.html',
   styleUrl: './contestcreation.component.css'
 })
 export class ContestcreationComponent implements OnInit {
+[x: string]: any;
   contentForm!: FormGroup;
 
   fb = inject(FormBuilder);
+contestForm: any;
 
 
   ngOnInit(): void {
