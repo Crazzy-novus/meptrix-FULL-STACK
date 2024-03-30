@@ -10,6 +10,7 @@ export const createClub = async (req, res, next) => {
             
                 const newClub = new club(req.body);
                 
+                
                 await newClub.save();
                 return next(CreateSuccess(200, "Club Created successfully", newClub)); // send a success message
             } else {

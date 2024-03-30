@@ -57,8 +57,4 @@ export class RegistrationComponent {
     // Handle login button click
     alert('Login functionality not implemented');
   }
-
-
-
-
 }
