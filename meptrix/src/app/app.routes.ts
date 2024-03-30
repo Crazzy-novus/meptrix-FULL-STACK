@@ -14,6 +14,8 @@ import { ForgotPasswordComponent } from './component/credentials/forgot-password
 import { ResetpasswordComponent } from './component/credentials/resetpassword/resetpassword.component';
 import { EventcreationComponent } from './component/eventcreation/eventcreation.component';
 import { ContestcreationComponent } from './component/contestcreation/contestcreation.component';
+import { AddclubComponent } from './component/admin/addclub/addclub.component';
+
 
 export const routes: Routes = [
 
@@ -46,10 +48,22 @@ export const routes: Routes = [
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
   },
-  { 'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password' },
-  { 'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password' },
-  { 'path': 'club', component: ClubDescriptionComponent, title: 'Description'},
-  { 'path': 'clublist', component: ClublistComponent, title: 'Club List'}
+  {
+    'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password'
+  },
+  {
+    'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password'
+  },
+  {
+    'path': 'club', component: ClubDescriptionComponent, title: 'Description'
+  },
+  {
+    'path': 'clublist', component: ClublistComponent, title: 'Club List'
+  },
+  {
+    'path': 'addclub', component: AddclubComponent, title: 'Add Club'
+  }
+
 /*
   {
     'path': '', component: HomeComponent,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profie-phot-card',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './profie-phot-card.component.css'
 })
 export class ProfiePhotCardComponent {
+  @Input() userDetails: any;
+
 
 }

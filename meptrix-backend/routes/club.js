@@ -1,23 +1,15 @@
 import express from 'express';
-
-import { createRole, getAllRoles, updateRole, deleteRole } from '../controllers/role.controller.js';
-
+import { createClub, getAllClubs } from '../controllers/club.controller.js'; // Importing the controller for club
 
 const router = express.Router();  // Through router we can create get post methods for apis
 
             /* For all CRUD operation we have creates the routes here and the logic for the api routes 
                 are written in controller folder. and we just call the controller here
             */
-// Create a new role in DB
-router.post("/create", createRole );
+// Create a new club in DB
+router.post("/createclub", createClub );
 
-// Update role in DB
-router.put("/update/:id", updateRole);
-
-// Get all roles from DB
-router.get('/getAll', getAllRoles);
-
-// Delete role from DB
-router.delete('/deleteRole/:id', deleteRole);
+// Get all Clubs from DB
+router.get("/getallclubs", getAllClubs);
 
 export default router; // Exporting the router so it could be used in server file

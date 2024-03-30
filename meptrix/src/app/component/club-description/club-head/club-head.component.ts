@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-club-head',
@@ -8,8 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './club-head.component.css'
 })
 export class ClubHeadComponent {
+  @Input() club: any;
 
-  club = {
+  clubs = {
     name: 'Awesome Club',
     description: "This is an awesome club that does stuff.",
     logoUrl: 'assets/assets/Landing Page_files/git-hub-logo.png', // Replace with actual logo URL

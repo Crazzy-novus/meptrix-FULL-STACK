@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import roleRoute from './routes/role.js';
 import AuthRoute from './routes/auth.js';
 import UserRoute from './routes/user.js';
+import clubRoute from './routes/club.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -23,6 +24,7 @@ server.use(cors(
 server.use("/api/role", roleRoute);
 server.use("/api/auth", AuthRoute);
 server.use("/api/user", UserRoute);
+server.use("/api/club", clubRoute);
 
 // Error Handler Middleware
 

@@ -5,6 +5,7 @@ import { ClublistComponent } from "./component/clublist-page/clublist/clublist.c
 import { ChatbotComponent } from "./component/chatbot/chatbot.component";
 
 import { ClubDescriptionComponent } from "./component/club-description/club-description/club-description.component";
+import { GetclubdetailsService } from '../services/clubsservice/getclubdetails.service';
 
 
 @Component({
@@ -15,6 +16,15 @@ import { ClubDescriptionComponent } from "./component/club-description/club-desc
     imports: [RouterOutlet, ClubCardComponent, ClublistComponent, ChatbotComponent, ClubDescriptionComponent]
 })
 export class AppComponent {
+  constructor (private clubDetails: GetclubdetailsService) {}
+
+  ngOnInit(): void {
+    this.clubDetails.setClubDetails();
+
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+  }
   title = 'meptrix';
 
   eventType = 'Co curricular club';

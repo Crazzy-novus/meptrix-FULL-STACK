@@ -1,7 +1,9 @@
+import { GetclubdetailsService } from './../../../../services/clubsservice/getclubdetails.service';
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { ClubCardComponent } from "../club-card/club-card.component";
+
 
 
 @Component({
@@ -12,49 +14,59 @@ import { ClubCardComponent } from "../club-card/club-card.component";
     imports: [FormsModule, CommonModule, ClubCardComponent]
 })
 export class ClublistComponent {
+
+  constructor(private ClubDetails: GetclubdetailsService) { }
   @Input() eventType: any;
-  club = [
+  club: any[] = [];
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.club = this.ClubDetails.getClubDetails();
+  }
+
+  clubs = [
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
     {
-      name: 'Event 1 **************',
+      name: 'Club Name 1',
       fees: '10:00 AM',
       description: 'Co curricular club',
-      photo: '/assets/assets/linkedin-logo.png'
+      photo: '/assets/assets/Landing Page_files/image.png'
     },
 
   ]
