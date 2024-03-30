@@ -25,7 +25,6 @@ export const verifyUser = (req, res, next) => {
 
     // verify the cookiee token
     verifyToken(req, res, () => {
-        console.log(req.user);
         
         try {
             if (req.user._id || req.user.isAdmin ) {
@@ -56,3 +55,4 @@ export const verifyAdmin = (req, res, next) => {
         
     });
 }
+
