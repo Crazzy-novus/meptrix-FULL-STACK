@@ -12,14 +12,8 @@ const UserSchema = mongoose.Schema(
             required: true
         },
         profileImage: {
-            data: {
-                type: Buffer,
-                required: false
-            },
-            contentType: {
-                type: String,
-                required: false
-            },
+            type: String,
+            required: false,
         },
         isAdmin: {
             type: Boolean,

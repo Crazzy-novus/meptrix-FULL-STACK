@@ -17,16 +17,7 @@ export const createEvent = async (req, res, next) => {
             console.error('Club not found');
             return;
         }
-        const event = new Event({clubId: club._id,
-            eventname: req.body.eventname,
-            eventclub: req.body.club_name,
-            eventstudent: req.body.eventstudent,
-            eventvenue: req.body.eventvenue,
-            eventdate: req.body.eventdate,
-            eventtime: req.body.eventtime,
-            shortdescription: req.body.shortdescription,
-            description: req.body.description,
-            });
+        const event = new Event({clubId: club._id, ...req.body});
         // Save the event to the database
         try {
             const savedEvent = await event.save();

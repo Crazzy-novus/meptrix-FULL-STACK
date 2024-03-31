@@ -8,28 +8,12 @@ const RoleSchema = mongoose.Schema(
             required: true 
         }, 
         logo: {
-            data: {
-                type: Buffer,
-                required: false
-            },
-            contentType: {
-                type: String,
-                required: false,
-                default: "https://wallpapers.com/images/featured/naruto-profile-pictures-sa1tekghfajrr928.jpg"
-
-            },
+            type: String,
+            required: false,
         },
         banner: {
-            data: {
-                type: Buffer,
-                required: false
-            },
-            contentType: {
-                type: String,
-                required: false,
-                default: "https://wallpapers.com/images/featured/naruto-profile-pictures-sa1tekghfajrr928.jpg"
-
-            },
+            type : String,
+            required: false,
         },
         gallery: {
             type: [String],

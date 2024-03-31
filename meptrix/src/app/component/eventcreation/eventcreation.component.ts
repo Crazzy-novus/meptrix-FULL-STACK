@@ -3,9 +3,9 @@ import { Component,  OnInit, inject } from '@angular/core';
 
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 import { AuthService } from '../../../services/auth.service';
+import {Storage, getDownloadURL, ref, uploadBytes} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-eventcreation',
@@ -14,15 +14,14 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './eventcreation.component.html',
   styleUrl: './eventcreation.component.css'
 })
+
 export class EventcreationComponent implements OnInit {
+
   eventForm!: FormGroup;
-  selectedImage: SafeUrl | undefined;
-
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
-
-
   fb = inject(FormBuilder);
-  sanitizer = inject(DomSanitizer);
+  storage = inject(Storage);
+  isLoading = false;
 
 
   ngOnInit(): void {
@@ -35,32 +34,27 @@ export class EventcreationComponent implements OnInit {
       eventtime: ['', Validators.required],
       shortdescription: ['', [Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.maxLength(1000)]],
-      img: [null, Validators.required], // You might need to adjust the validation for image upload
+      img: ['', Validators.required], // You might need to adjust the validation for image upload
     });
   }
 
-  onFileSelected(event: any )  {
+  async onFileSelected(event: any )  {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-
-          // Convert the file data to a base64 string
-      const base64Data = reader.result as string;
-
-      // Sanitize the base64 data to create a safe URL
-      const safeUrl: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(base64Data);
-
-      // Set the selected image as the safe URL
-      this.selectedImage = safeUrl;
-
-      // Set the base64 image data directly into the form control
-      this.eventForm.patchValue({
-        img: base64Data
-      });
-    };
-      reader.readAsDataURL(file);
-      console.log(this.eventForm);
+      this.isLoading = true;
+      try {
+        const filePath = 'events/' + this.eventForm.value.club_name + '/' + new Date().getTime() + '_' + this.eventForm.value.eventname;
+        const storageRef = ref(this.storage, filePath);
+        const uploadTask = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(uploadTask.ref);
+        this.eventForm.value.img = downloadURL;
+      } catch (error) {
+        console.log('Error uploading file:', error);
+      } finally {
+        this.isLoading = false;
+      }
+    } else {
+      console.log('No file selected');
     }
   }
 

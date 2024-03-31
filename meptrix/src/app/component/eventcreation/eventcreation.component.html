@@ -128,8 +128,9 @@
                 <input type="file" id="fileInput" (change)="onFileSelected($event)" formControlName="img"
                        class="block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                        name="img" accept="image/*">
-                <img id="previewImage" *ngIf="eventForm.value.img" [src]="eventForm.value.img" alt="Preview Image">
-                <div *ngIf="eventForm.controls['img'].invalid && (eventForm.controls['img'].dirty || eventForm.controls['img'].touched)" class="mt-1 text-red-500">
+                       <img id="previewImage" *ngIf="eventForm.value.img && !isLoading" [src]="eventForm.value.img" alt="Preview Image">
+                       <div class="loading-bar" *ngIf="isLoading">Loading...</div>
+                       <div *ngIf="eventForm.controls['img'].invalid && (eventForm.controls['img'].dirty || eventForm.controls['img'].touched)" class="mt-1 text-red-500">
                   <div *ngIf="eventForm.controls['img'].errors && eventForm.controls['img'].errors['required']">
                     Image is required.
                   </div>
