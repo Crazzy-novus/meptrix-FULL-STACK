@@ -45,4 +45,7 @@ export class AuthService {
       map(response => response.data)
     );
   }
+  createEvent(eventData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
+  }
 }

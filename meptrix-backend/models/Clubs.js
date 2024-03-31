@@ -10,12 +10,10 @@ const RoleSchema = mongoose.Schema(
         logo: {
             type: String,
             required: false,
-            default: "https://wallpapers.com/images/featured/naruto-profile-pictures-sa1tekghfajrr928.jpg"
         },
         banner: {
-            type: String,
+            type : String,
             required: false,
-            default: "https://wallpapers.com/images/featured/naruto-profile-pictures-sa1tekghfajrr928.jpg"
         },
         gallery: {
             type: [String],

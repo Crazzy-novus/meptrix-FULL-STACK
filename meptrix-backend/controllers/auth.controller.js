@@ -19,7 +19,7 @@ export const register  = async (req, res, next) => {
         email: req.body.email,//
         password: hashedPassword,
         isAdmin: req.body.roles === "admin"? true: req.body.roles === "super_admin"? true: false,
-        roles: role
+        roles: role,
     });
     await newUser.save(); // save the user to the database
     return next(CreateSuccess(200, "User registered Successfully "));

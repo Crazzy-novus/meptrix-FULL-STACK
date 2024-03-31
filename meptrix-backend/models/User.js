@@ -14,7 +14,6 @@ const UserSchema = mongoose.Schema(
         profileImage: {
             type: String,
             required: false,
-            default: "https://wallpapers.com/images/featured/naruto-profile-pictures-sa1tekghfajrr928.jpg"
         },
         isAdmin: {
             type: Boolean,
