@@ -11,15 +11,15 @@ import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } 
   styleUrl: './contestcreation.component.css'
 })
 export class ContestcreationComponent implements OnInit {
-[x: string]: any;
-  contentForm!: FormGroup;
+
+  contestForm!: FormGroup;
 
   fb = inject(FormBuilder);
-contestForm: any;
+
 
 
   ngOnInit(): void {
-    this.contentForm = this.fb.group({
+    this.contestForm = this.fb.group({
       contestname: ['', Validators.required],
       clubevent: ['', Validators.required],
       studentevent: ['', Validators.required],
@@ -33,10 +33,10 @@ contestForm: any;
   }
 
   onSubmit() {
-    if (this.contentForm.valid) {
+    if (this.contestForm.valid) {
       // Form is valid, you can submit it
-      console.log(this.contentForm.value);
-      this.contentForm.reset();
+      console.log(this.contestForm.value);
+      this.contestForm.reset();
       // Here you can call your service to send the form data to the server
     } else {
       // Form is invalid, handle errors or display messages to the user
