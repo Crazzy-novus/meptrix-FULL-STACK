@@ -5,7 +5,8 @@ import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } 
 
 
 import { AuthService } from '../../../services/auth.service';
-import {Storage, getDownloadURL, ref, uploadBytes} from '@angular/fire/storage';
+import { ImageStorageService } from '../../../services/VertexAI/imageStorage/image-storage.service';
+
 
 @Component({
   selector: 'app-eventcreation',
@@ -18,9 +19,10 @@ import {Storage, getDownloadURL, ref, uploadBytes} from '@angular/fire/storage';
 export class EventcreationComponent implements OnInit {
 
   eventForm!: FormGroup;
+  ImageStorageService = inject(ImageStorageService);
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   fb = inject(FormBuilder);
-  storage = inject(Storage);
+
   isLoading = false;
 
 
@@ -38,19 +40,29 @@ export class EventcreationComponent implements OnInit {
     });
   }
 
+
   async onFileSelected(event: any )  {
+
+
     const file = event.target.files[0];
     if (file) {
+      var result: string | boolean;
       this.isLoading = true;
-      try {
-        const filePath = 'events/' + this.eventForm.value.club_name + '/' + new Date().getTime() + '_' + this.eventForm.value.eventname;
-        const storageRef = ref(this.storage, filePath);
-        const uploadTask = await uploadBytes(storageRef, file);
-        const downloadURL = await getDownloadURL(uploadTask.ref);
-        this.eventForm.value.img = downloadURL;
-      } catch (error) {
-        console.log('Error uploading file:', error);
-      } finally {
+      result = await this.ImageStorageService.onFileSelected(file, this.eventForm.value.club_name, this.eventForm.value.eventname)
+      .then((res) => {
+        return res;
+      }
+      ).catch((err) => {
+        console.log('Error uploading file:', err);
+        return false;
+      }
+      );
+      if (result) {
+        this.eventForm.value.img = result;
+        this.isLoading = false;
+      } else {
+        alert('Error uploading file:1111111111');
+        console.log('Error uploading file:');
         this.isLoading = false;
       }
     } else {

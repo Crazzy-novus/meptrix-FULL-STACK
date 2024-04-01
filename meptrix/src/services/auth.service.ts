@@ -48,4 +48,8 @@ export class AuthService {
   createEvent(eventData: any): Observable<any> {
     return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
   }
+
+  createContest(contestData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
+  }
 }

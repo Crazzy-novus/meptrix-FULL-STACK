@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component,  OnInit, inject } from '@angular/core';
 
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-contestcreation',
@@ -11,11 +12,13 @@ import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } 
   styleUrl: './contestcreation.component.css'
 })
 export class ContestcreationComponent implements OnInit {
-[x: string]: any;
-  contentForm!: FormGroup;
 
+  contentForm!: FormGroup;
+  authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   fb = inject(FormBuilder);
-contestForm: any;
+  contestForm: any;
+  isLoading = false;
+
 
 
   ngOnInit(): void {
@@ -26,12 +29,33 @@ contestForm: any;
       contestvenue: ['', Validators.required],
       contestdate: ['', Validators.required],
       contesttime: ['', Validators.required],
-      contestshortdescripition: ['', [Validators.required, Validators.maxLength(100)]],
+      contestshortdescription: ['', [Validators.required, Validators.maxLength(100)]],
       contestdescripition: ['', [Validators.required, Validators.maxLength(1000)]],
       contestimg: ['', Validators.required], // You might need to adjust the validation for image upload
     });
   }
+/*
+  async onFileSelected(event: any )  {
+    const file = event.target.files[0];
+    if (file) {
+      this.isLoading = true;
+      try {
+        const filePath = 'events/' + this.contestForm.value.club_name + '/' + new Date().getTime() + '_' + this.contestForm.value.eventname;
+        const storageRef = ref(this.storage, filePath);
+        const uploadTask = await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(uploadTask.ref);
+        this.contestForm.value.img = downloadURL;
+      } catch (error) {
+        console.log('Error uploading file:', error);
+      } finally {
+        this.isLoading = false;
+      }
+    } else {
+      console.log('No file selected');
+    }*/
+  }
 
+/*
   onSubmit() {
     if (this.contentForm.valid) {
       // Form is valid, you can submit it
@@ -44,4 +68,4 @@ contestForm: any;
 
     }
   }
-}
+}*/

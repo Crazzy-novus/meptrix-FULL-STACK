@@ -1,6 +1,8 @@
+import { VertexAI } from '@google-cloud/vertexai';
 import { FormsModule } from '@angular/forms';
-import { Component} from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 
 @Component({
@@ -10,7 +12,10 @@ import { CommonModule } from '@angular/common';
     styleUrl: './chatbot.component.css',
     imports: [CommonModule, FormsModule]
 })
+
+
 export class ChatbotComponent {
+
 
 
 
