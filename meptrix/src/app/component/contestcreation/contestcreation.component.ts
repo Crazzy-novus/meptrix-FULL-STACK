@@ -14,10 +14,9 @@ import { ImageStorageService } from '../../../services/VertexAI/imageStorage/ima
 })
 export class ContestcreationComponent implements OnInit {
 
-  contentForm!: FormGroup;
+  contestForm!: FormGroup;
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   fb = inject(FormBuilder);
-  contestForm: any;
   isLoading = false;
   ImageStorageService = inject(ImageStorageService);
 
@@ -25,7 +24,7 @@ export class ContestcreationComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.contentForm = this.fb.group({
+    this.contestForm = this.fb.group({
       contestname: ['', Validators.required],
       clubevent: ['', Validators.required],
       studentevent: ['', Validators.required],
@@ -45,10 +44,10 @@ export class ContestcreationComponent implements OnInit {
     if (file) {
       var result: string | boolean;
       this.isLoading = true;
-      result = await this.ImageStorageService.onFileSelected(file, this.contentForm.value.club_name, this.contentForm.value.eventname)
+      result = await this.ImageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname)
       .then((res) => {
         console.log('File uploaded Durai:', res);
-        this.contentForm.value.img = result;
+        this.contestForm.value.img = result;
         this.isLoading = false;
         return res;
       }
@@ -60,7 +59,7 @@ export class ContestcreationComponent implements OnInit {
       }
       );
       if (result) {
-        this.contentForm.value.img = result;
+        this.contestForm.value.img = result;
         this.isLoading = false;
       } else {
         alert('Error uploading file');
@@ -90,14 +89,14 @@ export class ContestcreationComponent implements OnInit {
     } else {
       console.log('No file selected');
     }*/
-  }
 
-/*
+
+
   onSubmit() {
-    if (this.contentForm.valid) {
+    if (this.contestForm.valid) {
       // Form is valid, you can submit it
-      console.log(this.contentForm.value);
-      this.contentForm.reset();
+      console.log(this.contestForm.value);
+      this.contestForm.reset();
       // Here you can call your service to send the form data to the server
     } else {
       // Form is invalid, handle errors or display messages to the user
@@ -105,4 +104,4 @@ export class ContestcreationComponent implements OnInit {
 
     }
   }
-}*/
+}

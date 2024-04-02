@@ -31,6 +31,9 @@ export const routes: Routes = [
     'path': 'register', component: RegistrationComponent, title: 'UserRegister'
   },
   {
+    'path': 'admintable', component: AdmintableComponent, title: 'Admintable'
+  },
+  {
     'path': 'eventcreate', component: EventcreationComponent, title: 'EventCreate'
   },
   {
@@ -44,10 +47,10 @@ export const routes: Routes = [
     'path': 'login', component: LoginComponent, title: 'Log-in page'
   },
   {
-    'path': 'home', component: HomeComponent, title: 'Landing Page'
+    'path': 'homescreen', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'User Profile'
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board'
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
