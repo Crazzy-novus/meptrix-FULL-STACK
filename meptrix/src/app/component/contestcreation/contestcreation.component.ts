@@ -3,6 +3,7 @@ import { Component,  OnInit, inject } from '@angular/core';
 
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { ImageStorageService } from '../../../services/VertexAI/imageStorage/image-storage.service';
 
 @Component({
   selector: 'app-contestcreation',
@@ -18,6 +19,8 @@ export class ContestcreationComponent implements OnInit {
   fb = inject(FormBuilder);
   contestForm: any;
   isLoading = false;
+  ImageStorageService = inject(ImageStorageService);
+
 
 
 
@@ -33,6 +36,40 @@ export class ContestcreationComponent implements OnInit {
       contestdescripition: ['', [Validators.required, Validators.maxLength(1000)]],
       contestimg: ['', Validators.required], // You might need to adjust the validation for image upload
     });
+  }
+
+  async onFileSelected(event: any )  {
+
+
+    const file = event.target.files[0];
+    if (file) {
+      var result: string | boolean;
+      this.isLoading = true;
+      result = await this.ImageStorageService.onFileSelected(file, this.contentForm.value.club_name, this.contentForm.value.eventname)
+      .then((res) => {
+        console.log('File uploaded Durai:', res);
+        this.contentForm.value.img = result;
+        this.isLoading = false;
+        return res;
+      }
+      ).catch((err) => {
+        console.log('Error uploading file:', err);
+        console.log('Error uploading file:');
+        this.isLoading = false;
+        return false;
+      }
+      );
+      if (result) {
+        this.contentForm.value.img = result;
+        this.isLoading = false;
+      } else {
+        alert('Error uploading file');
+        console.log('Error uploading file:');
+        this.isLoading = false;
+      }
+    } else {
+      console.log('No file selected');
+    }
   }
 /*
   async onFileSelected(event: any )  {
