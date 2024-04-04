@@ -16,6 +16,7 @@ import { EventcreationComponent } from './component/eventcreation/eventcreation.
 import { ContestcreationComponent } from './component/contestcreation/contestcreation.component';
 import { AddclubComponent } from './component/admin/addclub/addclub.component';
 import { AdmintableComponent } from './component/admintable/admintable.component';
+import { ClubcreationComponent } from './component/clubcreation/clubcreation.component';
 
 
 export const routes: Routes = [
@@ -48,6 +49,9 @@ export const routes: Routes = [
   },
   {
     'path': 'dashboard', component: MainComponent, title: 'Dash Board'
+  },
+  {
+    'path': 'createclub', component: ClubcreationComponent, title: 'Create Club'
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'

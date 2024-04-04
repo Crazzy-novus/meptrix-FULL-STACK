@@ -1,0 +1,152 @@
+<nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 dark:bg-gray-900 start-0 dark:border-gray-600">
+    <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
+        </a>
+        <div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+            <button type="button"   class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+          </button>
+        </div>
+    </div>
+  </nav>
+    <section class="mt-20 bg-purple-200 max-h-fit ">
+      <h1 class="text-6xl font-extrabold leading-tight tracking-tight text-center text-gray-900 md:text-6xl dark:text-white">
+        Create a Club
+    </h1>
+        <div class="h-full ">
+  
+            <div class="mb-2 mr-20 ml-72 md:mb-0 md:w-8/12 ">
+              <div
+              class="mb-12 shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+              <img
+                src="https://st2.depositphotos.com/4284329/8270/v/950/depositphotos_82700158-stock-illustration-event-agency-logo.jpg"
+                class="object-contain ml-40 w-96"
+                alt="Sample image" />
+            </div>
+            <form [formGroup]="clubForm" (ngSubmit)="onSubmit()">
+              <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+  
+                <!-- Club Name input -->
+                <div class="mb-4">
+                  <label for="clubname" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Club Name:</label>
+                  <input formControlName="clubname" type="text" id="clubname" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Club Name" required>
+                  <div *ngIf="clubForm.controls['clubname'].invalid && (clubForm.controls['clubname'].dirty || clubForm.controls['clubname'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['clubname'].errors && clubForm.controls['clubname'].errors['required']">
+                      Club Name is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Department Hosting input -->
+                <div class="mb-4">
+                  <label for="depthost" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Enter the Hosting Department:</label>
+                  <input formControlName="depthost" type="text" id="depthost" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Department" required>
+                  <div *ngIf="clubForm.controls['depthost'].invalid && (clubForm.controls['depthost'].dirty || clubForm.controls['depthost'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['depthost'].errors && clubForm.controls['depthost'].errors['required']">
+                      Department is required.
+                    </div>
+                  </div>
+                </div>
+                <!-- staff in charge input -->
+                <div class="mb-4">
+                  <label for="clubstaff" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Enter the name of Staff-In-Charge:</label>
+                  <input formControlName="clubstaff" type="text" id="clubstaff" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Staff-In-Charge Name" required>
+                  <div *ngIf="clubForm.controls['clubstaff'].invalid && (clubForm.controls['clubstaff'].dirty || clubForm.controls['clubstaff'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['clubstaff'].errors && clubForm.controls['clubstaff'].errors['required']">
+                      Staff-In-Charge Name is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Student-In-Charge input -->
+                <div class="mb-4">
+                  <label for="clubstudent" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Enter the name of Student-In-Charge:</label>
+                  <input formControlName="clubstudent" type="text" id="clubstudent" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Student-In-Charge Name" required>
+                  <div *ngIf="clubForm.controls['clubstudent'].invalid && (clubForm.controls['clubstudent'].dirty || clubForm.controls['clubstudent'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['clubstudent'].errors && clubForm.controls['clubstudent'].errors['required']">
+                        Student-In-Charge Name is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Event Date input 
+                <div class="mb-4">
+                  <label for="eventdate" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Event Date:</label>
+                  <input formControlName="eventdate" type="date" id="eventdate" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" required>
+                  <div *ngIf="eventForm.controls['eventdate'].invalid && (eventForm.controls['eventdate'].dirty || eventForm.controls['eventdate'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="eventForm.controls['eventdate'].errors && eventForm.controls['eventdate'].errors['required']">
+                      Event Date is required.
+                    </div>
+                  </div>
+                </div>-->
+  
+                <!-- Event Time input 
+                <div class="mb-4">
+                  <label for="eventtime" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Event timing:</label>
+                  <input formControlName="eventtime" type="time" id="eventtime" class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" required>
+                  <div *ngIf="eventForm.controls['eventtime'].invalid && (eventForm.controls['eventtime'].dirty || eventForm.controls['eventtime'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="eventForm.controls['eventtime'].errors && eventForm.controls['eventtime'].errors['required']">
+                      Event Time is required.
+                    </div>
+                  </div>
+                </div>-->
+  
+                <!-- Event Short Description -->
+                <div class="mb-4">
+                  <label for="clubshortdescription" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Short Description:</label>
+                  <textarea formControlName="clubshortdescription" maxlength="100" rows="3" cols="125" name="clubshortdescription" required placeholder="Enter text here.."></textarea>
+                  <div *ngIf="clubForm.controls['clubshortdescription'].invalid && (clubForm.controls['clubshortdescription'].dirty || clubForm.controls['clubshortdescription'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['clubshortdescription'].errors && clubForm.controls['clubshortdescription'].errors['required']">
+                      Short Description is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Event Description -->
+                <div class="mb-4">
+                  <label for="clubdescription" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Description:</label>
+                  <textarea formControlName="clubdescription" maxlength="1000" rows="8" cols="125" name="clubdescription" required placeholder="Enter text here.."></textarea>
+                  <div *ngIf="clubForm.controls['clubdescription'].invalid && (clubForm.controls['clubdescription'].dirty || clubForm.controls['clubdescription'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['clubdescription'].errors && clubForm.controls['clubdescription'].errors['required']">
+                      Description is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Image input -->
+                <div class="mb-4">
+                  <label class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Club Icon:</label>
+                  <input type="file" id="fileInput" (change)="onFileSelected($event)" formControlName="img"
+                         class="block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                         name="img" accept="image/*">
+                         <img id="previewImage" *ngIf="clubForm.value.img && !isLoading" [src]="clubForm.value.img" alt="Preview Image">
+                         <div class="loading-bar" *ngIf="isLoading">Loading...</div>
+                         <div *ngIf="clubForm.controls['img'].invalid && (clubForm.controls['img'].dirty || clubForm.controls['img'].touched)" class="mt-1 text-red-500">
+                    <div *ngIf="clubForm.controls['img'].errors && clubForm.controls['img'].errors['required']">
+                      Image is required.
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Login button -->
+                <div class="text-center lg:text-left">
+                  <button type="submit"
+                          [disabled]="clubForm.invalid"
+                          class="inline-block w-full pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+                    Create
+                  </button>
+                </div>
+              </div>
+            </form>
+  
+            </div>
+          </div>
+  
+      </section>
+  
