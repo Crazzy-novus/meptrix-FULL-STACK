@@ -6,8 +6,11 @@ import AuthRoute from './routes/auth.js';
 import UserRoute from './routes/user.js';
 import clubRoute from './routes/club.js';
 import EventRoute from './routes/event.js';
+import ContestRoute from './routes/contest.js';
+
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+
 
 
 const server = express();
@@ -27,6 +30,7 @@ server.use("/api/auth", AuthRoute);
 server.use("/api/user", UserRoute);
 server.use("/api/club", clubRoute);
 server.use("/api/event", EventRoute);
+server.use("/api/contest", ContestRoute);
 
 // Error Handler Middleware
 

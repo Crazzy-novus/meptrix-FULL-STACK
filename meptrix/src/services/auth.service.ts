@@ -12,11 +12,19 @@ export class AuthService {
   http = inject(HttpClient); // Injecting HttpClient service to make HTTP requests to the server side application (MEAN stack) using RESTful API endpoints
 
   registerService (registerObj: any){ // Register service to register a new user in the application using RESTful API endpoint
-    return this.http.post<any>(`${apiurls.AuthServiceApi}register`, registerObj);
+    return this.http.post<any>(`${apiurls.AuthServiceApi}register`, registerObj)
+
   }
 
   loginService (loginObj: any){// Register service to register a new user in the application using RESTful API endpoint
-    return this.http.post<any>(`${apiurls.AuthServiceApi}login`, loginObj, {withCredentials: true});
+    return this.http.post<any>(`${apiurls.AuthServiceApi}login`, loginObj, {withCredentials: true})
+    .pipe(
+      tap((res) => {
+          if (res) {
+              sessionStorage.setItem('userRole', loginObj.roles);
+          }
+      })
+  );
 
   }
 
@@ -47,5 +55,9 @@ export class AuthService {
   }
   createEvent(eventData: any): Observable<any> {
     return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
+  }
+
+  createContest(contestData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
   }
 }

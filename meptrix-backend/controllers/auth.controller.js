@@ -40,6 +40,9 @@ export const login = async (req, res, next) => {
         if (!validPassword) { // check if the password is valid
             return next(CreateError(400, "Invalid Password"));
         }
+        if (roles[0].role != req.body.roles) {
+            return next(CreateError(400, "Invalid Role"));
+        }
         const token = jwt.sign({
             _id: user._id,
             roles: roles,
@@ -51,7 +54,7 @@ export const login = async (req, res, next) => {
             message: "User logged in successfully",
             data: user
         }) ;// set the token in a cookie
-        //return next(CreateSuccess(200, "User registered Successfully  test goes here", user)); // send a success message
+        return next(CreateSuccess(200, "User registered Successfully  test goes here", user)); // send a success message
         
     } catch (error) {
         return next(CreateError(500, error.message));

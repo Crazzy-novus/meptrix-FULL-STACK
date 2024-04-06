@@ -15,6 +15,7 @@ import { ResetpasswordComponent } from './component/credentials/resetpassword/re
 import { EventcreationComponent } from './component/eventcreation/eventcreation.component';
 import { ContestcreationComponent } from './component/contestcreation/contestcreation.component';
 import { AddclubComponent } from './component/admin/addclub/addclub.component';
+import { AdmintableComponent } from './component/admintable/admintable.component';
 
 
 export const routes: Routes = [
@@ -30,10 +31,16 @@ export const routes: Routes = [
     'path': 'register', component: RegistrationComponent, title: 'UserRegister'
   },
   {
+    'path': 'admintable', component: AdmintableComponent, title: 'Admintable'
+  },
+  {
     'path': 'eventcreate', component: EventcreationComponent, title: 'EventCreate'
   },
   {
     'path': 'contestcreate', component: ContestcreationComponent, title: 'ContestCreate'
+  },
+  {
+    'path': 'admin', component: AdmintableComponent, title: 'AdminTable'
   },
 
   {
@@ -43,7 +50,7 @@ export const routes: Routes = [
     'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'User Profile'
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board'
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
