@@ -47,7 +47,7 @@ export const routes: Routes = [
     'path': 'login', component: LoginComponent, title: 'Log-in page'
   },
   {
-    'path': 'homescreen', component: HomeComponent, title: 'Landing Page'
+    'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
     'path': 'dashboard', component: MainComponent, title: 'Dash Board'

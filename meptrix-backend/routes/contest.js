@@ -13,6 +13,6 @@ router.post("/createcontest", createContest );
 router.get("/getallcontest", getAllContest);
 
 // update a club
-router.put('/deletecontest',  updateContest);
+//router.put('/deletecontest',  updateContest);
 
 export default router; // Exporting the router so it could be used in server file

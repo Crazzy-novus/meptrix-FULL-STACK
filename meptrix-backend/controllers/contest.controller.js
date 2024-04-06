@@ -4,25 +4,31 @@ import { CreateError } from "../utils/error.js";
 
 
 export const createContest = async (req, res, next) => {
-    try {
+    
+        
         
         if (req.body && Object.keys(req.body).length > 0) {
+            
             
                 const newContest = new Contest(req.body);
                 
                 
-                await newContest.save();
-                return next(CreateSuccess(200, "Contest  Created successfully", newContest)); // send a success message
+                try {
+                    await newContest.save();
+                    return next(CreateSuccess(200, "Contest  Created successfully", newContest)); // send a success message
+
+                } catch (error) {
+                    console.log(error);
+                    return next(CreateError(403, "Contest NOT created ::: ", error)); // send an error message
+                }
             } else {
                 return next(CreateError(403, "Contest NOT created ::: ", error.message)); // send an error message
             }
         
     }
-    catch (error) {
-        return next(CreateError(404, "Server error ::: ", error.message)); // send an error message
+    
+    
 
-    }
-}
 
 export const  getAllContest = async (req, res, next) => {
 

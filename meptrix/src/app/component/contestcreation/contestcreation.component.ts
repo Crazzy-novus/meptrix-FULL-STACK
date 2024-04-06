@@ -33,7 +33,7 @@ export class ContestcreationComponent implements OnInit {
       contesttime: ['', Validators.required],
       contestshortdescription: ['', [Validators.required, Validators.maxLength(100)]],
       contestdescripition: ['', [Validators.required, Validators.maxLength(1000)]],
-      contestimg: ['', Validators.required], // You might need to adjust the validation for image upload
+      img: ['', Validators.required], // You might need to adjust the validation for image upload
     });
   }
 
@@ -46,23 +46,20 @@ export class ContestcreationComponent implements OnInit {
       this.isLoading = true;
       result = await this.ImageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname)
       .then((res) => {
-        console.log('File uploaded Durai:', res);
-        this.contestForm.value.img = result;
-        this.isLoading = false;
+
         return res;
       }
       ).catch((err) => {
         console.log('Error uploading file:', err);
-        console.log('Error uploading file:');
-        this.isLoading = false;
         return false;
       }
       );
       if (result) {
         this.contestForm.value.img = result;
         this.isLoading = false;
+        console.log('File uploaded successfully:', this.contestForm.value);
       } else {
-        alert('Error uploading file');
+        alert('Error uploading file:1111111111');
         console.log('Error uploading file:');
         this.isLoading = false;
       }
@@ -70,37 +67,33 @@ export class ContestcreationComponent implements OnInit {
       console.log('No file selected');
     }
   }
-/*
-  async onFileSelected(event: any )  {
-    const file = event.target.files[0];
-    if (file) {
-      this.isLoading = true;
-      try {
-        const filePath = 'events/' + this.contestForm.value.club_name + '/' + new Date().getTime() + '_' + this.contestForm.value.eventname;
-        const storageRef = ref(this.storage, filePath);
-        const uploadTask = await uploadBytes(storageRef, file);
-        const downloadURL = await getDownloadURL(uploadTask.ref);
-        this.contestForm.value.img = downloadURL;
-      } catch (error) {
-        console.log('Error uploading file:', error);
-      } finally {
-        this.isLoading = false;
-      }
-    } else {
-      console.log('No file selected');
-    }*/
+
 
 
 
   onSubmit() {
-    if (this.contestForm.valid) {
-      // Form is valid, you can submit it
-      console.log(this.contestForm.value);
-      this.contestForm.reset();
-      // Here you can call your service to send the form data to the server
+    if (this.contestForm.value) {
+      // Submit the form or perform other actions
+      this.authService.createContest(this.contestForm.value)
+      .subscribe({
+        next: (res) => {
+
+
+          alert("event Created");
+          //console.log(res);
+
+        },
+        error: (err) => {
+          console.log (err);
+          alert(err.error);
+        }
+      })
+
+      console.log('Form submitted successfully:', this.contestForm.value);
+      //this.contestForm.reset();
     } else {
-      // Form is invalid, handle errors or display messages to the user
-      console.log('Form is invalid');
+      // Handle validation errors
+      console.log('Form validation failed');
 
     }
   }

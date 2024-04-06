@@ -50,29 +50,28 @@ export class EventcreationComponent implements OnInit {
       this.isLoading = true;
       result = await this.ImageStorageService.onFileSelected(file, this.eventForm.value.club_name, this.eventForm.value.eventname)
       .then((res) => {
-        console.log('File uploaded Durai:', res);
-        this.eventForm.value.img = result;
-        this.isLoading = false;
+
         return res;
       }
       ).catch((err) => {
         console.log('Error uploading file:', err);
-        console.log('Error uploading file:');
-        this.isLoading = false;
         return false;
+
       }
       );
       if (result) {
+        this.eventForm.value.img = result;
+        this.isLoading = false;
 
       } else {
         alert('Error uploading file:1111111111');
-
+        console.log('Error uploading file:');
+        this.isLoading = false;
       }
     } else {
       console.log('No file selected');
     }
   }
-
   onSubmit() {
     if (this.eventForm.value) {
       // Submit the form or perform other actions

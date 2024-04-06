@@ -93,20 +93,20 @@
                 </div>
               </div>
             </div>
-            <!-- Contest Short contestdescripition-->
+            <!-- Contest Short Descripition-->
             <div class="mb-4">
-              <label for="contestshortdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Short Descripition:</label>
+              <label for="contestshortdescription" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Short Descripition:</label>
               <!--<input formControlName="shortdescripition" type="textbox" id="shortdescripition"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Email ID" required>-->
-              <textarea formControlName="contestshortdescripition" maxlength="100" rows="4" cols="64" name="contestshortdescripition" required placeholder="Enter text here.."></textarea>
-              <div *ngIf="contestForm.controls['contestshortdescripition'].invalid && (contestForm.controls['contestshortdescripition'].dirty || contestForm.controls['contestshortdescripition'].touched)" class="mt-1 text-red-500">
-                <div *ngIf="contestForm.controls['contestshortdescripition'].errors && contestForm.controls['contestshortdescripition'].errors['required']">
+              <textarea formControlName="contestshortdescription" maxlength="100" rows="4" cols="64" name="contestshortdescription" required placeholder="Enter text here.."></textarea>
+              <div *ngIf="contestForm.controls['contestshortdescription'].invalid && (contestForm.controls['contestshortdescription'].dirty || contestForm.controls['contestshortdescription'].touched)" class="mt-1 text-red-500">
+                <div *ngIf="contestForm.controls['contestshortdescription'].errors && contestForm.controls['contestshortdescription'].errors['required']">
                   Short Descripition is required.
                 </div>
               </div>
             </div>
-            <!-- Contest contestdescripition-->
+            <!-- Contest Descripition-->
             <div class="mb-4">
-              <label for="contestdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Descripition:</label>
+              <label for="contestdescripition" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Descripition:</label>
               <!--<input formControlName="descripition" type="textbox" id="shortdescripition"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Email ID" required>-->
               <textarea formControlName="contestdescripition" maxlength="1000" rows="8" cols="64" name="contestdescripition" required placeholder="Enter text here.."></textarea>
               <div *ngIf="contestForm.controls['contestdescripition'].invalid && (contestForm.controls['contestdescripition'].dirty || contestForm.controls['contestdescripition'].touched)" class="mt-1 text-red-500">
@@ -117,29 +117,29 @@
             </div>
             <!-- Image input -->
             <div class="mb-4">
-            <label
-                class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Contest Notice:</label>
-                <input type="file" id="image_input"
-                class="block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
-                name="contestimg" accept="image/*">
-
+              <label class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Event Notice:</label>
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" formControlName="img"
+                     class="block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
+                     name="img" accept="image/*">
+                     <img id="previewImage" *ngIf="contestForm.value.img && !isLoading" [src]="contestForm.value.img" alt="Preview Image">
+                     <div class="loading-bar" *ngIf="isLoading">Loading...</div>
+                     <div *ngIf="contestForm.controls['img'].invalid && (contestForm.controls['img'].dirty || contestForm.controls['img'].touched)" class="mt-1 text-red-500">
+                <div *ngIf="contestForm.controls['img'].errors && contestForm.controls['img'].errors['required']">
+                  Image is required.
+                </div>
+              </div>
             </div>
 
 
 
             <!-- Login button -->
-            <div class="text-center lg:text-left">
-              <button
-                type="button"
-                [disabled]="contestForm.invalid"
-
-                class="inline-block w-full pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
-                data-twe-ripple-init
-                data-twe-ripple-color="light">
+             <!-- Login button -->
+             <div class="text-center lg:text-left">
+              <button type="submit"
+                      [disabled]="contestForm.invalid"
+                      class="inline-block w-full pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
                 Create
               </button>
-
-
             </div>
             </div>
           </form>

@@ -27,15 +27,17 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit()  {
-    this.authService.getUserDetails().pipe(
-      takeUntil(this.unsubscribe$),
-      catchError(error => {
-        console.error('Failed to get user details:', error);
-        return of(null);
-      })
-    ).subscribe(userDetails => {
-      this.userDetails = userDetails;
-    });
+    if (typeof window !== 'undefined') {
+      this.authService.getUserDetails().pipe(
+        takeUntil(this.unsubscribe$),
+        catchError(error => {
+          console.error('Failed to get user details:', error);
+          return of(null);
+        })
+      ).subscribe(userDetails => {
+        this.userDetails = userDetails;
+      });
+  }
 }
   ngOnDestroy() {
     this.unsubscribe$.next();

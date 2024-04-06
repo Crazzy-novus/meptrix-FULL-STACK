@@ -8,8 +8,8 @@ const contestSchema = new Schema({
   contestdate: { type: Date, required: true },
   contesttime: { type: String, required: true },
   contestshortdescription: { type: String, required: true, maxlength: 100 },
-  contestdescripition: { type: String, required: true, maxlength: 1000 },
-  contestimg: { type: String, required: true }, // This assumes the image is stored as a URL or file path
+  contestdescripition: { type: String, required: false, maxlength: 1000 },
+  img: { type: String, required: true }, // This assumes the image is stored as a URL or file path
 });
 
 export default mongoose.model('Contest', contestSchema);
