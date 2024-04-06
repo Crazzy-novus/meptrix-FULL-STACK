@@ -26,9 +26,12 @@ export class ClubcreationComponent implements OnInit {
       depthost: ['', Validators.required],
       clubstaff: ['', Validators.required],
       clubstudent: ['', Validators.required],
+      club_type:['',Validators.required],
+      clubfee:['',Validators.required],
       clubshortdescription: ['', [Validators.required, Validators.maxLength(100)]],
       clubdescription: ['', [Validators.required, Validators.maxLength(1000)]],
-      img: ['', Validators.required], // You might need to adjust the validation for image upload
+      logoimg: ['', Validators.required],
+      bannerimg: ['', Validators.required], // You might need to adjust the validation for image upload
     });
   }
 
