@@ -18,6 +18,7 @@ export class ClubcreationComponent implements OnInit {
   fb = inject(FormBuilder);
   storage = inject(Storage);
   isLoading = false;
+$club: any;
 
 
   ngOnInit(): void {
@@ -35,12 +36,12 @@ export class ClubcreationComponent implements OnInit {
     });
   }
 
-  async onFileSelected(event: any )  {
-    const file = event.target.files[0];
+  async onFileSelected(club: any )  {
+    const file = club.target.files[0];
     if (file) {
       this.isLoading = true;
       try {
-        const filePath = 'events/' + this.clubForm.value.club_name + '/' + new Date().getTime() + '_' + this.clubForm.value.eventname;
+        const filePath = 'club/' + this.clubForm.value.club_name + '/' + new Date().getTime() + '_' + this.clubForm.value.eventname;
         const storageRef = ref(this.storage, filePath);
         const uploadTask = await uploadBytes(storageRef, file);
         const downloadURL = await getDownloadURL(uploadTask.ref);

@@ -17,6 +17,8 @@ import { ContestcreationComponent } from './component/contestcreation/contestcre
 import { AddclubComponent } from './component/admin/addclub/addclub.component';
 import { AdmintableComponent } from './component/admintable/admintable.component';
 import { ClubcreationComponent } from './component/clubcreation/clubcreation.component';
+import { AdminhomepageComponent } from './component/adminhomepage/adminhomepage.component';
+import { EdituserComponent } from './component/edituser/edituser.component';
 
 
 export const routes: Routes = [
@@ -51,6 +53,9 @@ export const routes: Routes = [
     'path': 'dashboard', component: MainComponent, title: 'Dash Board'
   },
   {
+    'path': 'adminhome', component: AdminhomepageComponent, title: 'Admin Home Page'
+  },
+  {
     'path': 'createclub', component: ClubcreationComponent, title: 'Create Club'
   },
   {
@@ -70,8 +75,10 @@ export const routes: Routes = [
   },
   {
     'path': 'addclub', component: AddclubComponent, title: 'Add Club'
+  },
+  {
+    'path': 'useredit', component: EdituserComponent, title: 'Edit User'
   }
-
 /*
   {
     'path': '', component: HomeComponent,
