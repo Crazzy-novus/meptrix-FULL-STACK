@@ -1,11 +1,11 @@
-<nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 dark:bg-gray-900 start-0 dark:border-gray-600">
+<nav class="fixed top-0 z-20 w-full bg-color3 border-b border-gray-300 dark:bg-gray-900 start-0 dark:border-gray-600">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
+            <img src="" class="h-8  " alt="Meptrix Logo"><!--Need to add application logo-->
+            <span class="self-center text-2xl font-semibold text-color1 whitespace-nowrap dark:text-white">Meptrix</span>
         </a>
         <div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-            <button type="button"   class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
+            <button type="button"   class="px-4 py-2 text-sm font-medium text-center text-white bg-color2 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -16,27 +16,27 @@
     </div>
   </nav>
 
-  <div class="mt-20 bg-purple-200 mb-10 max-h-fit ">
+  <div class="mt-20 bg-color4 mb-10 max-h-fit ">
     <div class="mr-32 ml-32 mb-32 h-full">
     <div class="mb-10">
-      <label for="clubname" class="block mb-2 font-extrabold text-3xl text-gray-700 exampleFormControlInput22">Club List:</label>
+      <label for="club_list" class="block mb-2 font-extrabold text-3xl text-color1   exampleFormControlInput22">Club List:</label>
       
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
   <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <thead class="text-xs text-color1 font-extrabold   text-center uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
               <th scope="col" class="px-6 py-3">
-                  Product name
+                  Club names
               </th>
               <th scope="col" class="px-6 py-3">
-                  Color
+                  Department
               </th>
               <th scope="col" class="px-6 py-3">
                   Category
               </th>
               <th scope="col" class="px-6 py-3">
-                  Price
+                  Staff-In-Charge
               </th>
               <th scope="col" class="px-6 py-3">
                   Action
@@ -112,43 +112,23 @@
                   <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
               </td>
           </tr>
-          <tr>
-              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  Apple Watch 5
-              </th>
-              <td class="px-6 py-4">
-                  Red
-              </td>
-              <td class="px-6 py-4">
-                  Wearables
-              </td>
-              <td class="px-6 py-4">
-                  $999
-              </td>
-              <td class="px-6 py-4">
-                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              </td>
-          </tr>
+          
       </tbody>
   </table>
 </div>
 
     </div>
-    <div class="mb-4">
-      <label for="clubname" class="block mb-2 font-extrabold text-gray-700 exampleFormControlInput22">Club Name:</label>
-      
-    </div>
-    <div class="text-center lg:text-left bg-pink-300 mt-10 mb-10">
+    <div class="text-center lg:text-left bg-color3 mt-10 mb-10">
       <button type="submit"
-              class="inline-block mr-16 ml-32 mb-10 mt-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+              class="inline-block mr-16 ml-32 mb-10 mt-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-color2 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
         Add Club
       </button>
       <button type="submit"
-              class="inline-block mr-16 ml-32 mb-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+              class="inline-block mr-16 ml-32 mb-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-color2 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
         Delete Club
       </button>
       <button type="submit"
-              class="mr-16 ml-32 inline-block mb-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
+              class="mr-16 ml-32 inline-block mb-10 pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-color2 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">
         Change Role
       </button>
       

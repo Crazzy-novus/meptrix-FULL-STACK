@@ -1,11 +1,11 @@
-<nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 dark:bg-gray-900 start-0 dark:border-gray-600">
+<nav class="fixed top-0 z-20 w-full bg-color3 border-b border-gray-200 dark:bg-gray-900 start-0 dark:border-gray-600">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
+            <span class="self-center text-2xl text-color1 font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
         </a>
         <div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-            <button type="button"   class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
+            <button type="button"   class="px-4 py-2 text-sm font-medium text-center text-white bg-color2 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -16,64 +16,65 @@
     </div>
   </nav>
 
-<section class="max-h-fit mt-20 bg-purple-200">
-  <h1 class="text-6xl font-extrabold leading-tight tracking-tight text-center text-gray-900 md:text-6xl dark:text-white">
+<section class="max-h-fit mt-20 bg-color4">
+  <h1 class="text-6xl font-extrabold leading-tight tracking-tight text-center text-color1 md:text-6xl dark:text-white">
     Edit User Profile
 </h1>
 <div class="h-full ml-44 mr-64">
   <div class="container ml-16 mx-auto px-4 py-8">
+    
     <form action="/update-user" method="post" class="space-y-4">
       <div class="flex flex-wrap">
-        <label for="name" class="w-full mb-2 text-xl font-extrabold text-gray-700">Name</label>
+        <label for="name" class="w-full mb-2 text-xl font-extrabold text-color1">Name</label>
         <input type="text" id="name" name="name" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="email" class="w-full mb-2 text-xl font-extrabold text-gray-700">Email Address</label>
+        <label for="email" class="w-full mb-2 text-xl font-extrabold text-color1">Email Address</label>
         <input type="email" id="email" name="email" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       
       <div class="flex flex-wrap">
-        <label for="branch" class="w-full mb-2 text-xl font-extrabold text-gray-700">Branch</label>
+        <label for="branch" class="w-full mb-2 text-xl font-extrabold text-color1">Branch</label>
         <input type="text" id="branch" name="branch" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="year" class="w-full mb-2 text-xl font-extrabold text-gray-700">Year</label>
+        <label for="year" class="w-full mb-2 text-xl font-extrabold text-color1">Year</label>
         <input type="text" id="year" name="year" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="skills" class="w-full mb-2 text-xl font-extrabold text-gray-700">Skills</label>
+        <label for="skills" class="w-full mb-2 text-xl font-extrabold text-color1">Skills</label>
         <input type="text" id="skills" name="skills" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="member_in" class="w-full mb-2 text-xl font-extrabold text-gray-700">Member In</label>
+        <label for="member_in" class="w-full mb-2 text-xl font-extrabold text-color1">Member In</label>
         <input type="text" id="member_in" name="member_in" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="organizer_in" class="w-full mb-2 text-xl font-extrabold text-gray-700">Office Bearer In</label>
+        <label for="organizer_in" class="w-full mb-2 text-xl font-extrabold text-color1">Office Bearer In</label>
         <input type="text" id="organizer_in" name="organizer_in" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="password" class="w-full mb-2 text-xl font-extrabold text-gray-700">Password</label>
+        <label for="password" class="w-full mb-2 text-xl font-extrabold text-color1">Password</label>
         <input type="password" id="password" name="password" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="confirm_password" class="w-full mb-2 text-xl font-extrabold text-gray-700">Confirm Password</label>
+        <label for="confirm_password" class="w-full mb-2 text-xl font-extrabold text-color1">Confirm Password</label>
         <input type="password" id="confirm_password" name="confirm_password" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       
       <div class="flex flex-wrap">
-        <label for="about" class="w-full mb-2 text-xl font-extrabold text-gray-700">About</label>
+        <label for="about" class="w-full mb-2 text-xl font-extrabold text-color1">About</label>
         <textarea id="about" name="about" rows="4" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"></textarea>
       </div>
       <div class="flex flex-wrap">
-        <label for="links" class="w-full mb-2 text-xl font-extrabold text-gray-700">Link</label>
+        <label for="links" class="w-full mb-2 text-xl font-extrabold text-color1">Link</label>
         <input type="url" id="links" name="links" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
       <div class="flex flex-wrap">
-        <label for="profile_picture" class="w-full mb-2 text-xl font-extrabold text-gray-700">Profile Picture</label>
+        <label for="profile_picture" class="w-full mb-2 text-xl font-extrabold text-color1">Profile Picture</label>
         <input type="file" id="profile_picture" name="profile_picture" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
       </div>
-      <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-blue-500">Save Changes</button>
+      <button type="submit" class="w-full py-2 px-4 bg-color2 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-blue-500">Save Changes</button>
     </form>
   </div>
 </div>

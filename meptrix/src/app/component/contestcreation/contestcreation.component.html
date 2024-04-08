@@ -1,12 +1,12 @@
 
-<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+<nav class="bg-color3 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
+            <span class="self-center text-2xl text-color1 font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
         </a>
         <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button"   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
+            <button type="button"   class="text-white bg-color2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -16,8 +16,8 @@
         </div>
     </div>
 </nav>
-<section class="max-h-fit bg-purple-200 mt-20  ">
-  <h1 class="text-6xl text-center font-extrabold leading-tight tracking-tight text-gray-900 md:text-6xl dark:text-white">
+<section class="max-h-fit bg-color4 mt-20  ">
+  <h1 class="text-6xl text-center font-extrabold leading-tight tracking-tight text-color1 md:text-6xl dark:text-white">
     Create a Contest
 </h1>
     <div class="h-full ">
@@ -35,7 +35,7 @@
             
             <!-- Contest Name input -->
             <div class="mb-4">
-              <label for="contestname" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Contest Name:</label>
+              <label for="contestname" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Contest Name:</label>
               <input formControlName="contestname" type="text" id="contestname"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Contest Name" required>
               <div *ngIf="contestForm.controls['contestname'].invalid && (contestForm.controls['contestname'].dirty || contestForm.controls['contestname'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['contestname'].errors && contestForm.controls['contestname'].errors['required']">
@@ -45,7 +45,7 @@
             </div>
             <!-- Contest Club Host-->
             <div class="mb-4">
-              <label for="clubevent" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Enter the Hosting Club:</label>
+              <label for="clubevent" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Enter the Hosting Club:</label>
               <input formControlName="clubevent" type="text" id="clubevent"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Club Name" required>
               <div *ngIf="contestForm.controls['clubevent'].invalid && (contestForm.controls['clubevent'].dirty || contestForm.controls['clubevent'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['clubevent'].errors && contestForm.controls['clubevent'].errors['required']">
@@ -55,7 +55,7 @@
             </div>
             <!-- Contest Student Host input -->
             <div class="mb-4">
-              <label for="studentevent" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Enter the name of Student Hosting:</label>
+              <label for="studentevent" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Enter the name of Student Hosting:</label>
               <input formControlName="studentevent" type="text" id="studentevent"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Student Name" required>
               <div *ngIf="contestForm.controls['studentevent'].invalid && (contestForm.controls['studentevent'].dirty || contestForm.controls['studentevent'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['studentevent'].errors && contestForm.controls['studentevent'].errors['required']">
@@ -65,7 +65,7 @@
             </div>
             <!-- Contest Venue input -->
             <div class="mb-4">
-              <label for="contestvenue" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Contest Venue:</label>
+              <label for="contestvenue" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Contest Venue:</label>
               <input formControlName="contestvenue" type="text" id="contestvenue"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Contest" required>
               <div *ngIf="contestForm.controls['contestvenue'].invalid && (contestForm.controls['contestvenue'].dirty || contestForm.controls['contestvenue'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['contestvenue'].errors && contestForm.controls['contestvenue'].errors['required']">
@@ -75,7 +75,7 @@
             </div>
             <!-- Contest Date input -->
             <div class="mb-4">
-              <label for="contestdate" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Contest Date:</label>
+              <label for="contestdate" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Contest Date:</label>
               <input formControlName="contestdate" type="date" id="contestdate"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" required>
               <div *ngIf="contestForm.controls['contestdate'].invalid && (contestForm.controls['contestdate'].dirty || contestForm.controls['contestdate'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['contestdate'].errors && contestForm.controls['contestdate'].errors['required']">
@@ -85,7 +85,7 @@
             </div>
             <!-- Contest Time input -->
             <div class="mb-4">
-              <label for="contesttime" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Contest timing:</label>
+              <label for="contesttime" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Contest timing:</label>
               <input formControlName="contesttime" type="time" id="contesttime"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline"  required>
               <div *ngIf="contestForm.controls['contesttime'].invalid && (contestForm.controls['contesttime'].dirty || contestForm.controls['contesttime'].touched)" class="mt-1 text-red-500">
                 <div *ngIf="contestForm.controls['contesttime'].errors && contestForm.controls['contesttime'].errors['required']">
@@ -95,7 +95,7 @@
             </div>
             <!-- Contest Short Descripition-->
             <div class="mb-4">
-              <label for="contestshortdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Short Descripition:</label>
+              <label for="contestshortdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Short Descripition:</label>
               <!--<input formControlName="shortdescripition" type="textbox" id="shortdescripition"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Email ID" required>-->
               <textarea formControlName="contestshortdescripition" maxlength="100" rows="4" cols="64" name="contestshortdescripition" required placeholder="Enter text here.."></textarea>
               <div *ngIf="contestForm.controls['contestshortdescripition'].invalid && (contestForm.controls['contestshortdescripition'].dirty || contestForm.controls['contestshortdescripition'].touched)" class="mt-1 text-red-500">
@@ -106,7 +106,7 @@
             </div>
             <!-- Contest Descripition-->
             <div class="mb-4">
-              <label for="contestdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-gray-700">Descripition:</label>
+              <label for="contestdescripition" class="block mb-2  font-extrabold exampleFormControlInput22 text-color1">Descripition:</label>
               <!--<input formControlName="descripition" type="textbox" id="shortdescripition"  class="w-full px-3 py-2 border rounded focus:outline-none focus:shadow-outline" placeholder="Enter Email ID" required>-->
               <textarea formControlName="contestdescripition" maxlength="1000" rows="8" cols="64" name="contestdescripition" required placeholder="Enter text here.."></textarea>
               <div *ngIf="contestForm.controls['contestdescripition'].invalid && (contestForm.controls['contestdescripition'].dirty || contestForm.controls['contestdescripition'].touched)" class="mt-1 text-red-500">
@@ -118,7 +118,7 @@
             <!-- Image input -->
             <div class="mb-4">
             <label
-                class=" font-extrabold exampleFormControlInput22 block mb-2 text-gray-700 ">Contest Notice:</label>
+                class=" font-extrabold exampleFormControlInput22 block mb-2 text-color1 ">Contest Notice:</label>
                 <input type="file" id="image_input"
                 class="block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-neutral-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0"
                 name="contestimg" accept="image/*">
@@ -133,7 +133,7 @@
                 type="button"
                 [disabled]="contestForm.invalid"
                 
-                class="inline-block w-full pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-purple-400 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+                class="inline-block w-full pt-3 pb-2 text-sm font-medium leading-normal text-white uppercase transition duration-150 ease-in-out bg-color2 rounded bg-primary px-7 shadow-primary-3 hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
                 data-twe-ripple-init
                 data-twe-ripple-color="light">
                 Create
