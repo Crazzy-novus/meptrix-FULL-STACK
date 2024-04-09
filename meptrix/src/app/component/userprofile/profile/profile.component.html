@@ -2,7 +2,9 @@
 <app-navbar></app-navbar>
 <section class="flex flex-col py-12 sm:flex-row sm:pl-20">
   <div class="sm:w-2/6 ">
-    <app-profie-phot-card [userDetails]="userDetails"></app-profie-phot-card>
+    <app-profie-phot-card [userDetails]="userDetails"
+    (EditUser)="showEdit()"
+    ></app-profie-phot-card>
     <app-profie-clubs-card></app-profie-clubs-card>
 
   </div>
@@ -10,10 +12,23 @@
 
   <!-- Second column for laptops and full column for mobile -->
   <div class="sm:pr-16 sm:flex-1">
-    <app-profie-about-card [about]="userDetails?.about" [skills]="userDetails?.skills"></app-profie-about-card>
+    <app-profie-about-card [about]="userDetails?.about" [skills]="userDetails?.skills"
+    (EditUser)="showEdit()">
+    </app-profie-about-card>
     <app-skills></app-skills>
   </div>
 
 
 
+
+
 </section>
+<div class="absolute flex items-center justify-center p-4 pt-80 inset-4" *ngIf="showEditComponent">
+  <ng-container >
+    <app-edituser [userDetails]="userDetails"
+      (updateUser)="updateUser()"
+      (cancelEdit)="cancelEdit()">
+    </app-edituser>
+  </ng-container>
+</div>
+

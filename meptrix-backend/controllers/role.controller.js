@@ -24,8 +24,10 @@ export const createRole = async (req, res, next) => {
 }
 
 export const updateRole = async (req, res, next) => {
+    
     try {
         const role = await Role.findById({_id: req.params.id});  // To get particular id from DB
+        
         if (role) {
             const newData = await Role.findByIdAndUpdate(
                 req.params.id,
@@ -41,7 +43,7 @@ export const updateRole = async (req, res, next) => {
 
     }
     catch (error) {
-        return next(CreateError(404, "Server error ::: ", error.message)); // send an error message
+        return next(CreateError(404, "Server error ::: ", error)); // send an error message
 
     }
 }  

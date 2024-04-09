@@ -81,4 +81,14 @@ export class AuthService {
       map(response => response.data)
     );
   }
+
+  updateRoleService(Userobj: any): Observable<any> {
+    console.log(Userobj);
+    return this.http.put<any>(`${apiurls.UserServiceApi}updateuser/${Userobj.id}`, Userobj, {withCredentials: true});
+  }
+
+  updateUserService(Userobj: any): Observable<any> {
+    console.log(Userobj);
+    return this.http.put<any>(`${apiurls.UserServiceApi}updateuserdetails/${Userobj._id}`, Userobj, {withCredentials: true});
+  }
 }

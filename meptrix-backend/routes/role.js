@@ -1,4 +1,5 @@
 import express from 'express';
+import { verifyAdmin } from '../utils/verifyToken.js';
 
 import { createRole, getAllRoles, updateRole, deleteRole } from '../controllers/role.controller.js';
 
@@ -12,7 +13,7 @@ const router = express.Router();  // Through router we can create get post metho
 router.post("/create", createRole );
 
 // Update role in DB
-router.put("/update/:id", updateRole);
+router.put("/update/:id", verifyAdmin, updateRole);
 
 // Get all roles from DB
 router.get('/getAll', getAllRoles);

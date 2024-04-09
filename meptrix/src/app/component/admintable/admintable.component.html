@@ -66,7 +66,7 @@
       <td class="p-4 border-b border-blue-gray-50">
         <div class="w-max">
           <div class="relative grid items-center px-2 py-1 font-sans text-xs font-bold text-green-900 uppercase rounded-md select-none whitespace-nowrap bg-green-500/20" style="opacity: 1;">
-            <span class="">{{item.roles.role}}</span>
+            <span class="">{{item.roles[0].role}}</span>
           </div>
         </div>
       </td>
@@ -91,10 +91,12 @@
     [profile]="selectedItem.profile"
     [name]="selectedItem.name"
     [email]="selectedItem.email"
-    [role]="selectedItem.role"
-    (updateClicked)="updateItem()"
-    (deleteClicked)="deleteItem()"
+    [role]="selectedItem.roles[0].role"
+    [_id]="selectedItem._id"
+
     (cancelClicked)="cancelEdit()"
+    (updateClicked)="updateItem($event)"
+    (deleteClicked)="deleteItem()"
   ></app-edit-card>
 </ng-container>
 

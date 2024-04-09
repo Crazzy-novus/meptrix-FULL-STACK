@@ -13,8 +13,8 @@ import { AuthService } from '../../../../services/auth.service';
     imports: [ContestComponent, AboutComponent, EventListComponent, BannerComponent]
 })
 export class MainComponent {
-  eventType1 = "Co Curricular";
-  eventType2 = "Extra Curricular";
+  eventType1 = "co-curricular";
+  eventType2 = "Extra-Curricular";
 
   authService = inject(AuthService);
   events: any[] = []
@@ -22,10 +22,12 @@ export class MainComponent {
   extraCurricularEvents: any[] = [];
 
   ngOnInit() {
-    this.authService.getClubsService().subscribe((EventDetails => {
+    this.authService.getAllEventService().subscribe((EventDetails => {
     this.events = EventDetails;
-    this.coCurricularEvents = this.events.filter((event) => event.type === this.eventType1);
-    this.extraCurricularEvents = this.events.filter((event) => event.type === this.eventType2);
+
+    this.coCurricularEvents = this.events.filter((event) => event.eventtype == this.eventType1);
+
+    this.extraCurricularEvents = this.events.filter((event) => event.eventtype == this.eventType2);
   } ));
 }
 

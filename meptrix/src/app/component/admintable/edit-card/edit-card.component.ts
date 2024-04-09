@@ -1,5 +1,6 @@
+import { AuthService } from './../../../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -15,18 +16,40 @@ export class EditCardComponent {
   @Input() name: string = '';
   @Input() email: string = '';
   @Input() role: string = '';
-  @Output() updateClicked = new EventEmitter<void>();
-  @Output() deleteClicked = new EventEmitter<void>();
+  @Input() _id: string = '';
   @Output() cancelClicked = new EventEmitter<void>();
+  @Output() updateClicked = new EventEmitter<{id: string, role: string}>();
+  @Output() deleteClicked = new EventEmitter<void>();
 
-  roles: string[] = ['Admin', 'User', 'Moderator'];
+  authService = inject(AuthService);
+
+  roles: string[] = ['admin', 'student', 'staff', 'ob'];
 
   update(): void {
-    this.updateClicked.emit();
+
+    const updatedRow = {
+      id: this._id,
+      role: this.role
+    };
+    this.authService.updateRoleService(updatedRow).subscribe({
+      next: (res) => {
+
+        alert("User Role Updated  Successfully!");
+
+
+        this.updateClicked.emit(updatedRow);
+      },
+      error: (err) => {
+        console.log (err);
+        alert(err.error);
+      }
+    })
+
+
   }
 
   delete(): void {
-    this.deleteClicked.emit();
+
   }
 
   cancel(): void {

@@ -57,10 +57,13 @@ filterData(): void {
 editItem(item: any): void {
   this.showEditCard = true;
   this.selectedItem = item;
+
 }
 
 // Method to handle update button click
-updateItem(): void {
+updateItem(updatedRow: { id: string; role: string; }){
+  this.showEditCard = false;
+  this.selectedItem.roles[0].role = updatedRow.role;
   // Implement update logic here
 }
 
