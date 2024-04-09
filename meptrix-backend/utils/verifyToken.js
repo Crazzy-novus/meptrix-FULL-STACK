@@ -45,8 +45,11 @@ export const verifyUser = (req, res, next) => {
 export const verifyAdmin = (req, res, next) => {
 
     // verify the cookiee token
+    
     verifyToken(req, res, () => {
+        
         if (req.user.isAdmin) {
+            
             next();
         }
         else{

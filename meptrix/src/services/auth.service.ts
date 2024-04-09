@@ -43,6 +43,13 @@ export class AuthService {
     );
   }
 
+  getAllUserDetails(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.UserServiceApi}`, { withCredentials: true}).pipe(
+      map(response => response.data)
+    );
+  }
+
   addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
   }
@@ -57,7 +64,21 @@ export class AuthService {
     return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
   }
 
+  getAllEventService(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(
+      map(response => response.data)
+    );
+  }
+
   createContest(contestData: any): Observable<any> {
     return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
+  }
+
+  getContestService(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.ContestServiceApi}getallcontest`).pipe(
+      map(response => response.data)
+    );
   }
 }

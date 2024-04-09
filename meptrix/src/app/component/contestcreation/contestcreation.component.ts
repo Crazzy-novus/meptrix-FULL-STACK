@@ -27,6 +27,7 @@ export class ContestcreationComponent implements OnInit {
     this.contestForm = this.fb.group({
       contestname: ['', Validators.required],
       clubevent: ['', Validators.required],
+      contesttype: ['', Validators.required],
       studentevent: ['', Validators.required],
       contestvenue: ['', Validators.required],
       contestdate: ['', Validators.required],

@@ -5,5 +5,6 @@ export const apiurls = { // API URLs for the application to communicate with the
   EventServiceApi: 'http://localhost:3000/api/event/',
   ContestServiceApi: 'http://localhost:3000/api/contest/'
 
+
 }
 

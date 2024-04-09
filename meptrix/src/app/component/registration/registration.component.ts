@@ -11,6 +11,8 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
+
+
 export class RegistrationComponent {
   fb = inject(FormBuilder);
   registerForm !: FormGroup;
