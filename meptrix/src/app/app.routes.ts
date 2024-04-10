@@ -16,6 +16,8 @@ import { EventcreationComponent } from './component/eventcreation/eventcreation.
 import { ContestcreationComponent } from './component/contestcreation/contestcreation.component';
 import { AddclubComponent } from './component/admin/addclub/addclub.component';
 import { AdmintableComponent } from './component/admintable/admintable.component';
+import { ApplyclubComponent } from './component/applyclub/applyclub.component';
+import { EditprofileComponent } from './component/editprofile/editprofile.component';
 
 
 export const routes: Routes = [
@@ -27,11 +29,17 @@ export const routes: Routes = [
     'path': '', redirectTo: 'home', pathMatch: 'full', title: 'Langing Page'
   },
   */
-  {
+  {   
     'path': 'register', component: RegistrationComponent, title: 'UserRegister'
   },
   {
     'path': 'admintable', component: AdmintableComponent, title: 'Admintable'
+  },
+  {
+    'path': 'editprofile', component: EditprofileComponent, title: 'Edit Profile'
+  },
+  {
+    'path': 'applyclub', component: ApplyclubComponent, title: 'Apply club'
   },
   {
     'path': 'eventcreate', component: EventcreationComponent, title: 'EventCreate'
