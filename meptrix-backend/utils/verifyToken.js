@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { CreateError } from './error.js';
 import { CreateSuccess } from './success.js';
+import Role from '../models/Role.js';
 
 
 export const verifyToken = (req, res, next) => {
@@ -45,12 +46,35 @@ export const verifyUser = (req, res, next) => {
 export const verifyAdmin = (req, res, next) => {
 
     // verify the cookiee token
+    
     verifyToken(req, res, () => {
+        
         if (req.user.isAdmin) {
+            
             next();
         }
         else{
             return next(CreateError(403, "Not authorized********"));
+        }
+        
+    });
+}
+
+export const verifyStaff = (req, res, next) => {
+
+    // verify the cookiee token
+    
+    verifyToken(req, res, async () => {
+        const staffRole = await Role.findOne({ role: 'staff' });
+        if (!staffRole) {
+        console.log('Staff role not found');
+        return next(CreateError(403, " Staff Not authorized********"));
+        }    
+        
+        if (req.user.roles[0]._id == staffRole._id) {
+            next();
+        } else {
+            return next(CreateError(403, " staff 1 Not authorized********"));
         }
         
     });

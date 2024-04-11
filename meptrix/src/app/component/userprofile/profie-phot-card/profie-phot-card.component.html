@@ -3,13 +3,12 @@
   <div class="relative max-w-md px-8 py-4 mt-20 mb-5 bg-white border-t rounded-lg shadow-sm border-y border-s border-e hover:shadow-black border-blue-950">
 
     <div class="flex justify-center -mt-16 sm:justify-start ">
-      <div class="absolute mt-2 mr-2 rounded-lg right-5 top-5 sm:top-5 hover:bg-gray-300 hover:p-2">
-        <a href="/your/target/page">
+      <div class="absolute mt-2 mr-2 rounded-lg right-5 top-5 sm:top-5 hover:bg-gray-300 hover:p-2"  (click)="editClicked()">
+
 
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 sm:w-6 sm:h-6">
             <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
           </svg>
-    </a>
       </div>
       <img class="object-cover border-2 border-indigo-500 rounded-full w-28 h-28 sm:w-36 sm:h-36" [src]="userDetails?.profileImage">
     </div>

@@ -18,7 +18,7 @@ export class ContestcreationComponent implements OnInit {
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   fb = inject(FormBuilder);
   isLoading = false;
-  ImageStorageService = inject(ImageStorageService);
+  imageStorageService = inject(ImageStorageService);
 
 
 
@@ -27,6 +27,7 @@ export class ContestcreationComponent implements OnInit {
     this.contestForm = this.fb.group({
       contestname: ['', Validators.required],
       clubevent: ['', Validators.required],
+      contesttype: ['', Validators.required],
       studentevent: ['', Validators.required],
       contestvenue: ['', Validators.required],
       contestdate: ['', Validators.required],
@@ -44,7 +45,7 @@ export class ContestcreationComponent implements OnInit {
     if (file) {
       var result: string | boolean;
       this.isLoading = true;
-      result = await this.ImageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname)
+      result = await this.imageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname)
       .then((res) => {
 
         return res;

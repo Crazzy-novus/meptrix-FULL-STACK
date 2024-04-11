@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventCardComponent } from "./event-card/event-card.component";
 import { FormsModule} from '@angular/forms';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
     selector: 'app-event-list',
@@ -12,10 +13,13 @@ import { FormsModule} from '@angular/forms';
     imports: [EventCardComponent, FormsModule, CommonModule]
 })
 
-export class EventListComponent {
+export class EventListComponent  {
+
+
 
   @Input() eventType: any;
-  events = [
+  @Input() events: any;
+  event = [
     {
       name: 'Event 1 ',
       time: '10:00 AM',

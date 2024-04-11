@@ -12,6 +12,7 @@ export const register  = async (req, res, next) => {
     //return next(CreateError(500,"My custom error!!"));
     try {
         const role = await Role.find({role: req.body.roles}); // find the role of the user
+        console.log(role)
         // check if the role exists
         const salt = await bcrypt.genSalt(10); // generate salt for hashing the password
         const hashedPassword = await bcrypt.hash(req.body.password, salt); // hash the password
@@ -24,6 +25,7 @@ export const register  = async (req, res, next) => {
     await newUser.save(); // save the user to the database
     return next(CreateSuccess(200, "User registered Successfully "));
     } catch (error) {
+        console.log(error.message)
         return next(CreateError(500, error.message));
     }
 }
@@ -32,28 +34,23 @@ export const login = async (req, res, next) => {
     try {
         const user = await User.findOne({email: req.body.email}).populate("roles", "role"); // find the user by email 
 
-        const {roles} = user; // get the role of the user
         if (!user) { // check if the user exists
             return next(CreateError(400, "User not found"));
         }
+        const {roles} = user; // get the role of the user
+
         const validPassword = await bcrypt.compare(req.body.password, user.password); // compare the password
         if (!validPassword) { // check if the password is valid
             return next(CreateError(400, "Invalid Password"));
         }
-        if (roles[0].role != req.body.roles) {
-            return next(CreateError(400, "Invalid Role"));
-        }
+        
         const token = jwt.sign({
             _id: user._id,
             roles: roles,
             isAdmin: user.isAdmin // create a token
         }, process.env.JWT_SECRET);
 
-        res.cookie("access_token", token, {httpOnly: true}).status(200).json({
-            status: 200,
-            message: "User logged in successfully",
-            data: user
-        }) ;// set the token in a cookie
+        res.cookie("access_token", token, {httpOnly: true});
         return next(CreateSuccess(200, "User registered Successfully  test goes here", user)); // send a success message
         
     } catch (error) {

@@ -31,17 +31,22 @@ export const createContest = async (req, res, next) => {
 
 
 export const  getAllContest = async (req, res, next) => {
+    
 
     try {
         const contests = await Contest.find({});  // Not specifing any condition to get all roles in the database
+    
         return next(CreateSuccess(200, "All contests fetch", contests));  // send a success message
 
     }
     catch (error) {
+    
         return next(CreateError(404, "Server error ::: ", error.message));  // send an error message
     }
 
 }
+
+
 export const deleteContest = async (req, res, next) => {
     try {
         const { name } = req.body;
