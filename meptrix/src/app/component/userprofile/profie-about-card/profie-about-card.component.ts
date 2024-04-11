@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProfieAboutCardComponent {
   @Input() about: string = "";
+  @Output() EditUser = new EventEmitter<void>();
 
   @Input() skills: Array<string> = [];
 
@@ -30,7 +31,7 @@ export class ProfieAboutCardComponent {
   }
 
   toggleDiv() {
-    this.showDiv = !this.showDiv;
+    this.EditUser.emit();
   }
 
 

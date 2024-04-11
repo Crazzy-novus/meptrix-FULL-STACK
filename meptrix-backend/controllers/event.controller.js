@@ -32,3 +32,13 @@ export const createEvent = async (req, res, next) => {
         return next(CreateError(500, "error", error));  
     }
 };
+
+// Function to get all events
+export const getAllEvents = async (req, res, next) => {
+    try {
+        const events = await Event.find();
+        return next(CreateSuccess(200, "Events fetched successfully", events));
+    } catch (error) {
+        return next(CreateError(500, "error", error));  
+    }
+};

@@ -22,6 +22,7 @@ export class AuthService {
       tap((res) => {
           if (res) {
               sessionStorage.setItem('userRole', loginObj.roles);
+              sessionStorage.setItem('userId', res.data._id);
           }
       })
   );
@@ -43,6 +44,13 @@ export class AuthService {
     );
   }
 
+  getAllUserDetails(url:String = ''): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.UserServiceApi}${url}`, { withCredentials: true}).pipe(
+      map(response => response.data)
+    );
+  }
+
   addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
   }
@@ -57,7 +65,31 @@ export class AuthService {
     return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
   }
 
+  getAllEventService(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(
+      map(response => response.data)
+    );
+  }
+
   createContest(contestData: any): Observable<any> {
     return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
+  }
+
+  getContestService(): Observable<any> {
+
+    return this.http.get<any>(`${apiurls.ContestServiceApi}getallcontest`).pipe(
+      map(response => response.data)
+    );
+  }
+
+  updateRoleService(Userobj: any): Observable<any> {
+    console.log(Userobj);
+    return this.http.put<any>(`${apiurls.UserServiceApi}updateuser/${Userobj.id}`, Userobj, {withCredentials: true});
+  }
+
+  updateUserService(Userobj: any): Observable<any> {
+    console.log(Userobj);
+    return this.http.put<any>(`${apiurls.UserServiceApi}updateuserdetails/${Userobj._id}`, Userobj, {withCredentials: true});
   }
 }

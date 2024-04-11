@@ -16,6 +16,7 @@ import { EventcreationComponent } from './component/eventcreation/eventcreation.
 import { ContestcreationComponent } from './component/contestcreation/contestcreation.component';
 import { AddclubComponent } from './component/admin/addclub/addclub.component';
 import { AdmintableComponent } from './component/admintable/admintable.component';
+import { EdituserComponent } from './component/userprofile/edituser/edituser.component';
 
 
 export const routes: Routes = [
@@ -69,6 +70,9 @@ export const routes: Routes = [
   },
   {
     'path': 'addclub', component: AddclubComponent, title: 'Add Club'
+  },
+  {
+    'path':'editUser', component: EdituserComponent, title: 'Edit User'
   }
 
 /*
