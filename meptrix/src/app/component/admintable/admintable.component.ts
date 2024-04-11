@@ -27,12 +27,21 @@ export class AdmintableComponent implements OnInit{
 
 
   ngOnInit(): void {
-    if (typeof window !== 'undefined') {
-      this.authservice.getAllUserDetails().subscribe((data) => {
+    if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined' && (window.sessionStorage.getItem('userRole') === 'super_admin' || window.sessionStorage.getItem('userRole') === 'admin')) {
+      // ...
+        this.authservice.getAllUserDetails().subscribe((data) => {
         this.data = data;
-        this.filteredData = [...this.data];
+        this.filteredData =this.data.filter(item => item.roles[0].role !== 'admin' && item.roles[0].role !== 'super_admin' && window.sessionStorage.getItem('userId') !== item._id);
       });
     }
+
+    else if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined' && sessionStorage.getItem('userRole') === 'staff') {
+      this.authservice.getAllUserDetails('staff').subscribe((data) => {
+        this.data = data;
+        this.filteredData =this.data.filter(item => item.roles[0].role !== 'admin' && item.roles[0].role !== 'super_admin' && item.roles[0].role !== 'staff');
+      });
+    }
+
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
   }

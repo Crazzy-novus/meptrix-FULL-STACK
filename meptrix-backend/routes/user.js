@@ -1,11 +1,13 @@
 import express from 'express';
 import { getAllUsers, getSingleUser, updateRole, updateUser } from '../controllers/user.controller.js';
-import { verifyUser, verifyAdmin } from '../utils/verifyToken.js';
+import { verifyUser, verifyAdmin, verifyStaff } from '../utils/verifyToken.js';
 
 const router = express.Router();
 
 // get all users
 router.get('/', verifyAdmin, getAllUsers);
+
+router.get('/staff', verifyStaff, getAllUsers);
 
 // get a single user
 router.get('/user', verifyUser, getSingleUser );

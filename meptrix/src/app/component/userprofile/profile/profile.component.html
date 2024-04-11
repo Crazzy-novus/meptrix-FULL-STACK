@@ -15,7 +15,16 @@
     <app-profie-about-card [about]="userDetails?.about" [skills]="userDetails?.skills"
     (EditUser)="showEdit()">
     </app-profie-about-card>
-    <app-skills></app-skills>
+
+    <div class="absolute flex items-center justify-center p-4 pt-80 inset-4" *ngIf="showEditComponent">
+      <ng-container >
+        <app-edituser [userDetails]="userDetails"
+          (updateUser)="updateUser()"
+          (cancelEdit)="cancelEdit()">
+        </app-edituser>
+      </ng-container>
+    </div>
+    <app-skills *ngIf="!showEditComponent"></app-skills>
   </div>
 
 
@@ -23,12 +32,5 @@
 
 
 </section>
-<div class="absolute flex items-center justify-center p-4 pt-80 inset-4" *ngIf="showEditComponent">
-  <ng-container >
-    <app-edituser [userDetails]="userDetails"
-      (updateUser)="updateUser()"
-      (cancelEdit)="cancelEdit()">
-    </app-edituser>
-  </ng-container>
-</div>
+
 

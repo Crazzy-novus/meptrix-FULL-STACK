@@ -22,6 +22,7 @@ export class AuthService {
       tap((res) => {
           if (res) {
               sessionStorage.setItem('userRole', loginObj.roles);
+              sessionStorage.setItem('userId', res.data._id);
           }
       })
   );
@@ -43,9 +44,9 @@ export class AuthService {
     );
   }
 
-  getAllUserDetails(): Observable<any> {
+  getAllUserDetails(url:String = ''): Observable<any> {
 
-    return this.http.get<any>(`${apiurls.UserServiceApi}`, { withCredentials: true}).pipe(
+    return this.http.get<any>(`${apiurls.UserServiceApi}${url}`, { withCredentials: true}).pipe(
       map(response => response.data)
     );
   }
