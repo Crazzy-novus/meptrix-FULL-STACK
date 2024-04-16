@@ -9,7 +9,7 @@ export const createEvent = async (req, res, next) => {
     try {
         
         // Find the club based on the club name
-        const club = await Clubs.findOne({ club_name: req.body.club_name }).select('_id');
+        const club = await Clubs.findOne({ club_name: req.body.club_name });
         
 
         // Check if the club exists
@@ -17,7 +17,7 @@ export const createEvent = async (req, res, next) => {
             console.error('Club not found');
             return;
         }
-        const event = new Event({clubId: club._id, ...req.body});
+        const event = new Event({clubId: club, ...req.body});
         // Save the event to the database
         try {
             const savedEvent = await event.save();

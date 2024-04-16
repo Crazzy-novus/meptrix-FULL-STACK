@@ -7,6 +7,10 @@ const RoleSchema = mongoose.Schema(
             type: String, 
             required: true 
         }, 
+        host_dept: {
+            type: String,
+            required: false
+        },
         logo: {
             type: String,
             required: false,

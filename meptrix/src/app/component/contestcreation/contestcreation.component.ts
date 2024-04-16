@@ -45,7 +45,7 @@ export class ContestcreationComponent implements OnInit {
     if (file) {
       var result: string | boolean;
       this.isLoading = true;
-      result = await this.imageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname)
+      result = await this.imageStorageService.onFileSelected(file, this.contestForm.value.club_name, this.contestForm.value.eventname, 'contest')
       .then((res) => {
 
         return res;

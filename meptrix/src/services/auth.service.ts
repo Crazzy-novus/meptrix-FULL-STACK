@@ -11,6 +11,9 @@ export class AuthService {
 
   http = inject(HttpClient); // Injecting HttpClient service to make HTTP requests to the server side application (MEAN stack) using RESTful API endpoints
 
+  /* ***************************** POST URL  Start ****************************************** */
+
+
   registerService (registerObj: any){ // Register service to register a new user in the application using RESTful API endpoint
     return this.http.post<any>(`${apiurls.AuthServiceApi}register`, registerObj)
 
@@ -29,6 +32,68 @@ export class AuthService {
 
   }
 
+  addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
+    return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
+  }
+
+  createEvent(eventData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
+  }
+
+  createContest(contestData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
+  }
+
+  applyClubService(applicationData: any): Observable<any> {
+    return this.http.post<any>(`${apiurls.ApplicationServiceApi}createappliaction`, applicationData);
+  }
+/* ***************************** POST URL End ****************************************** */
+
+/* ***************************** GET URL  Start ****************************************** */
+getUserDetails(): Observable<any> {
+  return this.http.get<any>(`${apiurls.UserServiceApi}user`, { withCredentials: true}).pipe(
+    map(response => response.data)
+  );
+}
+
+getAllUserDetails(url:String = ''): Observable<any> {
+  return this.http.get<any>(`${apiurls.UserServiceApi}${url}`, { withCredentials: true}).pipe(
+    map(response => response.data)
+  );
+}
+
+getClubsService(): Observable<any> {
+  return this.http.get<any>(`${apiurls.ClubServiceApi}getallclubs`).pipe(
+    map(response => response.data)
+  );
+}
+
+getAllEventService(): Observable<any> {
+  return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(
+    map(response => response.data)
+  );
+}
+
+getContestService(): Observable<any> {
+  return this.http.get<any>(`${apiurls.ContestServiceApi}getallcontest`).pipe(
+    map(response => response.data)
+  );
+}
+
+getApplicationService(applicationData: any): Observable<any> {
+
+  return this.http.get<any>(`${apiurls.ApplicationServiceApi}getapplications/${applicationData.UserId}/${applicationData.clubId}`,  { withCredentials: true}).pipe(
+    map(response => response.data)
+  );
+}
+getallApplicationService(): Observable<any> {
+  return this.http.get<any>(`${apiurls.ApplicationServiceApi}getallapplications`, { withCredentials: true}).pipe(
+    map(response => response.data)
+  );
+}
+
+/* ***************************** GET URL ENDS ****************************************** */
+
   sendEmailService (email: string) {
     return this.http.post<any>(`${apiurls.AuthServiceApi}sendemail`, {email: email});
   }
@@ -37,59 +102,32 @@ export class AuthService {
     return this.http.post<any>(`${apiurls.AuthServiceApi}resetpassword`,resetObj);
   }
 
-  getUserDetails(): Observable<any> {
+  /* ***************************** PUT URL Starts ****************************************** */
 
-    return this.http.get<any>(`${apiurls.UserServiceApi}user`, { withCredentials: true}).pipe(
-      map(response => response.data)
-    );
-  }
-
-  getAllUserDetails(url:String = ''): Observable<any> {
-
-    return this.http.get<any>(`${apiurls.UserServiceApi}${url}`, { withCredentials: true}).pipe(
-      map(response => response.data)
-    );
-  }
-
-  addClubService (clubObj: any){ // Register service to register a new user in the application using RESTful API endpoint
-    return this.http.post<any>(`${apiurls.ClubServiceApi}createclub`, clubObj);
-  }
-
-  getClubsService(): Observable<any> {
-
-    return this.http.get<any>(`${apiurls.ClubServiceApi}getallclubs`).pipe(
-      map(response => response.data)
-    );
-  }
-  createEvent(eventData: any): Observable<any> {
-    return this.http.post<any>(`${apiurls.EventServiceApi}createevent`, eventData);
-  }
-
-  getAllEventService(): Observable<any> {
-
-    return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(
-      map(response => response.data)
-    );
-  }
-
-  createContest(contestData: any): Observable<any> {
-    return this.http.post<any>(`${apiurls.ContestServiceApi}createcontest`, contestData);
-  }
-
-  getContestService(): Observable<any> {
-
-    return this.http.get<any>(`${apiurls.ContestServiceApi}getallcontest`).pipe(
-      map(response => response.data)
-    );
-  }
 
   updateRoleService(Userobj: any): Observable<any> {
-    console.log(Userobj);
+
     return this.http.put<any>(`${apiurls.UserServiceApi}updateuser/${Userobj.id}`, Userobj, {withCredentials: true});
   }
 
   updateUserService(Userobj: any): Observable<any> {
-    console.log(Userobj);
     return this.http.put<any>(`${apiurls.UserServiceApi}updateuserdetails/${Userobj._id}`, Userobj, {withCredentials: true});
+  }
+
+  updateClubService(clubObj: any): Observable<any> {
+    return this.http.put<any>(`${apiurls.ClubServiceApi}updateclub/${clubObj._id}`, clubObj, {withCredentials: true});
+  }
+
+  approvedApplicationService(applicationObj: any, applicationId: string): Observable<any> {
+    return this.http.put<any>(`${apiurls.ApplicationServiceApi}approved/${applicationId}`, applicationObj, {withCredentials: true});
+  }
+
+  /* ***************************** PUT URL ENDS ****************************************** */
+
+
+  /* ***************************** DELETE URL Starts ****************************************** */
+
+  deleteApplicationService(applicationId: string): Observable<any> {
+    return this.http.delete<any>(`${apiurls.ApplicationServiceApi}deleteapplication/${applicationId}`, {withCredentials: true});
   }
 }

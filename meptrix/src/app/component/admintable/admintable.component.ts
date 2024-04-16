@@ -22,7 +22,6 @@ export class AdmintableComponent implements OnInit{
 
 
   authservice = inject(AuthService);
-  cdr = inject(ChangeDetectorRef);
 
 
 

@@ -13,6 +13,6 @@ router.post("/createclub", createClub );
 router.get("/getallclubs", getAllClubs);
 
 // update a club
-router.put('/updateclub',  updateClub);
+router.put('/updateclub/:id',  updateClub);
 
 export default router; // Exporting the router so it could be used in server file

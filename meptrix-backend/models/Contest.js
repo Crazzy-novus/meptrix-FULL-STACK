@@ -10,6 +10,10 @@ const contestSchema = new Schema({
   contestshortdescription: { type: String, required: true, maxlength: 100 },
   contestdescripition: { type: String, required: false, maxlength: 1000 },
   img: { type: String, required: true }, // This assumes the image is stored as a URL or file path
-});
+},
+{
+  timestamps: true  // To store creared or modifiesd time of the record
+}
+);
 
 export default mongoose.model('Contest', contestSchema);

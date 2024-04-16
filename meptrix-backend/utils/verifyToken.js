@@ -7,6 +7,7 @@ import Role from '../models/Role.js';
 export const verifyToken = (req, res, next) => {
 
     // verify the cookiee token
+    
     const token = req.cookies.access_token;
     if (!token) {
         return next(CreateError(401, "You are nto authenticated!"));
@@ -16,6 +17,7 @@ export const verifyToken = (req, res, next) => {
             return next(CreateError(403, "Token is not valid!"));
         }
         else{
+            
             req.user = user;
         }
         next();
@@ -29,7 +31,7 @@ export const verifyUser = (req, res, next) => {
         
         try {
             if (req.user._id || req.user.isAdmin ) {
-                
+               
                 next();
             }
             else{
@@ -68,13 +70,13 @@ export const verifyStaff = (req, res, next) => {
         const staffRole = await Role.findOne({ role: 'staff' });
         if (!staffRole) {
         console.log('Staff role not found');
-        return next(CreateError(403, " Staff Not authorized********"));
+        return next(CreateError(403, " Role Not Found"));
         }    
-        
+       
         if (req.user.roles[0]._id == staffRole._id) {
             next();
         } else {
-            return next(CreateError(403, " staff 1 Not authorized********"));
+            return next(CreateError(403, req.user.roles[0].role+" Not authorized"));
         }
         
     });

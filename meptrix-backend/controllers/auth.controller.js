@@ -43,6 +43,9 @@ export const login = async (req, res, next) => {
         if (!validPassword) { // check if the password is valid
             return next(CreateError(400, "Invalid Password"));
         }
+        if (req.body.roles !== roles[0].role) {
+            return next(CreateError(400, "Invalid Role"));
+        }
         
         const token = jwt.sign({
             _id: user._id,

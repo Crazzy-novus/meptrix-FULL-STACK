@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
       this.authService.updateUserService(this.userDetails).subscribe( {
         next: (res) => {
           alert('User Details Updated Successfully!');
-          this.userDetails = this.userDetails;
+          //this.userDetails = this.userDetails;
           this.hideEdit();
         },
         error: (err) => {
