@@ -22,6 +22,7 @@ import { EditprofileComponent } from './component/editprofile/editprofile.compon
 import { EdituserComponent } from './component/userprofile/edituser/edituser.component';
 import { EditclubComponent } from './component/club-description/editclub/editclub.component';
 import { StaffTableComponent } from './component/staffView/staff-table/staff-table.component';
+import { EventregistrationComponent } from './component/eventregistration/eventregistration.component';
 
 
 
@@ -89,8 +90,10 @@ export const routes: Routes = [
   },
   {
     'path': 'stafftable', component: StaffTableComponent, title: 'Staff Table',
+  },
+  {
+    'path': 'eventreg', component:EventregistrationComponent, title: 'Staff Table',
   }
-
 /*
   {
     'path': '', component: HomeComponent,
