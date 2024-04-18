@@ -8,10 +8,10 @@ import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage
 export class ImageStorageService {
   storage = inject(Storage);
 
-  async onFileSelected(file: any, club_name: string, eventname: string)  {
+  async onFileSelected(file: any, club_name: string, eventname: string, type: string = 'event')  {
     if (file) {
       try {
-        const filePath = 'events/' + club_name + '/' + new Date().getTime() + '_' + eventname;
+        const filePath = type + '/' + club_name + '/' + new Date().getTime() + '_' + eventname;
         const storageRef = ref(this.storage, filePath);
         const uploadTask = await uploadBytes(storageRef, file);
         const downloadURL = await getDownloadURL(uploadTask.ref);

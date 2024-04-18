@@ -6,14 +6,15 @@ import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } 
 
 import { AuthService } from '../../../services/auth.service';
 import { ImageStorageService } from '../../../services/VertexAI/imageStorage/image-storage.service';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 
 @Component({
-  selector: 'app-eventcreation',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './eventcreation.component.html',
-  styleUrl: './eventcreation.component.css'
+    selector: 'app-eventcreation',
+    standalone: true,
+    templateUrl: './eventcreation.component.html',
+    styleUrl: './eventcreation.component.css',
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, NavbarComponent]
 })
 
 export class EventcreationComponent implements OnInit {

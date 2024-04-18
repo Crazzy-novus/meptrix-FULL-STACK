@@ -1,12 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { AuthService } from './../../../../services/auth.service';
+import { Component, Input, inject } from '@angular/core';
 import { ClubDetailsComponent } from "../club-details/club-details.component";
 import { ClubHeadComponent } from "../club-head/club-head.component";
 import { EventCardComponent } from "../../dashboard/event-list/event-card/event-card.component";
-import { FormsModule} from '@angular/forms';
+import { FormGroup, FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AboutComponent } from "../../about/about.component";
 import { ClubImagesComponent } from "../club-images/club-images.component";
 import { ActivatedRoute, Router } from '@angular/router';
+import { EditclubComponent } from "../editclub/editclub.component";
+import { ApplyclubComponent } from "../../applyclub/applyclub.component";
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 @Component({
@@ -14,81 +18,176 @@ import { ActivatedRoute, Router } from '@angular/router';
     standalone: true,
     templateUrl: './club-description.component.html',
     styleUrl: './club-description.component.css',
-    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent]
+    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent, EditclubComponent, ApplyclubComponent, NavbarComponent]
 })
 export class ClubDescriptionComponent {
-club: any;
+  showButton: boolean = false;
+  showEditComponent: boolean = false;
+  showJoinClubComponent: boolean = false;
+  applicationStatus: string = 'notJoined';
+  applicationData = {clubId: '', UserId: ''};
+  UserID: string | null = '';
+  club: any;
+  ModifiedClub: any;
+
+  authService = inject(AuthService);
+
+
 constructor(private route: ActivatedRoute, private router: Router) { }
 
-ngOnInit() {
-try {
-    this.club = history.state.data;
+  ngOnInit() {
+    try {
+        this.club = history.state.data;
+        this.ModifiedClub = {...this.club};
+        if (typeof window !== 'undefined') {
+          if (window.sessionStorage && (window.sessionStorage.getItem('userRole') === 'ob' || window.sessionStorage.getItem('userRole') === 'admin') || (window.sessionStorage.getItem('userRole') === 'staff')) {
+            this.showButton = true;
+          }
+          if (window.sessionStorage) {
+            this.UserID = window.sessionStorage.getItem('userId');
+            if (this.UserID){
+              this.applicationData.clubId = this.club._id;
+              this.applicationData.UserId = this.UserID;
+              this.authService.getApplicationService(this.applicationData).subscribe({
+                next: (res) => {
+                  console.log(res);
+                  if (res.status === 'approved') {
+                    this.applicationStatus = 'joined';
+                  } else if (res.status === 'pending') {
+                    this.applicationStatus = 'pending';
+                  } else {
+                    this.applicationStatus = 'notJoined';
+                  }
+                },
+                error: (err) => {
+                  console.log(err);
+                }
+              });
+            }
+          }
 
-} catch (error) {
-  console.log("Error occured");
+        }
 
-}
-}
 
-role = "Organizers";
-role1 = "Chair person";
-@Input() eventTense = "Past Event";
-  organizers = [
-    { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-    { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-    { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-    { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-    { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-    // Add more organizers as needed
-  ];
-  remainingEvents: any[] = [
-    // Additional events data
-    // ...
-  ];
 
-  events = [
-    {
-      name: 'Event 1 ',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 1 ',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 3',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 4',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 5',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 6',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-  ];
-
-    loadMoreEvents() {
-      // Load the remaining events when the button is clicked
-      this.events = [...this.events, ...this.remainingEvents];
+    } catch (error) {
+      console.log("Error occured");
     }
+
+  }
+
+  showEdit() {
+    this.showEditComponent = true;
+  }
+
+  hideEdit() {
+    this.showEditComponent = false;
+  }
+
+  updateClub() {
+    console.log('Ori:', this.club);
+      console.log('New:', this.ModifiedClub);
+
+    if (JSON.stringify(this.ModifiedClub) !== JSON.stringify(this.club)) {
+      // write Api qury to update user details
+      this.authService.updateClubService(this.ModifiedClub).subscribe( {
+        next: (res) => {
+          alert('User Details Updated Successfully!');
+
+          this.hideEdit();
+        },
+        error: (err) => {
+          console.log(err);
+          alert(err.error);
+          this.hideEdit();
+        }
+      })
+    } else {
+      console.log('Ori:', this.club);
+      console.log('New:', this.ModifiedClub);
+      alert('No changes made!');
+      this.hideEdit();
+    }
+
+  }
+
+  ShowEditScreen() {
+    this.showEditComponent = true;
+  }
+
+  cancelEdit() {
+    this.hideEdit();
+  }
+
+  joinClub() {
+    this.showJoinClubComponent = true;
+  }
+
+  cancelJoin() {
+
+    this.showJoinClubComponent = false;
+
+  }
+
+  role = "Organizers";
+  role1 = "Chair person";
+  @Input() eventTense = "Past Event";
+    organizers = [
+      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
+      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
+      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
+      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
+      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
+      // Add more organizers as needed
+    ];
+    remainingEvents: any[] = [
+      // Additional events data
+      // ...
+    ];
+
+    events = [
+      {
+        name: 'Event 1 ',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+      {
+        name: 'Event 1 ',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+      {
+        name: 'Event 3',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+      {
+        name: 'Event 4',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+      {
+        name: 'Event 5',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+      {
+        name: 'Event 6',
+        time: '10:00 AM',
+        place: 'Venue A',
+        photo: '/assets/assets/Landing Page_files/image.png'
+      },
+    ];
+
+      loadMoreEvents() {
+        // Load the remaining events when the button is clicked
+        this.events = [...this.events, ...this.remainingEvents];
+      }
 
 
 }

@@ -7,6 +7,7 @@ import UserRoute from './routes/user.js';
 import clubRoute from './routes/club.js';
 import EventRoute from './routes/event.js';
 import ContestRoute from './routes/contest.js';
+import ApplicationRoute from './routes/application.js';
 
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -31,6 +32,7 @@ server.use("/api/user", UserRoute);
 server.use("/api/club", clubRoute);
 server.use("/api/event", EventRoute);
 server.use("/api/contest", ContestRoute);
+server.use("/api/application", ApplicationRoute);
 
 // Error Handler Middleware
 
@@ -51,7 +53,7 @@ server.use((obj, req, res, next) => {
 // Database connection
 const ConnetMongoDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URL);
+        const conn = await mongoose.connect(process.env.MONGO_LOCAL);
         console.log('DB connected !!!!!!!!!!!!!!!');
     } catch (error) { 
        console.error('Error: ', error.message);

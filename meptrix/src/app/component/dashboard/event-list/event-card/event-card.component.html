@@ -1,6 +1,19 @@
-<div class="p-2 mb-6 ml-2 transition-transform transform bg-white rounded-md shadow-md max-w-fit sm:m-5 sm:p-4 hover:scale-105 hover:bg-yellow-200">
+<div class="p-2 mb-6 ml-2 transition-transform transform bg-white rounded-md shadow-md max-w-fit sm:m-5 sm:p-4 hover:scale-105 hover:bg-yellow-200" (click)="display()">
   <img [src]="event.img" alt="Event Photo" class="object-cover w-20 h-20 mb-4 rounded-md sm:w-fit sm:h-32">
   <p class="mb-2 text-sm font-bold sm:text-xl">{{ event.eventname }}</p>
   <p class="mb-2 text-gray-500">Time: {{ event.eventtime }}</p>
   <p class="text-gray-500">Venue: {{ event.eventvenue }}</p>
 </div>
+<!-- <div class=" card-container">
+  <div class="card">
+  <div class="img-content">
+    <img [src]="event.img" alt="Event Photo" class=" img-content">
+
+  </div>
+  <div class="content">
+    <p class="heading">{{ event.eventname }}</p>
+    <p class="mb-2 text-gray-500">Time: {{ event.eventtime }}</p>
+    <p class="text-gray-500">Venue: {{ event.eventvenue }}</p>
+  </div>
+</div>
+</div> -->

@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
-import { Component } from '@angular/core';
+
 
 import { HomeComponent } from './component/home/home.component';
-import { homedir } from 'os';
-import { profile } from 'console';
+
 import { ProfileComponent } from './component/userprofile/profile/profile.component';
 import { ClubDescriptionComponent } from './component/club-description/club-description/club-description.component';
 import { ClublistComponent } from './component/clublist-page/clublist/clublist.component';
@@ -21,38 +20,32 @@ import { ApplyclubComponent } from './component/applyclub/applyclub.component';
 import { EditprofileComponent } from './component/editprofile/editprofile.component';
 
 import { EdituserComponent } from './component/userprofile/edituser/edituser.component';
+import { EditclubComponent } from './component/club-description/editclub/editclub.component';
+import { StaffTableComponent } from './component/staffView/staff-table/staff-table.component';
 
 
 
 export const routes: Routes = [
 
   {
-    'path': '', redirectTo: 'register', pathMatch: 'full', title: 'UserRegistration'
+    'path': '', redirectTo: 'home', pathMatch: 'full', title: 'UserRegistration'
   },
  /* {
     'path': '', redirectTo: 'home', pathMatch: 'full', title: 'Langing Page'
   },
   */
-  {   
+  {
     'path': 'register', component: RegistrationComponent, title: 'UserRegister'
   },
   {
     'path': 'admintable', component: AdmintableComponent, title: 'Admintable'
   },
-  {
-    'path': 'editprofile', component: EditprofileComponent, title: 'Edit Profile'
-  },
-  {
-    'path': 'applyclub', component: ApplyclubComponent, title: 'Apply club'
-  },
+
   {
     'path': 'eventcreate', component: EventcreationComponent, title: 'EventCreate'
   },
   {
     'path': 'contestcreate', component: ContestcreationComponent, title: 'ContestCreate'
-  },
-  {
-    'path': 'admin', component: AdmintableComponent, title: 'AdminTable'
   },
 
   {
@@ -84,6 +77,18 @@ export const routes: Routes = [
   },
   {
     'path':'editUser', component: EdituserComponent, title: 'Edit User'
+  },
+  {
+    'path': 'editprofile', component: EditprofileComponent, title: 'Edit Profile'
+  },
+  {
+    'path': 'applyclub', component: ApplyclubComponent, title: 'Apply club'
+  },
+  {
+    'path': 'editclub', component: EditclubComponent, title: 'Edit Club'
+  },
+  {
+    'path': 'stafftable', component: StaffTableComponent, title: 'Staff Table',
   }
 
 /*

@@ -3,13 +3,14 @@ import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import {FormsModule} from '@angular/forms';
 import { EditCardComponent } from "./edit-card/edit-card.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
     selector: 'app-admintable',
     standalone: true,
     templateUrl: './admintable.component.html',
     styleUrl: './admintable.component.css',
-    imports: [CommonModule, FormsModule, EditCardComponent]
+    imports: [CommonModule, FormsModule, EditCardComponent, NavbarComponent]
 })
 export class AdmintableComponent implements OnInit{
   data: any[] = [];
@@ -22,7 +23,6 @@ export class AdmintableComponent implements OnInit{
 
 
   authservice = inject(AuthService);
-  cdr = inject(ChangeDetectorRef);
 
 
 

@@ -12,5 +12,9 @@ const eventSchema = new mongoose.Schema({
     shortdescription: { type: String, required: true, maxlength: 100 },
     description: { type: String, required: false, maxlength: 1000 },
     img: { type: String, required: false },
-  });
+  },
+  {
+    timestamps: true  // To store creared or modifiesd time of the record
+}
+);
   export default mongoose.model('Event', eventSchema);

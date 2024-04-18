@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 
 @Component({
-  selector: 'app-addclub',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './addclub.component.html',
-  styleUrl: './addclub.component.css'
+    selector: 'app-addclub',
+    standalone: true,
+    templateUrl: './addclub.component.html',
+    styleUrl: './addclub.component.css',
+    imports: [FormsModule, NavbarComponent]
 })
 export class AddclubComponent {
   clubData = {
