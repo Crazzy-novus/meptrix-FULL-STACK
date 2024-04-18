@@ -4,17 +4,18 @@ import { AboutComponent } from "../../about/about.component";
 import { EventListComponent } from "../event-list/event-list.component";
 import { BannerComponent } from "../banner/banner.component";
 import { AuthService } from '../../../../services/auth.service';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
     selector: 'app-main',
     standalone: true,
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
-    imports: [ContestComponent, AboutComponent, EventListComponent, BannerComponent]
+    imports: [ContestComponent, AboutComponent, EventListComponent, BannerComponent, NavbarComponent]
 })
 export class MainComponent {
   eventType1 = "co-curricular";
-  eventType2 = "Extra-Curricular";
+  eventType2 = "extra-curricular";
 
   authService = inject(AuthService);
   events: any[] = []
@@ -28,7 +29,7 @@ export class MainComponent {
     this.coCurricularEvents = this.events.filter((event) => event.eventtype == this.eventType1);
 
     this.extraCurricularEvents = this.events.filter((event) => event.eventtype == this.eventType2);
-  } ));
+  }));
 }
 
 }

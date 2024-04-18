@@ -3,13 +3,14 @@ import { takeUntil, catchError, of, Subject } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-applyclub',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './applyclub.component.html',
-  styleUrl: './applyclub.component.css'
+    selector: 'app-applyclub',
+    standalone: true,
+    templateUrl: './applyclub.component.html',
+    styleUrl: './applyclub.component.css',
+    imports: [CommonModule, FormsModule, NavbarComponent]
 })
 export class ApplyclubComponent {
 

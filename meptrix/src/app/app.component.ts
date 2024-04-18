@@ -7,6 +7,7 @@ import { ChatbotComponent } from "./component/chatbot/chatbot.component";
 import { ClubDescriptionComponent } from "./component/club-description/club-description/club-description.component";
 import { GetclubdetailsService } from '../services/clubsservice/getclubdetails.service';
 import { ToastrModule } from 'ngx-toastr';
+import { NavbarComponent } from "./component/navbar/navbar.component";
 
 
 @Component({
@@ -14,7 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, ClubCardComponent, ClublistComponent, ChatbotComponent, ClubDescriptionComponent, ToastrModule]
+    imports: [RouterOutlet, ClubCardComponent, ClublistComponent, ChatbotComponent, ClubDescriptionComponent, ToastrModule, NavbarComponent]
 })
 export class AppComponent {
   constructor (private clubDetails: GetclubdetailsService) {}

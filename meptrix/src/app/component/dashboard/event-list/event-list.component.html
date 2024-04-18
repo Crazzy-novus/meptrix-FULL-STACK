@@ -4,11 +4,12 @@
   <div class="flex flex-wrap bg-purple-200 sm:ml-6 sm:mr-6">
 
     <div class="mb-10 max-w-44 sm:max-w-fit sm:max-h-fit" *ngFor="let ev of events">
-      <marquee scrollAmount="3" direction="right" loop="1"behavior="slide">
-        <app-event-card [event]="ev" ></app-event-card>
-      </marquee>
+      <app-event-card [event]="ev" ></app-event-card>
 
     </div>
   </div>
 
 </div>
+<!--       <marquee scrollAmount="3" direction="right" loop="1"behavior="slide">
+        <app-event-card [event]="ev" ></app-event-card>
+      </marquee> -->

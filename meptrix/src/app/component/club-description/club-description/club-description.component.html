@@ -1,5 +1,5 @@
-
-<button (click)="ShowEditScreen()" *ngIf="showButton" class="absolute top-0 right-0 px-10 py-2 mt-4 mr-12 text-white bg-blue-500 rounded-md focus:outline-none">Edit Club</button>
+<app-navbar></app-navbar>
+<button (click)="ShowEditScreen()" *ngIf="showButton" class="absolute top-0 right-0 px-10 py-2 mt-24 mr-12 text-white bg-blue-500 rounded-md focus:outline-none">Edit Club</button>
 <app-club-head *ngIf="!showJoinClubComponent && !showEditComponent"
   [club]="club"
   [status] = "applicationStatus"

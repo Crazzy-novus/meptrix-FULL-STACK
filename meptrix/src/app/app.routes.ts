@@ -28,7 +28,7 @@ import { StaffTableComponent } from './component/staffView/staff-table/staff-tab
 export const routes: Routes = [
 
   {
-    'path': '', redirectTo: 'register', pathMatch: 'full', title: 'UserRegistration'
+    'path': '', redirectTo: 'home', pathMatch: 'full', title: 'UserRegistration'
   },
  /* {
     'path': '', redirectTo: 'home', pathMatch: 'full', title: 'Langing Page'

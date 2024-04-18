@@ -43,11 +43,11 @@ export class LoginComponent implements OnInit {
           alert("User Loged in");
           //console.log(res);
           //localStorage.setItem('token', res.token);
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/dashboard']);
         },
         error: (err) => {
           console.log (err);
-          alert(err.error);
+          alert("Invalid Credentials");
         }
       })
 

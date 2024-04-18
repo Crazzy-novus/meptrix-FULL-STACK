@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import { ClubCardComponent } from "../club-card/club-card.component";
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 
@@ -11,7 +12,7 @@ import { ClubCardComponent } from "../club-card/club-card.component";
     standalone: true,
     templateUrl: './clublist.component.html',
     styleUrl: './clublist.component.css',
-    imports: [FormsModule, CommonModule, ClubCardComponent]
+    imports: [FormsModule, CommonModule, ClubCardComponent, NavbarComponent]
 })
 export class ClublistComponent {
 

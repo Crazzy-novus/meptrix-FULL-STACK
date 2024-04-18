@@ -2,14 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 @Component({
-  selector: 'app-staff-table',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './staff-table.component.html',
-  styleUrl: './staff-table.component.css'
+    selector: 'app-staff-table',
+    standalone: true,
+    templateUrl: './staff-table.component.html',
+    styleUrl: './staff-table.component.css',
+    imports: [CommonModule, FormsModule, NavbarComponent]
 })
 export class StaffTableComponent {
   searchQuery: string = '';

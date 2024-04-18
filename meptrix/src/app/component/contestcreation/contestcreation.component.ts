@@ -4,13 +4,14 @@ import { Component,  OnInit, inject } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { ImageStorageService } from '../../../services/VertexAI/imageStorage/image-storage.service';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-contestcreation',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './contestcreation.component.html',
-  styleUrl: './contestcreation.component.css'
+    selector: 'app-contestcreation',
+    standalone: true,
+    templateUrl: './contestcreation.component.html',
+    styleUrl: './contestcreation.component.css',
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, NavbarComponent]
 })
 export class ContestcreationComponent implements OnInit {
 

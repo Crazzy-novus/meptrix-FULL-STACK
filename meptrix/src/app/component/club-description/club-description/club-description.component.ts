@@ -10,6 +10,7 @@ import { ClubImagesComponent } from "../club-images/club-images.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { EditclubComponent } from "../editclub/editclub.component";
 import { ApplyclubComponent } from "../../applyclub/applyclub.component";
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 @Component({
@@ -17,7 +18,7 @@ import { ApplyclubComponent } from "../../applyclub/applyclub.component";
     standalone: true,
     templateUrl: './club-description.component.html',
     styleUrl: './club-description.component.css',
-    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent, EditclubComponent, ApplyclubComponent]
+    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent, EditclubComponent, ApplyclubComponent, NavbarComponent]
 })
 export class ClubDescriptionComponent {
   showButton: boolean = false;

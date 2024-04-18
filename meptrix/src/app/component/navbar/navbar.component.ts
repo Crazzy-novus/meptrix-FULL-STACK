@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "../home/home.component";
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
-    imports: [RouterOutlet, HomeComponent, CommonModule]
+    imports: [RouterOutlet, HomeComponent, CommonModule, RouterModule]
 })
 
 export class NavbarComponent {
@@ -33,9 +33,10 @@ export class NavbarComponent {
   }
 
   protected  doNavigation(): void {
-    this.router.navigate(['/profile']);
-
-
+    this.router.navigate(['/login']);
+  }
+  protected  gotoStaffTable(): void {
+    this.router.navigate(['/stafftable']);
   }
 
 }

@@ -45,7 +45,7 @@ export const updateClub = async (req, res, next) => {
         const updateFields = req.body; // get the updated fields from the request body
         
         // Find the user by id and u pdate the specified fields
-        const updatedUser = await Clubs.findByIdAndUpdate(id, updateFields, { new: true });
+        const updatedUser = await club.findByIdAndUpdate(id, updateFields, { new: true });
 
         if (!updatedUser) {
             return next(CreateError(404, "User not found"));
