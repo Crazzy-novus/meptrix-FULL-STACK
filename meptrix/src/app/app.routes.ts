@@ -22,6 +22,8 @@ import { EditprofileComponent } from './component/editprofile/editprofile.compon
 import { EdituserComponent } from './component/userprofile/edituser/edituser.component';
 import { EditclubComponent } from './component/club-description/editclub/editclub.component';
 import { StaffTableComponent } from './component/staffView/staff-table/staff-table.component';
+import { EventregistrationComponent } from './component/dashboard/eventregistration/eventregistration.component';
+import { authguardGuard } from '../gaurd/authguard.guard';
 
 
 
@@ -55,10 +57,10 @@ export const routes: Routes = [
     'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'Dash Board'
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board', canActivate: [authguardGuard]
   },
   {
-    'path': 'profile', component: ProfileComponent, title: 'User Profile'
+    'path': 'profile', component: ProfileComponent, title: 'User Profile', canActivate: [authguardGuard]
   },
   {
     'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password'
@@ -67,10 +69,10 @@ export const routes: Routes = [
     'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password'
   },
   {
-    'path': 'club', component: ClubDescriptionComponent, title: 'Description'
+    'path': 'club', component: ClubDescriptionComponent, title: 'Description', canActivate: [authguardGuard]
   },
   {
-    'path': 'clublist', component: ClublistComponent, title: 'Club List'
+    'path': 'clublist', component: ClublistComponent, title: 'Club List', canActivate: [authguardGuard]
   },
   {
     'path': 'addclub', component: AddclubComponent, title: 'Add Club'
@@ -89,6 +91,9 @@ export const routes: Routes = [
   },
   {
     'path': 'stafftable', component: StaffTableComponent, title: 'Staff Table',
+  },
+  {
+    'path': 'eventregistation', component: EventregistrationComponent, title: 'Event Registration'
   }
 
 /*

@@ -122,6 +122,14 @@ getallApplicationService(): Observable<any> {
     return this.http.put<any>(`${apiurls.ApplicationServiceApi}approved/${applicationId}`, applicationObj, {withCredentials: true});
   }
 
+  registerEventService(eventId: any, userId: any): Observable<any> {
+    return this.http.put<any>(`${apiurls.EventServiceApi}registerevent/${eventId}/${userId}`, {withCredentials: true});
+
+  }
+  revokeRoleService(UserId: string): Observable<any> {
+    return this.http.put<any>(`${apiurls.UserServiceApi}revokeuser/${UserId}`, null, {withCredentials: true});
+  }
+
   /* ***************************** PUT URL ENDS ****************************************** */
 
 
@@ -130,4 +138,9 @@ getallApplicationService(): Observable<any> {
   deleteApplicationService(applicationId: string): Observable<any> {
     return this.http.delete<any>(`${apiurls.ApplicationServiceApi}deleteapplication/${applicationId}`, {withCredentials: true});
   }
+  deleteUserService(UserId: string): Observable<any> {
+    return this.http.delete<any>(`${apiurls.UserServiceApi}deleteuser/${UserId}`, {withCredentials: true});
+  }
+
+
 }

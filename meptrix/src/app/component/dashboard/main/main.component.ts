@@ -5,13 +5,17 @@ import { EventListComponent } from "../event-list/event-list.component";
 import { BannerComponent } from "../banner/banner.component";
 import { AuthService } from '../../../../services/auth.service';
 import { NavbarComponent } from "../../navbar/navbar.component";
+import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms';
+
+
 
 @Component({
     selector: 'app-main',
     standalone: true,
     templateUrl: './main.component.html',
     styleUrl: './main.component.css',
-    imports: [ContestComponent, AboutComponent, EventListComponent, BannerComponent, NavbarComponent]
+    imports: [ContestComponent, AboutComponent, EventListComponent, BannerComponent, NavbarComponent, CommonModule, FormsModule]
 })
 export class MainComponent {
   eventType1 = "co-curricular";
@@ -22,6 +26,7 @@ export class MainComponent {
   coCurricularEvents: any[] = [];
   extraCurricularEvents: any[] = [];
 
+
   ngOnInit() {
     this.authService.getAllEventService().subscribe((EventDetails => {
     this.events = EventDetails;
@@ -31,5 +36,6 @@ export class MainComponent {
     this.extraCurricularEvents = this.events.filter((event) => event.eventtype == this.eventType2);
   }));
 }
+
 
 }

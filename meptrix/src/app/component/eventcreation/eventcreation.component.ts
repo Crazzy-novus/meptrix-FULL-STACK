@@ -7,6 +7,7 @@ import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } 
 import { AuthService } from '../../../services/auth.service';
 import { ImageStorageService } from '../../../services/VertexAI/imageStorage/image-storage.service';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { GetclubdetailsService } from '../../../services/clubsservice/getclubdetails.service';
 
 
 @Component({
@@ -25,6 +26,9 @@ export class EventcreationComponent implements OnInit {
   fb = inject(FormBuilder);
 
   isLoading = false;
+  ClubDetails = inject(GetclubdetailsService);
+  clubs: any[] = [];
+  clubNames: string[] = [];
 
 
   ngOnInit(): void {
@@ -40,6 +44,12 @@ export class EventcreationComponent implements OnInit {
       description: ['', [Validators.required, Validators.maxLength(1000)]],
       img: ['', Validators.required], // You might need to adjust the validation for image upload
     });
+
+    this.clubs = this.ClubDetails.getClubDetails();
+    this.clubs.forEach((club) => {
+      this.clubNames.push(club.club_name);
+    });
+
   }
 
 

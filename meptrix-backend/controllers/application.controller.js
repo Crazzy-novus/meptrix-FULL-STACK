@@ -33,7 +33,7 @@ export const getApplications = async (req, res, next) => {
    
     try {
         const { userId, clubId } = req.params;
-       
+    
         const clubApplications = await ClubApplication.findOne({ClubId: clubId, UserId: userId});
         if (!clubApplications) {
             return next(CreateError(404, "ClubApplications not found", clubApplications)); // send an error message

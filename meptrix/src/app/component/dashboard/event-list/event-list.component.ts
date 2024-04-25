@@ -19,45 +19,17 @@ export class EventListComponent  {
 
   @Input() eventType: any;
   @Input() events: any;
-  event = [
-    {
-      name: 'Event 1 ',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 1 ',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 3',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 4',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 5',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    {
-      name: 'Event 6',
-      time: '10:00 AM',
-      place: 'Venue A',
-      photo: '/assets/assets/Landing Page_files/image.png'
-    },
-    // Add more events as needed
-  ];
+
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+    console.log("from dassh",this.events);
+
+  }
+
+
 
 
 }

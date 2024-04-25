@@ -5,7 +5,9 @@
     <app-profie-phot-card [userDetails]="userDetails"
     (EditUser)="showEdit()"
     ></app-profie-phot-card>
-    <app-profie-clubs-card></app-profie-clubs-card>
+    <app-profie-clubs-card [member_Clubs]="userDetails?.member_in"
+    [organizer_Clubs]="userDetails?.organizer_in"
+    ></app-profie-clubs-card>
 
   </div>
 
@@ -16,6 +18,10 @@
     (EditUser)="showEdit()">
     </app-profie-about-card>
 
+    <app-skills *ngIf=" userDetails && !showEditComponent"
+    [registerd_event]="userDetails?.registered_events">
+  </app-skills>
+
     <div class="absolute flex items-center justify-center p-4 pt-80 inset-4" *ngIf="showEditComponent">
       <ng-container >
         <app-edituser [userDetails]="userDetails"
@@ -24,7 +30,7 @@
         </app-edituser>
       </ng-container>
     </div>
-    <app-skills *ngIf="!showEditComponent"></app-skills>
+
   </div>
 
 

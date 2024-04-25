@@ -34,7 +34,7 @@ const RoleSchema = mongoose.Schema(
             required: false,
             default: "",
         },
-        organizer: {
+        organizer: [{
             organizer_id: {
                 type: Schema.Types.ObjectId,
                 required: false,
@@ -47,13 +47,14 @@ const RoleSchema = mongoose.Schema(
             },
             
             default: {}
-        },
+        }],
         members: {
             type: [Schema.Types.ObjectId],
             required: false,
             default: [],
             ref: 'User'
         },
+        
         club_type: {
             type: String,
             required: true,

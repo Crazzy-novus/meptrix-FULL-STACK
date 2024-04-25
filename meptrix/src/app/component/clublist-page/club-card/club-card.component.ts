@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-club-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './club-card.component.html',
   styleUrl: './club-card.component.css'
 })

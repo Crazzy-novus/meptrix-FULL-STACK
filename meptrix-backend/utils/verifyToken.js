@@ -9,6 +9,7 @@ export const verifyToken = (req, res, next) => {
     // verify the cookiee token
     
     const token = req.cookies.access_token;
+    
     if (!token) {
         return next(CreateError(401, "You are nto authenticated!"));
     }

@@ -1,0 +1,50 @@
+<!-- event-display.component.html -->
+<app-navbar></app-navbar>
+<section class="items-center px-20 mt-20 bg-center bg-no-repeat rounded-lg bg-blend-multiply">
+
+
+
+  <img [src]="event.img" alt="Event Poster" class="scale-150 w-96 h-70 ml-96 ">
+
+
+   <div class="p-8 mt-10">
+
+
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{event.eventname}}l</h1>
+    <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-6 xl:px-8 dark:text-gray-400">{{event.shortdescription}}</p>
+
+    <div class="flex items-center max-w-md p-4 mx-auto mt-20 bg-gray-200 rounded-lg">
+      <!-- Date and Time -->
+      <div class="justify-start flex-1 text-center">
+        <p class="text-lg font-semibold">Date: {{event.eventdate.$date | date}}</p>
+        <p class="text-lg font-semibold">Time:{{event.eventtime}}</p>
+        <p class="text-lg font-semibold">Venue: {{event.eventvenue}}</p>
+      </div>
+      <!-- Register Button-->
+      <div class="flex-initial text-center">
+        <button (click)="OnRegister()" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Register </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="flex items-center p-4 mt-20 mb-40 bg-white">
+    <!-- Club Name and Event Type -->
+    <div class="p-4 ml-10 rounded-lg min-w-56 max-w-fit flex-3 border-l-orange-500">
+      <p class="text-2xl font-semibold">{{event.club_name}}</p>
+      <p class="font-mono text-2xl font-semibold text-sky-700">{{event.eventtype}}</p>
+      <!-- TODO Add club logo-->
+    </div>
+    <!-- Event Description -->
+    <div class="p-4 pl-8 rounded-lg flex-5 max-w-fit">
+      <h4 class="mb-4 font-mono text-lg leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">About the Event</h4>
+    <p >{{event.description}}</p>
+    </div>
+  </div>
+
+  <app-club-details [role]="'Speaker'" [organizers]="organizers"></app-club-details>
+
+
+  <app-about></app-about>
+  </section>

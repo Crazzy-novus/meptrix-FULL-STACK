@@ -4,13 +4,14 @@ import { AuthService } from '../../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from "../navbar/navbar.component";
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 @Component({
     selector: 'app-applyclub',
     standalone: true,
     templateUrl: './applyclub.component.html',
     styleUrl: './applyclub.component.css',
-    imports: [CommonModule, FormsModule, NavbarComponent]
+    imports: [CommonModule, FormsModule, NavbarComponent, GooglePayButtonModule]
 })
 export class ApplyclubComponent {
 
@@ -20,6 +21,8 @@ export class ApplyclubComponent {
   appluicationForm = {rollno: '', admissionNo: '', duration: '', UserId: '', ClubId: ''};
   authService = inject(AuthService);
   private unsubscribe$ = new Subject<void>();
+
+  buttonWidth = 240;
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -68,6 +71,7 @@ export class ApplyclubComponent {
       this.Canceljoinclub.emit();
     });
   }
+
 
 
 }

@@ -1,4 +1,4 @@
-import club from '../models/Clubs.js';
+import clubs from '../models/Clubs.js';
 import { CreateSuccess } from '../utils/success.js';
 import { CreateError } from "../utils/error.js";
 
@@ -9,7 +9,7 @@ export const createClub = async (req, res, next) => {
         
         if (req.body && Object.keys(req.body).length > 0) {
             
-                const newClub = new club(req.body);
+                const newClub = new clubs(req.body);
                 
                 
                 await newClub.save();
@@ -28,8 +28,9 @@ export const createClub = async (req, res, next) => {
 export const  getAllClubs = async (req, res, next) => {
 
     try {
-        const clubs = await club.find({});  // Not specifing any condition to get all roles in the database
-        return next(CreateSuccess(200, "All Clubs", clubs));  // send a success message
+        const club = await clubs.find({}).populate("organizer.organizer_id");  // Not specifing any condition to get all roles in the database
+        
+        return next(CreateSuccess(200, "All Clubs", club));  // send a success message
 
     }
     catch (error) {
@@ -45,7 +46,7 @@ export const updateClub = async (req, res, next) => {
         const updateFields = req.body; // get the updated fields from the request body
         
         // Find the user by id and u pdate the specified fields
-        const updatedUser = await club.findByIdAndUpdate(id, updateFields, { new: true });
+        const updatedUser = await clubs.findByIdAndUpdate(id, updateFields, { new: true });
 
         if (!updatedUser) {
             return next(CreateError(404, "User not found"));

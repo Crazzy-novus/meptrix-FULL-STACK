@@ -22,7 +22,7 @@
     <!-- Taken from linked in-->
     <div class = "pt-2">
       <span class="inline text-sm text-gray-500 break-words">
-        Computer Science , 3rd year  <!-- TODO: Need to display department and class here -->
+        {{userDetails?.branch}} ,{{userDetails?.year}}  Year
       </span>
       <span class="pl-4 pv-text-details__separator text-black-light">
         <a href="/in/duraivignesh-c/overlay/contact-info/" id="top-card-text-details-contact-info" class="inline-block text-sm text-blue-600 break-words cursor-pointer ember-view link-without-visited-state">
@@ -32,12 +32,16 @@
     </div>
 
     <div class="flex justify-start mt-4">
-      <a [href]="userDetails?.links[0]" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+      <a [href]="userDetails?.githhub_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
         <img src="assets\assets\linkedin-logo.png" alt="LinkedIn Logo" class="mx-2 rounded-full w-9 h-9">
       </a>
 
-      <a [href]="userDetails?.links[1]" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+      <a [href]="userDetails?.linkedin_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
         <img src="assets\assets\git-hub-logo.png" alt="GitHub Logo" class="mx-2 rounded-full w-9 h-9">
+      </a>
+
+      <a [href]="userDetails?.other_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+        <img src="assets\assets\otherlink.png" alt="GitHub Logo" class="mx-0 rounded-full w-9 h-9">
       </a>
 
       <!-- Add more platforms as needed -->

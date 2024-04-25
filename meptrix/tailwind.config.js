@@ -9,6 +9,9 @@ module.exports = {
         '96': '24rem',  // Default value
         'custom': '40rem', // Your custom value
       },
+      colors: {
+        'custom-color': '#f8faf9', // Your custom color
+      },
     },
   },
   plugins: [

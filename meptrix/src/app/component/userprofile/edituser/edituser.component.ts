@@ -22,7 +22,12 @@ export class EdituserComponent {
   @Output() cancelEdit= new EventEmitter<void>();
 
   isLoading: boolean = false;
+  labelText: string = 'Skills';
 
+
+  changeLabel() {
+    this.labelText = 'Skills [Enter comma seperated values]';
+  }
 
   update(): void {
     console.log('User details:', this.userDetails)

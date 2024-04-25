@@ -4,6 +4,7 @@ import { AuthService } from '../../../services/auth.service';
 import {FormsModule} from '@angular/forms';
 import { EditCardComponent } from "./edit-card/edit-card.component";
 import { NavbarComponent } from "../navbar/navbar.component";
+import { GetclubdetailsService } from '../../../services/clubsservice/getclubdetails.service';
 
 @Component({
     selector: 'app-admintable',
@@ -23,16 +24,27 @@ export class AdmintableComponent implements OnInit{
 
 
   authservice = inject(AuthService);
+  ClubDetails = inject(GetclubdetailsService);
+  clubs: any[] = [];
+  clubNames: any;
+
 
 
 
   ngOnInit(): void {
+    this.clubNames = {}; // Initialize this.clubNames as an empty object
+
     if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined' && (window.sessionStorage.getItem('userRole') === 'super_admin' || window.sessionStorage.getItem('userRole') === 'admin')) {
       // ...
         this.authservice.getAllUserDetails().subscribe((data) => {
         this.data = data;
         this.filteredData =this.data.filter(item => item.roles[0].role !== 'admin' && item.roles[0].role !== 'super_admin' && window.sessionStorage.getItem('userId') !== item._id);
       });
+      this.clubs = this.ClubDetails.getClubDetails();
+    this.clubs.forEach((club) => {
+      this.clubNames[club.club_name] = club._id;
+    });
+
     }
 
     else if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined' && sessionStorage.getItem('userRole') === 'staff') {
@@ -78,11 +90,14 @@ updateItem(updatedRow: { id: string; role: string; }){
 
 // Method to handle delete button click
 deleteItem(): void {
+  this.showEditCard = false;
+
   // Implement delete logic here
 }
 
 // Method to handle cancel button click
 cancelEdit(): void {
+
   this.showEditCard = false;
   this.selectedItem = null;
 }

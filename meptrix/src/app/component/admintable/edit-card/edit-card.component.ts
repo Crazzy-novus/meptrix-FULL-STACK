@@ -17,6 +17,7 @@ export class EditCardComponent {
   @Input() email: string = '';
   @Input() role: string = '';
   @Input() _id: string = '';
+  @Input() clubDetails = '';
   @Output() cancelClicked = new EventEmitter<void>();
   @Output() updateClicked = new EventEmitter<{id: string, role: string}>();
   @Output() deleteClicked = new EventEmitter<void>();
@@ -24,20 +25,31 @@ export class EditCardComponent {
   authService = inject(AuthService);
 
   roles: string[] = ['admin', 'student', 'staff', 'ob'];
+  clubNames: string[] = [];
+  clubName: string = '' ;
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+  }
 
   update(): void {
 
+
     const updatedRow = {
       id: this._id,
-      role: this.role
+      role: this.role,
+      clubId: this.clubName
     };
+    console.log(updatedRow);
     this.authService.updateRoleService(updatedRow).subscribe({
       next: (res) => {
 
         alert("User Role Updated  Successfully!");
 
 
-        this.updateClicked.emit(updatedRow);
+        this.updateClicked.emit({id: this._id, role: this.role});
       },
       error: (err) => {
         console.log (err);
@@ -48,11 +60,23 @@ export class EditCardComponent {
 
   }
 
-  delete(): void {
-
+  deleteUser(): void {
+    this.authService.deleteUserService(this._id).subscribe((data) => {
+      console.log(data);
+    });
+    alert("User Deleted  Successfully!");
+    this.cancelClicked.emit();
   }
 
   cancel(): void {
     this.cancelClicked.emit();
+  }
+
+  revoke(): void {
+    this.authService.revokeRoleService(this._id).subscribe((data) => {
+      console.log(data);
+    });
+    alert("User Role Revoked Successfully!");
+    this.updateClicked.emit({id: this._id, role: 'student'});
   }
 }

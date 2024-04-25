@@ -17,6 +17,7 @@ export class GetclubdetailsService {
     this.authService.getClubsService().subscribe(clubDetails => {
       this.clubs = clubDetails;
 
+
   }
     );
   }

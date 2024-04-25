@@ -29,6 +29,8 @@ export class ClubDescriptionComponent {
   UserID: string | null = '';
   club: any;
   ModifiedClub: any;
+  chairperson: any;
+  organizer: any;
 
   authService = inject(AuthService);
 
@@ -129,65 +131,9 @@ constructor(private route: ActivatedRoute, private router: Router) { }
 
   }
 
-  role = "Organizers";
-  role1 = "Chair person";
-  @Input() eventTense = "Past Event";
-    organizers = [
-      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-      { name: 'John Doe', designation: 'Event Coordinator', photo: 'assets/assets/Landing Page_files/git-hub-logo.png',department: 'Computer Science', year: 'Senior'  },
-      // Add more organizers as needed
-    ];
-    remainingEvents: any[] = [
-      // Additional events data
-      // ...
-    ];
+  role1 = "Organizers";
 
-    events = [
-      {
-        name: 'Event 1 ',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-      {
-        name: 'Event 1 ',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-      {
-        name: 'Event 3',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-      {
-        name: 'Event 4',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-      {
-        name: 'Event 5',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-      {
-        name: 'Event 6',
-        time: '10:00 AM',
-        place: 'Venue A',
-        photo: '/assets/assets/Landing Page_files/image.png'
-      },
-    ];
 
-      loadMoreEvents() {
-        // Load the remaining events when the button is clicked
-        this.events = [...this.events, ...this.remainingEvents];
-      }
 
 
 }

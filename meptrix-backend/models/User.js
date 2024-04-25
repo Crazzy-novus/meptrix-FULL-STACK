@@ -57,12 +57,28 @@ const UserSchema = mongoose.Schema(
             required: false,
             default: "I am a student of Engineering"
         },
-        links: {
-            type: [String],
+        github_link: {
+            type: String,
             required: false,
-            default: []
+            default: ''
+        },
+        linkedin_link: {
+            type: String,
+            required: false,
+            default: ''
+        },
+        other_link: {
+            type: String,
+            required: false,
+            default: ''
         },
         organizer_in: {
+            type: [Schema.Types.ObjectId],
+            required: false,
+            default: [],
+            ref: 'Club'
+        },
+        staff_in: {
             type: [Schema.Types.ObjectId],
             required: false,
             default: [],
@@ -73,6 +89,12 @@ const UserSchema = mongoose.Schema(
             required: false,
             default: [],
             ref: 'Club'
+        },
+        registered_events: {
+            type: [Schema.Types.ObjectId],
+            required: false,
+            default: [],
+            ref: 'Event'
         },
 
     },

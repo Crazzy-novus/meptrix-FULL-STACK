@@ -23,6 +23,7 @@ export class HomeComponent {
   constructor(private ClubDetails: GetclubdetailsService) { }
   ngOnInit(): void {
     this.clubs = this.ClubDetails.getClubDetails();
+
   }
 
 

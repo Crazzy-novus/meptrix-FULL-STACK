@@ -60,6 +60,8 @@ export class ProfileComponent implements OnInit {
 
   updateUser() {
     if (JSON.stringify(this.userDetails) !== JSON.stringify(this.orignalUserDetails)) {
+      this.userDetails.skills = this.userDetails.skills.split(',');
+      console.log('User Details:', this.userDetails);
       // write Api qury to update user details
       this.authService.updateUserService(this.userDetails).subscribe( {
         next: (res) => {
