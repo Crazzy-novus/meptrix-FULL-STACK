@@ -57,10 +57,10 @@ export const routes: Routes = [
     'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'Dash Board', canActivate: [authguardGuard]
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board'
   },
   {
-    'path': 'profile', component: ProfileComponent, title: 'User Profile', canActivate: [authguardGuard]
+    'path': 'profile', component: ProfileComponent, title: 'User Profile'
   },
   {
     'path': 'forgotpassword', component: ForgotPasswordComponent, title: 'Forgot Password'
@@ -69,10 +69,10 @@ export const routes: Routes = [
     'path':'resetpassword/:token', component: ResetpasswordComponent, title: 'Reset Password'
   },
   {
-    'path': 'club', component: ClubDescriptionComponent, title: 'Description', canActivate: [authguardGuard]
+    'path': 'club', component: ClubDescriptionComponent, title: 'Description'
   },
   {
-    'path': 'clublist', component: ClublistComponent, title: 'Club List', canActivate: [authguardGuard]
+    'path': 'clublist', component: ClublistComponent, title: 'Club List'
   },
   {
     'path': 'addclub', component: AddclubComponent, title: 'Add Club'
