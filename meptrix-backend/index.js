@@ -22,7 +22,7 @@ server.use(express.json());
 server.use(cookieParser());
 server.use(cors(
     {
-        origin: "http://localhost:4200",
+        origin: "https://jolly-forest-02b734500.5.azurestaticapps.net",
         credentials: true
     }));
 
@@ -53,7 +53,7 @@ server.use((obj, req, res, next) => {
 // Database connection
 const ConnetMongoDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_LOCAL);
+        const conn = await mongoose.connect(process.env.MONGO_URL);
         console.log('DB connected !!!!!!!!!!!!!!!');
     } catch (error) { 
        console.error('Error: ', error.message);
@@ -61,9 +61,9 @@ const ConnetMongoDB = async () => {
     }
 }
 
+const port = process.env.PORT || 3000;
 
-
-server.listen(3000, function check (error) {
+server.listen(port, function check (error) {
     ConnetMongoDB();
     if (error) {
         console.error('Error: ', error);
