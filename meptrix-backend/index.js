@@ -8,6 +8,7 @@ import clubRoute from './routes/club.js';
 import EventRoute from './routes/event.js';
 import ContestRoute from './routes/contest.js';
 import ApplicationRoute from './routes/application.js';
+import indexRouter from './routes/routerindex.js';
 
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -33,6 +34,7 @@ server.use("/api/club", clubRoute);
 server.use("/api/event", EventRoute);
 server.use("/api/contest", ContestRoute);
 server.use("/api/application", ApplicationRoute);
+server.use('/', indexRouter);
 
 // Error Handler Middleware
 
@@ -61,7 +63,7 @@ const ConnetMongoDB = async () => {
     }
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 server.listen(port, function check (error) {
     ConnetMongoDB();
@@ -69,6 +71,7 @@ server.listen(port, function check (error) {
         console.error('Error: ', error);
     }
     else {
-        console.log('Server is listening at http://localhost:3000');
+        console.log('Server is listening at http://localhost:3001');
+        
     }
 });
