@@ -56,7 +56,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'meptrix-backend'
+          app-name: 'meptrix'
           slot-name: 'Production'
           package: meptrix-backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0D595D639C874E93AC9FE830B9DE468D }}
