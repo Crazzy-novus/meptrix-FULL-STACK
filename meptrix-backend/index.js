@@ -23,7 +23,8 @@ server.use(express.json());
 server.use(cookieParser());
 server.use(cors(
     {
-        origin: "https://mango-pond-06c9bb600.5.azurestaticapps.net",
+        origin: "https://jolly-forest-02b734500.5.azurestaticapps.net",
+        methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }));
 
@@ -63,7 +64,10 @@ const ConnetMongoDB = async () => {
     }
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
+
+
+
 
 server.listen(port, function check (error) {
     ConnetMongoDB();
