@@ -23,7 +23,7 @@ server.use(express.json());
 server.use(cookieParser());
 server.use(cors(
     {
-        origin: "https://jolly-forest-02b734500.5.azurestaticapps.net",
+        origin: "https://meptrix-node.azurewebsites.net",
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }));
@@ -66,7 +66,10 @@ const ConnetMongoDB = async () => {
 
 const port = process.env.PORT || 3001;
 
-
+server.use(express.static("./meptrix/dist/meptrix/browser"));
+server.get("*", (req, res) => {
+    res.sendFile("index.html", {root: "./meptrix/dist/meptrix/browser"});
+});
 
 
 server.listen(port, function check (error) {
