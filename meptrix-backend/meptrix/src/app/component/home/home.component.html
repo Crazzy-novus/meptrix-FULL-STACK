@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<section class="px-6 py-8 bg-custom-color sm:px-20 sm:py-4">
+  <br>
+  <br>
+  <br>
+
+  <div id="home-section" class="grid justify-center grid-cols-1 gap-8 rounded-lg bg-slate-900 sm:grid-cols-2">
+    <!-- First Column - Image -->
+    <div class="justify-center pt-8 sm:pt-16">
+      <p class="pl-4 text-3xl font-semibold sm:text-5xl text-orange-50 ">About<span class="font-bold text-yellow-100"> Mepco Schlenk</span> Engineering College</p>
+      <br>
+      <p class="pb-4 pl-4 mt-4 text-lg text-justify text-orange-50 sm:text-xl">Welcome to Mepco Schlenk Engineering College, a vibrant hub of knowledge, innovation, and endless possibilities! Nestled in the heart of Sivakasi, our institution stands as a beacon of academic excellence, where students embark on transformative journeys, fueled by curiosity, guided by expert faculty, and surrounded by a community of like-minded individuals. At MSEC, we believe in the power of education to shape futures and inspire greatness. Our commitment to foster a holistic learning environment is reflected in a diverse range of academic programs, cutting-edge research initiatives, and a plethora of extracurricular activities that cater to every passion and interest.</p>
+    </div>
+
+    <div class="justify-center pt-8 rounded-lg pl-14 sm:pt-16 sm:pl-16 sm:justify-center bg-slate-900 ">
+      <img src="assets/assets/mepcologo.png" alt="Mepco Schlenk Engineering College Logo" class="w-9/12 h-auto max-w-full pl-3.5 sm:w-8/12 sm:pl-24 sm:pt-6" >
+    </div>
+  </div>
+
+  <hr id="about-section" class="my-4 border-gray-800 dark:border-gray-900" />
+
+  <div class="grid grid-cols-1 sm:grid-cols-2">
+    <div class="justify-center pt-8 sm:pt-36">
+      <img src="assets/assets/Landing Page_files/logo.jpg" alt="Mepco Schlenk Engineering College Logo" class="w-9/12 h-auto max-w-full pl-14 sm:w-10/12 sm:pl-16" >
+    </div>
+
+    <div class="justify-center p-2">
+      <p class="text-3xl font-semibold sm:text-5xl">About<span class="font-bold text-amber-600"> Meptrix</span> Clubs and Association</p>
+      <br>
+      <p class="mt-4 text-lg text-justify text-gray-600 sm:text-xl">Welcome to Meptrix, your all-in-one solution for clubs and association management!
+
+        At Meptrix, we understand the challenges faced by clubs and associations in managing their operations efficiently. Whether you're organizing events, managing memberships, or facilitating communication among members, our platform is designed to streamline your processes and empower your organization to thrive.
+
+        With Meptrix, you can say goodbye to the hassle of juggling multiple tools and platforms. Our comprehensive suite of features provides everything you need to effectively manage your club or association, all in one centralized location.
+
+        From event planning and registration to member management and communication tools, Meptrix offers a range of powerful features tailored to meet the unique needs of your organization. Our user-friendly interface makes it easy for administrators to oversee operations, while providing members with a seamless experience.
+
+        Whether you're a small student club, a large professional association, or anything in between, Meptrix is here to support you every step of the way. Say hello to simplified management, enhanced engagement, and greater success for your club or association with Meptrix.
+
+        Join us today and discover how Meptrix can help take your organization to new heights!.</p>
+    </div>
+  </div>
+
+  <hr id="club-section" class="my-4 border-gray-800 dark:border-gray-900" />
+
+
+  <div class="flex flex-wrap items-center justify-center">
+    <div *ngFor="let club of clubs" class="relative flex flex-col items-center justify-center w-32 m-10 ml-3 text-gray-700 bg-white shadow-xl h-72 sm:w-64 bg-clip-border rounded-xl">
+      <div class="relative items-center mx-2 mt-2 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl ">
+        <img
+        [src]="club?.logo"
+          alt="Logo" class="items-center justify-center object-cover size-40 sm:size-52" />
+      </div>
+      <div class="p-2 max-h-20">
+        <div class="flex items-center justify-between mb-2">
+          <p class="block mb-2 font-sans text-lg antialiased font-bold leading-relaxed text-center text-blue-gray-900 sm:text-xl">
+            {{ club?.club_name }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+  <app-about></app-about>
+</section>

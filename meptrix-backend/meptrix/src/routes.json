@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "route": "/api/*",
+      "serve": "/meptrix-backend/index.js",
+      "statusCode": 200
+    },
+    {
+      "route": "/*",
+      "serve": "dist/meptrix/browser/index.html",
+      "statusCode": 200
+    }
+  ]
+}

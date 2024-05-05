@@ -1,0 +1,17 @@
+<div class="relative max-w-full px-8 py-4 mb-10 bg-white rounded-lg shadow-sm hover:shadow-black hover:scale-105">
+  <!-- Office Barrier Heading -->
+  <div class="absolute top-0 left-0 mt-2 ml-2">
+    <p class="text-lg font-semibold text-gray-800">Registered Event</p>
+  </div>
+
+  <!-- Club Logos -->
+  <div class="flex flex-wrap gap-2 pt-24 -mt-16 sm:pt-10 sm:mt-0"> <!-- TODO Modify the clubs according to Student data later-->
+    <!-- Club 1 -->
+    <div *ngFor="let event of registerd_event" class="flex flex-col items-center px-8">
+      <div class="w-16 h-16 overflow-hidden border-2 border-indigo-500 rounded-md sm:w-40 sm:h-40">
+        <img class="object-cover w-full h-full" [src]="event.img">
+      </div>
+      <p class="mt-2 text-sm text-gray-800">{{event.eventname}}</p>
+    </div>
+  </div>
+</div>

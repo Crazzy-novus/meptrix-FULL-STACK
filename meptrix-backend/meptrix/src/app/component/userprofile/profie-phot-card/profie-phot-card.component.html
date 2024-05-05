@@ -1,0 +1,50 @@
+<!-- First column for laptops -->
+
+  <div class="relative max-w-md px-8 py-4 mt-20 mb-5 bg-white border-t rounded-lg shadow-sm border-y border-s border-e hover:shadow-black border-blue-950">
+
+    <div class="flex justify-center -mt-16 sm:justify-start ">
+      <div class="absolute mt-2 mr-2 rounded-lg right-5 top-5 sm:top-5 hover:bg-gray-300 hover:p-2"  (click)="editClicked()">
+
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 sm:w-6 sm:h-6">
+            <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
+          </svg>
+      </div>
+      <img class="object-cover border-2 border-indigo-500 rounded-full w-28 h-28 sm:w-36 sm:h-36" [src]="userDetails?.profileImage">
+    </div>
+
+    <div><p class="pt-6 text-3xl font-semibold text-gray-800 sm:pt-0">{{userDetails?.name}}</p></div>
+    <div class="pt-4 mt-4 border-t border-gray-300 ">
+      <p class="mt-2 text-gray-600 sm:text-lg ">{{userDetails?.headTag}}</p>
+    </div>
+
+
+    <!-- Taken from linked in-->
+    <div class = "pt-2">
+      <span class="inline text-sm text-gray-500 break-words">
+        {{userDetails?.branch}} ,{{userDetails?.year}}  Year
+      </span>
+      <span class="pl-4 pv-text-details__separator text-black-light">
+        <a href="/in/duraivignesh-c/overlay/contact-info/" id="top-card-text-details-contact-info" class="inline-block text-sm text-blue-600 break-words cursor-pointer ember-view link-without-visited-state">
+            Contact info
+        </a>
+      </span>
+    </div>
+
+    <div class="flex justify-start mt-4">
+      <a [href]="userDetails?.githhub_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+        <img src="assets\assets\linkedin-logo.png" alt="LinkedIn Logo" class="mx-2 rounded-full w-9 h-9">
+      </a>
+
+      <a [href]="userDetails?.linkedin_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+        <img src="assets\assets\git-hub-logo.png" alt="GitHub Logo" class="mx-2 rounded-full w-9 h-9">
+      </a>
+
+      <a [href]="userDetails?.other_link" target="_blank" rel="noopener noreferrer" class="text-xl font-medium text-indigo-500">
+        <img src="assets\assets\otherlink.png" alt="GitHub Logo" class="mx-0 rounded-full w-9 h-9">
+      </a>
+
+      <!-- Add more platforms as needed -->
+    </div>
+
+  </div>
