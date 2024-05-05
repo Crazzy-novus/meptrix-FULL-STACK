@@ -12,6 +12,7 @@ import indexRouter from './routes/routerindex.js';
 
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import path from 'path';
 
 
 
@@ -68,7 +69,7 @@ const port = process.env.PORT || 3001;
 
 server.use(express.static("./meptrix/dist/meptrix/browser"));
 server.get("*", (req, res) => {
-    res.sendFile("index.html", {root: "./meptrix/dist/meptrix/browser"});
+    res.sendFile( path.resolve(__dirname, "meptrix", "dist", "meptrix", "browser", "index.html"));
 });
 
 
