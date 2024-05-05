@@ -16,15 +16,20 @@ import { FormsModule } from '@angular/forms';
     host: {ngSkipHydration: 'false'}
 })
 export class HomeComponent {
+  authService = inject(AuthService);
+
+
+  constructor() { }
 
   clubs: any[] = [];
 
-
-  constructor(private ClubDetails: GetclubdetailsService) { }
   ngOnInit(): void {
-    this.clubs = this.ClubDetails.getClubDetails();
+    this.authService.getClubsService().subscribe(clubDetails => {
+    this.clubs = clubDetails;
 
+    });
   }
+
 
 
   // Inject the service
