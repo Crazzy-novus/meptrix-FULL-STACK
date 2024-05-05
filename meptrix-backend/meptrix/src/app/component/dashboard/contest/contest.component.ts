@@ -18,7 +18,7 @@ export class ContestComponent implements OnInit{
   contests : any[] = []
 
   ngOnInit() {
-      this.authService.getContestService().subscribe(ContestDetails => {
+      this.authService.getContestService().subscribe((ContestDetails: any[]) => {
         this.contests = ContestDetails;
 
     }

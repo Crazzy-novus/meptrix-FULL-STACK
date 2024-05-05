@@ -14,7 +14,7 @@ export class GetclubdetailsService {
   clubs: any[] = [];
 
   setClubDetails() {
-    this.authService.getClubsService().subscribe(clubDetails => {
+    this.authService.getClubsService().subscribe((clubDetails: any[]) => {
       this.clubs = clubDetails;
 
 

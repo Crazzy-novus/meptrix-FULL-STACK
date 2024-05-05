@@ -13,6 +13,7 @@ import indexRouter from './routes/routerindex.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 
@@ -66,6 +67,8 @@ const ConnetMongoDB = async () => {
 }
 
 const port = process.env.PORT || 3001;
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 server.use(express.static("./meptrix/dist/meptrix/browser"));
 server.get("*", (req, res) => {
