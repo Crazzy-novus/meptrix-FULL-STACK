@@ -40,7 +40,7 @@ export const verifyUser = (req, res, next) => {
             }
         } catch (error) {
             console.log(error);
-            return next(CreateError(403, "cookies error"), error);
+            return next(CreateError(403, "cookies error"+req.user, req.cookies.access_token), error);
             
         }
     })

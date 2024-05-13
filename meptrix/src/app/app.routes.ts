@@ -51,13 +51,13 @@ export const routes: Routes = [
   },
 
   {
-    'path': 'login', component: LoginComponent, title: 'Log-in page'
+    'path': 'login', component: LoginComponent, title: 'Log-in page', canActivate: [authguardGuard]
   },
   {
-    'path': 'home', component: HomeComponent, title: 'Landing Page'
+    'path': 'home', component: HomeComponent, title: 'Landing Page', canActivate: [authguardGuard]
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'Dash Board'
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board',   canActivate: [authguardGuard]
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
