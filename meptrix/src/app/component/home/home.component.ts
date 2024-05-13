@@ -19,18 +19,17 @@ export class HomeComponent {
   authService = inject(AuthService);
 
 
-  constructor(private ClubDetails: GetclubdetailsService) { }
+
 
   clubs: any[] = [];
 
 
   ngOnInit(): void {
 
-    this.clubs = this.ClubDetails.getClubDetails();
-    // this.authService.getClubsService().subscribe(clubDetails => {
-    // this.clubs = clubDetails;
+    this.authService.getClubsService().subscribe(clubDetails => {
+    this.clubs = clubDetails;
 
-    // });
+    });
   }
 
 
