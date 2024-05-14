@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/2f3ac9c3-dab9-4a95-affc-e5e0fc1a060f/resourceGroups/meptix-server/providers/Microsoft.Web/sites/meptrix",
+    "appService.deploySubpath": "meptrix\\dist\\meptrix\\browser"
+}
