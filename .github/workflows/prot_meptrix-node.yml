@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - meptrix-node
 on:
   push:
     branches:
-      - port
+      - final
   workflow_dispatch:
 
 jobs:
