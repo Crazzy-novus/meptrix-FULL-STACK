@@ -23,7 +23,7 @@ server.use(express.json());
 server.use(cookieParser());
 server.use(cors(
     {
-        origin: ["https://jolly-forest-02b734500.5.azurestaticapps.net", "https://meptrix.azurewebsites.net/"],
+        origin: ["https://jolly-forest-02b734500.5.azurestaticapps.net", "https://meptrix.azurewebsites.net/", 'http://localhost:4200', "https://meptrix.vercel.app"],
         credentials: true
     }));
 
