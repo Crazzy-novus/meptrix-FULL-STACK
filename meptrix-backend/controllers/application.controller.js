@@ -32,7 +32,7 @@ export const createApplication = async (req, res, next) => {
 export const getApplications = async (req, res, next) => {
    
     try {
-        const { userId, clubId } = req.params;
+        const { userId, clubId } = req.query;
     
         const clubApplications = await ClubApplication.findOne({ClubId: clubId, UserId: userId});
         if (!clubApplications) {

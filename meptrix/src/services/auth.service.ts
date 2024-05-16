@@ -1,8 +1,9 @@
-import { HttpClient, HttpEvent, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { apiurls } from '../app/api.urls';
 import { filter, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { application } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,10 @@ export class AuthService {
 
 /* ***************************** GET URL  Start ****************************************** */
 getUserDetails(): Observable<any> {
-  return this.http.get<any>(`${apiurls.UserServiceApi}user`, { withCredentials: true}).pipe(
+  let id:any = sessionStorage.getItem('userId');
+  let params = new HttpParams().set('userId', id);
+
+  return this.http.get<any>(`${apiurls.UserServiceApi}user`, {params}).pipe(
     map(response => response.data)
   );
 }
@@ -81,8 +85,11 @@ getContestService(): Observable<any> {
 }
 
 getApplicationService(applicationData: any): Observable<any> {
+  let id:any = applicationData.UserId;
+  let clubId:any = applicationData.clubId;
+  let params = new HttpParams().set('userId', id).set('clubId', clubId);
 
-  return this.http.get<any>(`${apiurls.ApplicationServiceApi}getapplications/${applicationData.UserId}/${applicationData.clubId}`,  { withCredentials: true}).pipe(
+  return this.http.get<any>(`${apiurls.ApplicationServiceApi}getapplications/`,  {params}).pipe(
     map(response => response.data)
   );
 }

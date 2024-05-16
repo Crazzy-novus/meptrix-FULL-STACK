@@ -17,7 +17,7 @@ export const getAllUsers = async (req, res, next) => {
 
 export const getSingleUser = async (req, res, next) => {
     try {
-        const user = await User.findById(req.user._id).populate("roles", "role")
+        const user = await User.findById(req.query.userId).populate("roles", "role")
         .populate("member_in", 'logo club_name')
         .populate("registered_events", 'logo club_name')
         .populate("staff_in", 'logo club_name')

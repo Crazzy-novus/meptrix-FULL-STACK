@@ -7,7 +7,7 @@ const router = express.Router();  // Through router we can create get post metho
 
 router.post("/createappliaction", createApplication);
 
-router.get("/getapplications/:userId/:clubId", getApplications);
+router.get("/getapplications/", getApplications);
 
 //router.get("/getallapplications", verifyStaff, getallApplications);
 router.get("/getallapplications", getallApplications);
