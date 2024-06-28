@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class NavbarComponent {
-  USER_ROLE : string = '';
+  USER_ROLE : string = 'Guset';
   buttonText : string = 'Login/Register';
   isLoggedIn:boolean = false;
 
@@ -28,8 +28,7 @@ export class NavbarComponent {
       if (role) {
         this.USER_ROLE = role;
         this.isLoggedIn = true;
-        console.log('User Role: ', this.USER_ROLE);
-        console.log('User is logged in: ', this.isLoggedIn);
+
 
       }
       console.log('User is logged in: ', this.isLoggedIn);

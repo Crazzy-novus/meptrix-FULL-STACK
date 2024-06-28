@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<section class="px-4 py-8 bg-blue-100 sm:px-20 sm:py-4">
+<section *ngIf="clubType == 'null'"  class="px-4 py-8 overflow-hidden bg-blue-100 sm:px-20 sm:py-4">
   <app-banner></app-banner>
 
 
@@ -12,25 +12,24 @@
     <div class="flex-auto max-w-sm p-6 pt-10 mt-10 bg-white border border-gray-200 rounded-lg shadow hover:scale-105 sm:m-6 sm:mt-28 sm:ml-60 dark:bg-gray-800 dark:border-gray-700">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Explore More</h5>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Join the Cocurricular club and participate in various activities.</p>
-      <a href="/clublist">
-        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+
+        <button (click)="getClubs('co-curricular')" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
           <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
             Join Co-Curricular Club
           </span>
         </button>
-      </a>
     </div>
 
     <div class="flex-auto max-w-sm p-6 pt-10 mt-10 bg-white border border-gray-200 rounded-lg shadow hover:scale-105 sm:m-6 sm:mt-28 sm:ml-10 dark:bg-gray-800 dark:border-gray-700">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Explore More</h5>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Join the Cocurricular club and participate in various activities.</p>
-      <a href="/clublist">
-        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+
+        <button (click)="getClubs('extra-curricular')" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
           <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
             Join Co-Curricular Club
           </span>
         </button>
-      </a>
+
     </div>
   </div>
 
@@ -39,4 +38,35 @@
   <app-about></app-about>
 </section>
 
+
+<section *ngIf="clubType != 'null'" class="bg-white  bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+  <div class="relative z-50 max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16">
+      <h1 class="mt-10 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{clubType}}</h1>
+      <p class="mt-6 mb-3 font-normal text-gray-500 sm:text-xl sm:px-16 lg:px-48 dark:text-gray-200">
+        "Explore passions, foster teamwork, and innovate with Co-Curricular Club Chronicles for growth,
+        empowerment, and achievement beyond boundaries."
+      </p>
+      <button (click)="clubType = 'null'" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          Move to Dashboard
+        </span>
+      </button>
+
+  </div>
+  <div class="absolute top-0 left-0 z-0 w-full h-full bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900"></div>
+</section>
+<div *ngIf="clubType != 'null'" class="flex flex-wrap mt-5 rounded-2xl sm:m-6 sm:mt-28">
+  <br>
+  <div class="mb-5 sm:mb-20 sm:ml-20 max-w-44 sm:max-w-fit sm:max-h-fit" data-aos="zoom-in" *ngFor="let ev of clubs!">
+    <app-club-card [club]="ev"></app-club-card>
+  </div>
+
+</div>
+
+
+<!--TODO1 Add speaker in event registration page-->
+<!--TODO2 Modify view club in Navbar-->
+
+
+<!--TODO5 Enchance the club description page-->
 

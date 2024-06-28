@@ -6,7 +6,6 @@ import { HomeComponent } from './component/home/home.component';
 
 import { ProfileComponent } from './component/userprofile/profile/profile.component';
 import { ClubDescriptionComponent } from './component/club-description/club-description/club-description.component';
-import { ClublistComponent } from './component/clublist-page/clublist/clublist.component';
 import { MainComponent } from './component/dashboard/main/main.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { ForgotPasswordComponent } from './component/credentials/forgot-password/forgot-password.component';
@@ -17,13 +16,12 @@ import { AddclubComponent } from './component/admin/addclub/addclub.component';
 import { AdmintableComponent } from './component/admintable/admintable.component';
 
 import { ApplyclubComponent } from './component/applyclub/applyclub.component';
-import { EditprofileComponent } from './component/editprofile/editprofile.component';
 
 import { EdituserComponent } from './component/userprofile/edituser/edituser.component';
 import { EditclubComponent } from './component/club-description/editclub/editclub.component';
 import { StaffTableComponent } from './component/staffView/staff-table/staff-table.component';
 import { EventregistrationComponent } from './component/dashboard/eventregistration/eventregistration.component';
-import { authguardGuard } from '../gaurd/authguard.guard';
+//import { authguardGuard } from '../gaurd/authguard.guard';
 
 
 
@@ -57,7 +55,7 @@ export const routes: Routes = [
     'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'Dash Board',   canActivate: [authguardGuard]
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board',   //canActivate: [authguardGuard]
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
@@ -71,18 +69,14 @@ export const routes: Routes = [
   {
     'path': 'club', component: ClubDescriptionComponent, title: 'Description'
   },
-  {
-    'path': 'clublist', component: ClublistComponent, title: 'Club List'
-  },
+
   {
     'path': 'addclub', component: AddclubComponent, title: 'Add Club'
   },
   {
     'path':'editUser', component: EdituserComponent, title: 'Edit User'
   },
-  {
-    'path': 'editprofile', component: EditprofileComponent, title: 'Edit Profile'
-  },
+
   {
     'path': 'applyclub', component: ApplyclubComponent, title: 'Apply club'
   },

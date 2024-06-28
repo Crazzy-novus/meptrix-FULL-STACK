@@ -39,6 +39,21 @@ export const  getAllClubs = async (req, res, next) => {
 
 }
 
+export const getClubs = async (req, res, next) => {
+    try {
+        const {type} = req.params;
+        const clubList = await clubs.find({club_type:type});
+        if (!clubList) {
+            return next(CreateError(404, "Clubs not found"));
+        }
+        
+        return next(CreateSuccess(200, "Clubs found", clubList));
+
+    } catch (error) {
+        return next(CreateError(404, "Server error ::: ", error.message));  // send an error message
+    }
+}
+
 export const updateClub = async (req, res, next) => {
     
     try {

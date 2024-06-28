@@ -32,6 +32,7 @@ export const register  = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
     try {
+        console.log(req.body);
         const user = await User.findOne({email: req.body.email}).populate("roles", "role"); // find the user by email 
 
         if (!user) { // check if the user exists

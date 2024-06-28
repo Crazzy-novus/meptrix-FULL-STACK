@@ -1,5 +1,8 @@
-<app-navbar></app-navbar>
-<button (click)="ShowEditScreen()" *ngIf="showButton" class="absolute top-0 right-0 px-10 py-2 mt-24 mr-12 text-white bg-blue-500 rounded-md focus:outline-none">Edit Club</button>
+
+<section class="overflow-hidden">
+
+
+<button (click)="ShowEditScreen()" *ngIf="showButton" class="absolute top-0 right-0 py-2 mt-24 mr-12 text-white bg-blue-500 rounded-md sm:px-10 focus:outline-none">Edit Club</button>
 <app-club-head *ngIf="!showJoinClubComponent && !showEditComponent"
   [club]="club"
   [status] = "applicationStatus"
@@ -10,15 +13,18 @@
 
 
 
+
 <app-club-details *ngIf="!showJoinClubComponent && !showEditComponent" [role]="role1" [organizers]="club?.organizer"></app-club-details>
 <div class="mt-6 rounded-lg sm:ml-6 sm:mt-0 sm:mr-6 sm:mb-20" *ngIf="!showJoinClubComponent && !showEditComponent">
+
+
 
   <app-club-images></app-club-images>
 
   <app-about></app-about>
 </div>
 
-<div class="absolute flex flex-wrap items-center justify-center inset-1" *ngIf="showEditComponent">
+<div class="absolute flex-wrap items-center justify-center overflow-x-hidden inset-1" *ngIf="showEditComponent">
   <ng-container >
     <app-editclub [clubForm]="ModifiedClub"
     (updateUser)="updateClub()"
@@ -39,4 +45,5 @@
 
   </ng-container>
 </div>
+</section>
 

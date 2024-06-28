@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { apiurls } from '../app/api.urls';
 import { filter, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { application } from 'express';
+import { application, response } from 'express';
 
 @Injectable({
   providedIn: 'root'
@@ -71,6 +71,13 @@ getClubsService(): Observable<any> {
     map(response => response.data)
   );
 }
+getParticularClubsService(type: String): Observable<any> {
+  return this.http.get<any>(`${apiurls.ClubServiceApi}getclubs/${type}`).pipe(
+    map(response => response.data)
+  );
+
+}
+
 
 getAllEventService(): Observable<any> {
   return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(

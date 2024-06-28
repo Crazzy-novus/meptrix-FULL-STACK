@@ -1,50 +1,36 @@
 <!-- event-display.component.html -->
 <app-navbar></app-navbar>
-<section class="items-center px-20 mt-20 bg-center bg-no-repeat rounded-lg bg-blend-multiply">
-
-
-
-  <img [src]="event.img" alt="Event Poster" class="scale-150 w-96 h-70 ml-96 ">
-
-
-   <div class="p-8 mt-10">
-
-
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{event.eventname}}l</h1>
-    <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-6 xl:px-8 dark:text-gray-400">{{event.shortdescription}}</p>
-
-    <div class="flex items-center max-w-md p-4 mx-auto mt-20 bg-gray-200 rounded-lg">
-      <!-- Date and Time -->
-      <div class="justify-start flex-1 text-center">
-        <p class="text-lg font-semibold">Date: {{event.eventdate.$date | date}}</p>
-        <p class="text-lg font-semibold">Time:{{event.eventtime}}</p>
-        <p class="text-lg font-semibold">Venue: {{event.eventvenue}}</p>
+<section class="container px-6 py-12 mx-auto mt-32 overflow-hidden">
+  <div data-aos="fade-up" class="overflow-hidden bg-white rounded-lg shadow-lg">
+    <div class="flex flex-col md:flex-row">
+      <img [src]="event.img" alt="Event Poster" class="w-full md:w-1/2 sm:h-96" data-aos="zoom-in">
+      <div class="p-8 md:w-1/2" data-aos="fade-left">
+        <h1 class="mb-4 text-4xl font-bold text-gray-800">{{event.eventname}}</h1>
+        <p class="mb-6 text-gray-600">{{event.shortdescription}}</p>
+        <div class="flex flex-col items-center justify-between mb-6 md:flex-row">
+          <div class="text-center md:text-left">
+            <p class="text-lg font-semibold">Date: <span class="px-2 py-1 text-white bg-blue-500 rounded"> {{event.eventdate.$date | date}}</span></p>
+            <p class="text-lg font-semibold">Time: <span class="px-2 py-1 italic text-black bg-yellow-300 rounded"> {{event.eventtime}}</span></p>
+            <p class="text-lg font-semibold">Venue: <span class="px-2 py-1 text-white underline bg-green-500 rounded"> {{event.eventvenue}}</span></p>
+          </div>
+          <button (click)="OnRegister()" class="px-6 py-2 mt-4 font-bold text-white transition duration-300 bg-blue-500 rounded-lg md:mt-0 hover:bg-blue-700">Register</button>
+        </div>
       </div>
-      <!-- Register Button-->
-      <div class="flex-initial text-center">
-        <button (click)="OnRegister()" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Register </button>
-      </div>
-    </div>
-
-  </div>
-
-
-  <div class="flex items-center p-4 mt-20 mb-40 bg-white">
-    <!-- Club Name and Event Type -->
-    <div class="p-4 ml-10 rounded-lg min-w-56 max-w-fit flex-3 border-l-orange-500">
-      <p class="text-2xl font-semibold">{{event.club_name}}</p>
-      <p class="font-mono text-2xl font-semibold text-sky-700">{{event.eventtype}}</p>
-      <!-- TODO Add club logo-->
-    </div>
-    <!-- Event Description -->
-    <div class="p-4 pl-8 rounded-lg flex-5 max-w-fit">
-      <h4 class="mb-4 font-mono text-lg leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">About the Event</h4>
-    <p >{{event.description}}</p>
     </div>
   </div>
 
-  <app-club-details [role]="'Speaker'" [organizers]="organizers"></app-club-details>
+  <div class="p-8 mt-12 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 rounded-lg shadow-lg border border-gray-200 transition-transform transform hover:scale-105 hover:shadow-2xl" data-aos="fade-right">
+    <h2 class="mb-4 text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300">{{event.club_name}}</h2>
+    <p class="mb-4 text-xl text-sky-700 hover:text-sky-900 transition-colors duration-300">{{event.eventtype}}</p>
+    <h3 class="mb-2 text-xl font-semibold text-gray-800 hover:text-green-600 transition-colors duration-300">About the Event</h3>
+    <p class="text-gray-600 hover:text-gray-800 transition-colors duration-300">{{event.description}}</p>
+  </div>
 
 
-  <app-about></app-about>
-  </section>
+  <div class="p-8 mt-12 bg-white rounded-lg shadow-lg" data-aos="fade-up">
+    <h3 class="mb-4 text-xl font-semibold text-gray-800">Speaker</h3>
+    <app-club-details [role]="'Speaker'" [organizers]="organizers"></app-club-details>
+  </div>
+
+  <app-about class="mt-12" data-aos="fade-up"></app-about>
+</section>

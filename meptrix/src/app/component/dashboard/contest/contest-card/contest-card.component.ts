@@ -1,13 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
 
 @Component({
   selector: 'app-contest-card',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './contest-card.component.html',
   styleUrl: './contest-card.component.css'
 })
 export class ContestCardComponent {
 
   @Input() contest: any;
+
+
+
 }

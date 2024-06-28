@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../../services/auth.service';
 import { Subject, catchError, of, takeUntil } from 'rxjs';
 import { NavbarComponent } from "../../navbar/navbar.component";
-
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
 @Component({
     selector: 'app-eventregistration',
     standalone: true,
@@ -24,6 +25,9 @@ export class EventregistrationComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
       this.event = history.state.data;
+      AOS.init({
+        duration: 2000, // Duration of animation in milliseconds
+      });
 
   }
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createEvent, getAllEvents, registerEvent } from '../controllers/event.controller.js'; // Importing the controller for club
+import { createEvent, getAllEvents, registerEvent, getEvents } from '../controllers/event.controller.js'; // Importing the controller for club
 
 const router = express.Router();  // Through router we can create get post methods for apis
 
@@ -10,6 +10,7 @@ const router = express.Router();  // Through router we can create get post metho
 router.post("/createevent", createEvent );
 
 router.get("/getallevent", getAllEvents);
+router.get("/getevent/:clubId", getEvents);
 
 router.put("/registerevent/:eventId/:userId", registerEvent);
 

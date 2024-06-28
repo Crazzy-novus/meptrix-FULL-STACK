@@ -1,66 +1,72 @@
-
-
-<section class="w-screen h-full bg-purple-200 pt-96">
-<h1 class="text-4xl font-extrabold leading-tight tracking-tight text-center text-gray-900 md:text-6xl dark:text-white">
-  Edit User Profile
-</h1>
-<div class="px-4 mb-4 sm:h-full md:px-0 md:mb-0 md:w-8/12 md:mx-auto">
-<div class="p-4 md:space-y-4 sm:space-y-6">
-
-    <div class="flex flex-wrap">
-      <label for="name" class="w-full mb-2 text-xl font-extrabold text-gray-700" >Name</label>
-      <input type="text" id="name" name="name" [(ngModel)]="userDetails.name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
+<section class="min-h-screen py-20 overflow-x-hidden bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+  <h1 class="mb-10 text-5xl font-extrabold text-center text-white">Edit User Profile</h1>
+  <div class="container px-4 mx-auto">
+    <div class="max-w-3xl p-8 mx-auto space-y-6 bg-white shadow-lg rounded-xl">
+      <div class="flex flex-wrap">
+        <label for="name" class="w-full mb-2 text-lg font-bold text-gray-700">Name</label>
+        <input type="text" id="name" name="name" [(ngModel)]="userDetails.name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex flex-wrap">
+        <label for="email" class="w-full mb-2 text-lg font-bold text-gray-700">Email Address</label>
+        <input type="email" id="email" name="email" [(ngModel)]="userDetails.email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div>
+        <label for="branch" class="block text-lg font-bold text-gray-700">Branch</label>
+        <select [(ngModel)]="userDetails.branch" name="branch" id="branch" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+          <option [value]="userDetails.branch">{{userDetails.branch}}</option>
+          <option value="cse">CSE</option>
+          <option value="mech">MECH</option>
+          <option value="ece">ECE</option>
+          <option value="eee">EEE</option>
+          <option value="civil">CIVIL</option>
+          <option value="aids">AIDS</option>
+          <option value="it">IT</option>
+          <option value="bme">BME</option>
+          <option value="bt">BT</option>
+        </select>
+      </div>
+      <div>
+        <label for="year" class="block text-lg font-bold text-gray-700">Year</label>
+        <select [(ngModel)]="userDetails.year" name="year" id="year" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+          <option [value]="userDetails.year">{{userDetails.year}}</option>
+          <option value="2">I Year</option>
+          <option value="3">II Year</option>
+          <option value="4">III Year</option>
+        </select>
+      </div>
+      <div class="flex flex-wrap">
+        <label for="skills" class="w-full mb-2 text-lg font-bold text-gray-700">Skills</label>
+        <input type="text" id="skills" name="skills" [(ngModel)]="userDetails.skills" placeholder="Enter Space Separated Value" (input)="changeLabel()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex flex-wrap">
+        <label for="about" class="w-full mb-2 text-lg font-bold text-gray-700">About</label>
+        <textarea id="about" name="about" rows="4" [(ngModel)]="userDetails.about" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+      </div>
+      <div class="flex flex-wrap">
+        <label for="tag" class="w-full mb-2 text-lg font-bold text-gray-700">Tag</label>
+        <textarea id="tag" name="tag" rows="2" [(ngModel)]="userDetails.headtag" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+      </div>
+      <div class="flex flex-wrap">
+        <label for="github" class="w-full mb-2 text-lg font-bold text-gray-700">Github Url</label>
+        <input type="url" id="github" name="github" [(ngModel)]="userDetails.github_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex flex-wrap">
+        <label for="linkedin" class="w-full mb-2 text-lg font-bold text-gray-700">LinkedIn Url</label>
+        <input type="url" id="linkedin" name="linkedin" [(ngModel)]="userDetails.linkedin_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex flex-wrap">
+        <label for="other" class="w-full mb-2 text-lg font-bold text-gray-700">Other Url</label>
+        <input type="url" id="other" name="other" [(ngModel)]="userDetails.other_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex flex-wrap items-center">
+        <label for="profile_picture" class="w-full mb-2 text-lg font-bold text-gray-700">Profile Picture</label>
+        <img alt="Profile Picture" class="w-20 h-20 mb-4 rounded-full" [src]="userDetails.profile_picture">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" id="profile_picture" name="profileImage" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+      </div>
+      <div class="flex justify-between">
+        <button type="button" (click)="update()" class="w-full px-4 py-2 font-semibold text-white rounded-lg shadow-md sm:w-auto bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-purple-500">Save Changes</button>
+        <button type="button" (click)="cancel()" class="w-full px-4 py-2 mt-4 font-semibold text-white rounded-lg shadow-md sm:w-auto sm:mt-0 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-gray-500">Cancel</button>
+      </div>
     </div>
-    <div class="flex flex-wrap">
-      <label for="email" class="w-full mb-2 text-xl font-extrabold text-gray-700">Email Address</label>
-      <input type="email" id="email" name="email" [(ngModel)]="userDetails.email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-
-    <div class="flex flex-wrap">
-      <label for="branch" class="w-full mb-2 text-xl font-extrabold text-gray-700">Branch</label>
-      <input type="text" id="branch" name="branch" [(ngModel)]="userDetails.branch" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <div class="flex flex-wrap">
-      <label for="year" class="w-full mb-2 text-xl font-extrabold text-gray-700">Year</label>
-      <input type="text" id="year" name="year" [(ngModel)]="userDetails.year" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <div class="flex flex-wrap">
-      <label for="skills" class="w-full mb-2 text-xl font-extrabold text-gray-700">{{labelText}}</label>
-      <input type="text" id="skills" name="skills" [(ngModel)]="userDetails.skills" placeholder="Enter Space Seperated Value"  (input)="changeLabel()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-
-
-
-
-    <div class="flex flex-wrap">
-      <label for="about" class="w-full mb-2 text-xl font-extrabold text-gray-700">About</label>
-      <textarea id="about" name="about" rows="4" [(ngModel)]="userDetails.about" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"></textarea>
-    </div>
-
-    <div class="flex flex-wrap">
-      <label for="about" class="w-full mb-2 text-xl font-extrabold text-gray-700">Tag</label>
-      <textarea id="about" name="about" rows="4" [(ngModel)]="userDetails.headtag" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50"></textarea>
-    </div>
-    <div class="flex flex-wrap">
-      <label for="links" class="w-full mb-2 text-xl font-extrabold text-gray-700">Github Url</label>
-      <input type="url" id="links" name="links" [(ngModel)]="userDetails.github_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <div class="flex flex-wrap">
-      <label for="links" class="w-full mb-2 text-xl font-extrabold text-gray-700">LinkedIn Url</label>
-      <input type="url" id="links" name="links" [(ngModel)]="userDetails.linkedin_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <div class="flex flex-wrap">
-      <label for="links" class="w-full mb-2 text-xl font-extrabold text-gray-700">Other Url</label>
-      <input type="url" id="links" name="links" [(ngModel)]="userDetails.other_link" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <div class="flex flex-wrap">
-      <label for="profile_picture" class="w-full mb-2 text-xl font-extrabold text-gray-700">Profile Picture</label>
-      <img alt="Profile Picture" class="w-20 h-20 rounded-full" [src]="userDetails.profile_picture">
-      <input type="file"  (change)="onFileSelected($event)" accept="image/*" id="profile_picture" name="profileImage"   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:ring-opacity-50">
-    </div>
-    <button type="button" (click)="update()" class="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-blue-500">Save Changes</button>
-    <button type="button" (click)="cancel()" class="w-full px-4 py-2 mt-16 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-blue-500" >Cancel</button>
-
-</div>
-</div>
+  </div>
 </section>

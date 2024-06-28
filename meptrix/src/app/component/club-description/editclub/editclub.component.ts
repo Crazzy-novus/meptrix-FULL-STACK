@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component,  EventEmitter,  Input,  OnInit, Output, inject } from '@angular/core';
-import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component,  EventEmitter,  Input, Output, inject } from '@angular/core';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../../services/auth.service';
 import {Storage, getDownloadURL, ref, uploadBytes} from '@angular/fire/storage';
 

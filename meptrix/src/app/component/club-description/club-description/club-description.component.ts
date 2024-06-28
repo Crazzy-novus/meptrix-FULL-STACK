@@ -42,6 +42,9 @@ constructor(private route: ActivatedRoute, private router: Router) { }
         this.club = history.state.data;
         this.ModifiedClub = {...this.club};
         if (typeof window !== 'undefined') {
+
+
+
           if (window.sessionStorage && (window.sessionStorage.getItem('userRole') === 'ob' || window.sessionStorage.getItem('userRole') === 'admin') || (window.sessionStorage.getItem('userRole') === 'staff')) {
             this.showButton = true;
           }
@@ -132,8 +135,6 @@ constructor(private route: ActivatedRoute, private router: Router) { }
   }
 
   role1 = "Organizers";
-
-
 
 
 }

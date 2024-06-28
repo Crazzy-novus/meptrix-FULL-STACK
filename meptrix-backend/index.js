@@ -23,7 +23,7 @@ server.use(express.json());
 server.use(cookieParser());
 server.use(cors(
     {
-        origin: ["https://jolly-forest-02b734500.5.azurestaticapps.net", "https://meptrix.azurewebsites.net/", 'http://localhost:4200', "https://meptrix.vercel.app"],
+        origin: ["https://jolly-forest-02b734500.5.azurestaticapps.net", "https://meptrix.azurewebsites.net/", 'http://localhost:4200', "https://meptrix.vercel.app", "http://172.168.51.131:4200"],
         credentials: true
     }));
 
@@ -65,7 +65,7 @@ const ConnetMongoDB = async () => {
 
 const port = process.env.PORT || 3001;
 
-server.listen(port, function check (error) {
+server.listen(port, '0.0.0.0', function check (error) {
     ConnetMongoDB();
     if (error) {
         console.error('Error: ', error);

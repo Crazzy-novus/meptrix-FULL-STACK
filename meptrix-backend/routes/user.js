@@ -13,7 +13,7 @@ router.get('/staff', getAllUsers);
 
 // get a single user
 //router.get('/user', verifyUser, getSingleUser );
-router.get('/user', getSingleUser );
+router.get('/user', getSingleUser);
 
 // update a user
 //router.put('/updateuser/:id', verifyUser, updateRole);

@@ -1,6 +1,6 @@
 <!-- component -->
-<app-navbar></app-navbar>
-<section class="flex flex-col py-12 sm:flex-row sm:pl-20">
+<app-navbar *ngIf="!showEditComponent"></app-navbar>
+<section class="flex flex-col py-12 sm:flex-row sm:pl-20" *ngIf="!showEditComponent">
   <div class="sm:w-2/6 ">
     <app-profie-phot-card [userDetails]="userDetails"
     (EditUser)="showEdit()"
@@ -12,7 +12,7 @@
   </div>
 
 
-  <!-- Second column for laptops and full column for mobile -->
+  <!-- Two column for laptops and full column for mobile -->
   <div class="sm:pr-16 sm:flex-1">
     <app-profie-about-card [about]="userDetails?.about" [skills]="userDetails?.skills"
     (EditUser)="showEdit()">
@@ -21,22 +21,15 @@
     <app-skills *ngIf=" userDetails && !showEditComponent"
     [registerd_event]="userDetails?.registered_events">
   </app-skills>
-
-    <div class="absolute flex items-center justify-center p-4 pt-80 inset-4" *ngIf="showEditComponent">
-      <ng-container >
-        <app-edituser [userDetails]="userDetails"
-          (updateUser)="updateUser()"
-          (cancelEdit)="cancelEdit()">
-        </app-edituser>
-      </ng-container>
-    </div>
-
-  </div>
-
-
-
-
-
+</div>
 </section>
+<div class="absolute justify-center p-4 pt-0 inset-4" *ngIf="showEditComponent">
+  <ng-container >
+    <app-edituser [userDetails]="userDetails"
+      (updateUser)="updateUser()"
+      (cancelEdit)="cancelEdit()">
+    </app-edituser>
+  </ng-container>
+</div>
 
 

@@ -44,6 +44,19 @@ export const getAllEvents = async (req, res, next) => {
     }
 };
 
+export const getEvents = async (req, res, next) => {
+    try {
+        const events = dp.findById ({clubId: req.params.clubId});
+
+        if(!events){
+            return next(CreateError(404, "No events found"));
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // Function to increment count and add participant to event
 export const registerEvent = async (req, res, next) => {
     try {

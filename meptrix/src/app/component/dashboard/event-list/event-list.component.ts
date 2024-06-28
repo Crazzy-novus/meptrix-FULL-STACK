@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventCardComponent } from "./event-card/event-card.component";
 import { FormsModule} from '@angular/forms';
-import { AuthService } from '../../../../services/auth.service';
 
 @Component({
     selector: 'app-event-list',
