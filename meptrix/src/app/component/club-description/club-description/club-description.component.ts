@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EditclubComponent } from "../editclub/editclub.component";
 import { ApplyclubComponent } from "../../applyclub/applyclub.component";
 import { NavbarComponent } from "../../navbar/navbar.component";
+import { EventListComponent } from "../../dashboard/event-list/event-list.component";
 
 
 @Component({
@@ -18,7 +19,7 @@ import { NavbarComponent } from "../../navbar/navbar.component";
     standalone: true,
     templateUrl: './club-description.component.html',
     styleUrl: './club-description.component.css',
-    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent, EditclubComponent, ApplyclubComponent, NavbarComponent]
+    imports: [ClubDetailsComponent, ClubHeadComponent, EventCardComponent, FormsModule, CommonModule, AboutComponent, ClubImagesComponent, EditclubComponent, ApplyclubComponent, NavbarComponent, EventListComponent]
 })
 export class ClubDescriptionComponent {
   showButton: boolean = false;
@@ -31,6 +32,7 @@ export class ClubDescriptionComponent {
   ModifiedClub: any;
   chairperson: any;
   organizer: any;
+  events?: any[];
 
   authService = inject(AuthService);
 
@@ -51,11 +53,14 @@ constructor(private route: ActivatedRoute, private router: Router) { }
           if (window.sessionStorage) {
             this.UserID = window.sessionStorage.getItem('userId');
             if (this.UserID){
+              this.authService.getParticularEventService(this.club.club_name).subscribe((EventDetails => {
+                this.events = EventDetails;
+              }));
+
               this.applicationData.clubId = this.club._id;
               this.applicationData.UserId = this.UserID;
               this.authService.getApplicationService(this.applicationData).subscribe({
                 next: (res) => {
-                  console.log(res);
                   if (res.status === 'approved') {
                     this.applicationStatus = 'joined';
                   } else if (res.status === 'pending') {
@@ -68,6 +73,7 @@ constructor(private route: ActivatedRoute, private router: Router) { }
                   console.log(err);
                 }
               });
+
             }
           }
 

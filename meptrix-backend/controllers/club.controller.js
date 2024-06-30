@@ -42,7 +42,7 @@ export const  getAllClubs = async (req, res, next) => {
 export const getClubs = async (req, res, next) => {
     try {
         const {type} = req.params;
-        const clubList = await clubs.find({club_type:type});
+        const clubList = await clubs.find({club_type:type}).populate("organizer.organizer_id");
         if (!clubList) {
             return next(CreateError(404, "Clubs not found"));
         }
@@ -52,6 +52,21 @@ export const getClubs = async (req, res, next) => {
     } catch (error) {
         return next(CreateError(404, "Server error ::: ", error.message));  // send an error message
     }
+}
+
+export const getSingleClub = async (req, res, next) => {
+    try {
+        
+        const {clubName} = req.params;
+        const club = await clubs.findOne({club_name:clubName}).populate("organizer.organizer_id");
+        if (!club) {
+            return next(CreateError(404, "Club not found"));
+        }
+        return next(CreateSuccess(200, "Club found", club));
+    }
+    catch (error) {
+        return next(CreateError(404, "Server error ::: ", error.message));  // send an error message
+    }   
 }
 
 export const updateClub = async (req, res, next) => {

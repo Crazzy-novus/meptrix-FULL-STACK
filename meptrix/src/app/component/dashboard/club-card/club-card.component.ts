@@ -14,7 +14,6 @@ export class ClubCardComponent {
   router = inject(Router);
   @Input() club: any;
   navigateToOtherComponent() {
-    console.log(this.club);
     this.router.navigate(['/club'], {state: {data: this.club}});
   }
 

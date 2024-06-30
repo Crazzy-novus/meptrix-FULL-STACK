@@ -71,6 +71,13 @@ getClubsService(): Observable<any> {
     map(response => response.data)
   );
 }
+
+getsingleClubsService(clubName: string): Observable<any> {
+  return this.http.get<any>(`${apiurls.ClubServiceApi}getclub/${clubName}`).pipe(
+    map(response => response.data)
+  );
+}
+
 getParticularClubsService(type: String): Observable<any> {
   return this.http.get<any>(`${apiurls.ClubServiceApi}getclubs/${type}`).pipe(
     map(response => response.data)
@@ -81,6 +88,11 @@ getParticularClubsService(type: String): Observable<any> {
 
 getAllEventService(): Observable<any> {
   return this.http.get<any>(`${apiurls.EventServiceApi}getallevent`).pipe(
+    map(response => response.data)
+  );
+}
+getParticularEventService(clubName:string): Observable<any> {
+  return this.http.get<any>(`${apiurls.EventServiceApi}getParticularevent/${clubName}`, ).pipe(
     map(response => response.data)
   );
 }

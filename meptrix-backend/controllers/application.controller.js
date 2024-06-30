@@ -36,7 +36,7 @@ export const getApplications = async (req, res, next) => {
     
         const clubApplications = await ClubApplication.findOne({ClubId: clubId, UserId: userId});
         if (!clubApplications) {
-            return next(CreateError(404, "ClubApplications not found", clubApplications)); // send an error message
+            return next(CreateSuccess(200, "No Application Available", clubApplications)); // send an error message
         }
 
         return next(CreateSuccess(200, "ClubApplications fetched successfully", clubApplications)); // send a success message

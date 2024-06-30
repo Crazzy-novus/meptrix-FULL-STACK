@@ -10,7 +10,7 @@ const router = express.Router();  // Through router we can create get post metho
 router.post("/createevent", createEvent );
 
 router.get("/getallevent", getAllEvents);
-router.get("/getevent/:clubId", getEvents);
+router.get("/getParticularevent/:clubName", getEvents);
 
 router.put("/registerevent/:eventId/:userId", registerEvent);
 

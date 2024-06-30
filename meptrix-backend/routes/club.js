@@ -1,5 +1,5 @@
 import express from 'express';
-import { createClub, getAllClubs, updateClub, getClubs } from '../controllers/club.controller.js'; // Importing the controller for club
+import { createClub, getAllClubs, updateClub, getClubs, getSingleClub } from '../controllers/club.controller.js'; // Importing the controller for club
 
 const router = express.Router();  // Through router we can create get post methods for apis
 
@@ -16,5 +16,6 @@ router.get("/getallclubs", getAllClubs);
 router.put('/updateclub/:id',  updateClub);
 
 router.get("/getclubs/:type", getClubs);
+router.get("/getclub/:clubName", getSingleClub);
 
 export default router; // Exporting the router so it could be used in server file

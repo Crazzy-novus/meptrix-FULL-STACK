@@ -46,11 +46,13 @@ export const getAllEvents = async (req, res, next) => {
 
 export const getEvents = async (req, res, next) => {
     try {
-        const events = dp.findById ({clubId: req.params.clubId});
+       
+        const events = await Event.find({club_name: req.params.clubName});
 
         if(!events){
             return next(CreateError(404, "No events found"));
         }
+        return next(CreateSuccess(200, "Events fetched successfully", events));
 
     } catch (error) {
         console.log(error);

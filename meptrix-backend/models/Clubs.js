@@ -43,7 +43,6 @@ const RoleSchema = mongoose.Schema(
             role: {
                 type: String,
                 required: false,
-                default: "Head"
             },
             
             default: {}
