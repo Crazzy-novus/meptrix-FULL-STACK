@@ -181,7 +181,7 @@
             </div>
 
             <!-- User Navbar -->
-            <div ngSwitchCase="student"  class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+            <div *ngSwitchCase=="'student'"  class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
               <a href="http://localhost:4200/home" class="flex items-center space-x-3 rtl:space-x-reverse">
                   <img src="assets/assets/Landing Page_files/meptix.png" class="h-8" alt="Meptrix Logo"><!--Need to add application logo-->
                   <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Meptrix</span>
