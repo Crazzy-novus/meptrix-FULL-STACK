@@ -65,7 +65,7 @@ const ConnetMongoDB = async () => {
 
 const port = process.env.PORT || 3001;
 
-server.listen(port, '0.0.0.0', function check (error) {
+server.listen(port, function check (error) {
     ConnetMongoDB();
     if (error) {
         console.error('Error: ', error);
