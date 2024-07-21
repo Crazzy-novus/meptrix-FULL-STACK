@@ -5,20 +5,21 @@ import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } 
 import { Router, RouterLink } from '@angular/router';
 import { AboutComponent } from "../about/about.component";
 import { AuthService } from '../../../services/auth.service';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-login',
     standalone: true,
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
-    imports: [FormsModule, AboutComponent, ReactiveFormsModule, RouterLink]
+    imports: [FormsModule, AboutComponent, ReactiveFormsModule, RouterLink, CommonModule]
 })
 
 
 export class LoginComponent implements OnInit {
   fb = inject(FormBuilder);
   loginForm !: FormGroup;
+  loading = false;
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   router = inject(Router); // Injecting Router to navigate to the login page after successful registration
 
@@ -26,9 +27,9 @@ export class LoginComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.loginForm = this.fb.group({
-      email: ['',Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.required],
-      roles: ['default', Validators.required]
+      email: ['test@gmail.com',Validators.compose([Validators.required, Validators.email])],
+      password: ['1234', Validators.required],
+      roles: ['student', Validators.required]
     })
   }
 
@@ -36,9 +37,11 @@ export class LoginComponent implements OnInit {
     // Perform validation here
     if (this.loginForm.value) {
       // Submit the form or perform other actions
+      this.loading = true;
       this.authService.loginService(this.loginForm.value)
       .subscribe({
         next: (res) => {
+          this.loading = false;
 
           alert("User Loged in");
           //console.log(res);
@@ -46,6 +49,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
+          this.loading = false;
           console.log (err);
           alert("Invalid Credentials");
         }

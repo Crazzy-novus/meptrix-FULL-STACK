@@ -3,11 +3,12 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, RouterOutlet, RouterModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterOutlet, RouterModule, CommonModule],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
@@ -16,6 +17,7 @@ import { RouterOutlet } from '@angular/router';
 export class RegistrationComponent {
   fb = inject(FormBuilder);
   registerForm !: FormGroup;
+  loading = false;
   authService = inject(AuthService); // Injecting AuthService to register a new user in the application using RESTful API endpoint (MEAN stack)
   router = inject(Router); // Injecting Router to navigate to the login page after successful registration
 
@@ -25,23 +27,26 @@ export class RegistrationComponent {
     this.registerForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.required],
-      roles: ['default', Validators.required]
+      roles: ['student', Validators.required]
     })
   }
 
   onSubmit() {
     // Perform validation here
+    this.loading = true;
     if (this.registerForm.value) {
       // Submit the form or perform other actions
       this.authService.registerService(this.registerForm.value)
       .subscribe({
         next: (res) => {
 
+          this.loading = false;
           alert("User Created");
           this.router.navigate(['/login']);
         },
         error: (err) => {
           console.log (err);
+          this.loading = false;
           alert(err.error.message);
         }
       })

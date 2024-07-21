@@ -16,6 +16,6 @@ router.get("/getallapplications", getallApplications);
 router.put("/approved/:applicationId", updateApplication, sendEmail);
 
 //router.delete("/deleteapplication/:applicationId", verifyStaff, deleteApplication, sendEmail);
-router.delete("/deleteapplication/:applicationId", deleteApplication, sendEmail);
+router.delete("/deleteapplication/:applicationId", deleteApplication);
 
 export default router; // Exporting the router so it could be used in server file

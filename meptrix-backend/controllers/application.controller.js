@@ -92,7 +92,7 @@ export const updateApplication = async (req, res, next) => {
           };
 
         req.responseObj = responseObj;
-        next(); // send a success message
+        next(CreateSuccess(200,"Success YOur Application approved", responseObj)); // send a success message
     } catch (error) {
         return next(CreateError(404, "Server error ::: ", error)); // send an error message
     }

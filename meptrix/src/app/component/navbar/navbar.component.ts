@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "../home/home.component";
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class NavbarComponent {
-  USER_ROLE : string = 'Guset';
+  USER_ROLE : string = 'gust';
   buttonText : string = 'Login/Register';
   isLoggedIn:boolean = false;
 
@@ -28,26 +28,29 @@ export class NavbarComponent {
       if (role) {
         this.USER_ROLE = role;
         this.isLoggedIn = true;
-
-
       }
-      console.log('User is logged in: ', this.isLoggedIn);
+      console.log('User is logged in: ', this.isLoggedIn, this.USER_ROLE);
     }
 
     // Use the 'role' variable as needed
   }
 
+
   protected  doNavigation(): void {
     if (!this.isLoggedIn) {
-    this.router.navigate(['/login']);
-  }
-  else {
-    sessionStorage.clear();
-    this.router.navigate(['/home']);
-  }
+      this.router.navigate(['/login']);
+    }
+    else {
+      sessionStorage.clear();
+      this.router.navigate(['/home']);
+    }
   }
   protected  gotoStaffTable(): void {
     this.router.navigate(['/stafftable']);
   }
+
+    doggleMenu: boolean = false;
+
+
 
 }

@@ -29,6 +29,7 @@ export class MainComponent {
   extraCurricularEvents: any[] = [];
   clubs! : any[];
   clubType : String = "null";
+  loading : boolean = false;
 
 
 
@@ -47,9 +48,12 @@ export class MainComponent {
   }
 
   getClubs( type: String) {
+
     this.clubType = type;
+    this.loading = true;
     this.authService.getParticularClubsService(type).subscribe(((ClubDetails: any[]) => {
       this.clubs = ClubDetails;
+      this.loading = false;
     }));
   }
 }
