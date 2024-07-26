@@ -12,7 +12,7 @@ export const register  = async (req, res, next) => {
     //return next(CreateError(500,"My custom error!!"));
     try {
         const role = await Role.find({role: req.body.roles}); // find the role of the user
-        console.log(role)
+       
         // check if the role exists
         const salt = await bcrypt.genSalt(10); // generate salt for hashing the password
         const hashedPassword = await bcrypt.hash(req.body.password, salt); // hash the password
@@ -25,14 +25,14 @@ export const register  = async (req, res, next) => {
     await newUser.save(); // save the user to the database
     return next(CreateSuccess(200, "User registered Successfully "));
     } catch (error) {
-        console.log(error.message)
+    
         return next(CreateError(500, error.message));
     }
 }
 
 export const login = async (req, res, next) => {
     try {
-        console.log(req.body);
+       
         const user = await User.findOne({email: req.body.email}).populate("roles", "role"); // find the user by email 
 
         if (!user) { // check if the user exists
@@ -68,7 +68,7 @@ export const sendemail = async (req, res, next) => {
     const email = req.body.email;
     
     const user = await User.findOne({email: email});
-    console.log(user);
+    
     if (!user){
         return next(CreateError(404, "User Not found to reset Password"));
     }
@@ -129,7 +129,7 @@ export const sendemail = async (req, res, next) => {
     };
     mailTransporter.sendMail(mailDetails, async (err, data) => {
         if(err){
-            console.log(err);
+            
             return next (CreateError(500, "Error sending the email"));
         }
         else {

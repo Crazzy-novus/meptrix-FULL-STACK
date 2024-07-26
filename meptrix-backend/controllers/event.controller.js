@@ -55,7 +55,7 @@ export const getEvents = async (req, res, next) => {
         return next(CreateSuccess(200, "Events fetched successfully", events));
 
     } catch (error) {
-        console.log(error);
+        
     }
 }
 

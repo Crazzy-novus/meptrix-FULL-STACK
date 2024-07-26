@@ -84,7 +84,7 @@ export const updateClub = async (req, res, next) => {
 
         return next(CreateSuccess(200, "User updated successfully", updatedUser));
     } catch (error) {
-        console.log(error);
+        
         return next(CreateError(500, "error occur here", error.message));
     }
 }

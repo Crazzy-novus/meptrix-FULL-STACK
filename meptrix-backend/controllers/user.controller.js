@@ -54,7 +54,7 @@ export const updateRole = async (req, res, next) => {
     
     try {
         const { id } = req.params; // get the user id from the request parameters
-        console.log(req.body.role);
+        
         // get the updated role from the request body
         const role = await Role.findOne({ role:  req.body.role }); // find the role by name in the roles collection
         const clubId = req.body.clubId;
@@ -119,7 +119,7 @@ export const updateRole = async (req, res, next) => {
         }
   
     } catch (error) {
-        console.log(error);
+      
         return next(CreateError(500, "IError occures here", error));
     }
 }
@@ -170,7 +170,6 @@ export const revokeRole = async (req, res, next) => {
         }
         return next(CreateSuccess(200, "User role updated successfully", updatedUser));
     } catch (error) {
-        console.log(error);
         return next(CreateError(500, "Internal Server error", error));
     }
 }

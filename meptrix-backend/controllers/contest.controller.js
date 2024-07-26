@@ -18,7 +18,7 @@ export const createContest = async (req, res, next) => {
                     return next(CreateSuccess(200, "Contest  Created successfully", newContest)); // send a success message
 
                 } catch (error) {
-                    console.log(error);
+                   
                     return next(CreateError(403, "Contest NOT created ::: ", error)); // send an error message
                 }
             } else {

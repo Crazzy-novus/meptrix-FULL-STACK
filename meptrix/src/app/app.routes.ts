@@ -21,7 +21,7 @@ import { EdituserComponent } from './component/userprofile/edituser/edituser.com
 import { EditclubComponent } from './component/club-description/editclub/editclub.component';
 import { StaffTableComponent } from './component/staffView/staff-table/staff-table.component';
 import { EventregistrationComponent } from './component/dashboard/eventregistration/eventregistration.component';
-//import { authguardGuard } from '../gaurd/authguard.guard';
+import { authguardGuard } from '../gaurd/authguard.guard';
 
 
 
@@ -55,7 +55,7 @@ export const routes: Routes = [
     'path': 'home', component: HomeComponent, title: 'Landing Page'
   },
   {
-    'path': 'dashboard', component: MainComponent, title: 'Dash Board',   //canActivate: [authguardGuard]
+    'path': 'dashboard', component: MainComponent, title: 'Dash Board',   canActivate: [authguardGuard]
   },
   {
     'path': 'profile', component: ProfileComponent, title: 'User Profile'
